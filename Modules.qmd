@@ -1,0 +1,52 @@
+```{r include=FALSE, echo=FALSE}
+library(reticulate)
+
+reticulate::use_python("C:/Users/user/anaconda3/python.exe", required = TRUE)
+```
+
+```{=html}
+<style>
+  body{text-align: justify}
+</style>
+```
+:::: progress
+:::: {.progress-bar style="width: 100%;"}
+::::
+::::
+
+# Módulos
+
+## Numpy
+
+```{python}
+import numpy as np
+```
+
+## Scipy
+
+```{python}
+from scipy import stats
+```
+
+## Pandas
+
+```{python}
+import pandas as pd
+```
+
+## Matplotlib
+
+```{python}
+import matplotlib.pyplot as plt
+```
+
+## Seaborn
+
+```{python}
+import seaborn as sns
+```
+
+:::: progress
+:::: {.progress-bar style="width: 100%;"}
+::::
+::::

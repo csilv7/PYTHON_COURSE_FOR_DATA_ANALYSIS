@@ -1,0 +1,52 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Curso de Python"
+  subtitle: "para Análise de Dados"
+  author:
+    name: "Breno Cauã Rodrigues da Silva"
+    orcid: 0009-0005-9740-2069
+    corresponding: true
+    affiliations:
+      - name: "Centro Acadêmico de Estatística"
+      - name: "Faculdade de Estatística"
+
+  page-footer:
+    left: |
+      **SILVA, B.C.R**
+    right: |
+      Construído <a href="https://quarto.org/"> Pacote Quarto no R4.3</a>.
+  repo-url : https://github.com/csilv7/CURSO_PYTHON
+  repo-subdir: book
+  repo-branch: main
+  repo-actions: [edit, issue, source]
+  sharing: [twitter, facebook]
+  page-navigation: true
+  chapters:
+    - index.qmd
+    - basicONE.qmd
+    - basicTWO.qmd
+    - Modules.qmd
+
+comments:
+  hypothesis: true
+
+format:
+  html:
+    number-sections: true
+    #df-print: paged
+    theme:
+      light: [blue,custom.scss]
+      dark:  [cyborg,custom.scss]
+    code-fold: true
+    code-tools: true
+    code-link: true
+    toc-title: Índice
+    toc-location: right
+
+execute:
+  echo: true
+
+lang: pt
