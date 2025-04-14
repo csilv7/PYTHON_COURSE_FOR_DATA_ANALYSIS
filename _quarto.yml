@@ -19,15 +19,16 @@ book:
     right: |
       Construído <a href="https://quarto.org/"> Pacote Quarto no R4.3</a>.
   repo-url : https://github.com/csilv7/CURSO_PYTHON
-  repo-subdir: book
+  repo-subdir: docs
   repo-branch: main
-  repo-actions: [edit, issue, source]
+  repo-actions: edit #[edit, issue, source]
   sharing: [twitter, facebook]
   page-navigation: true
   chapters:
     - index.qmd
     - basicONE.qmd
     - basicTWO.qmd
+    - basicTHREE.qmd
     - Modules.qmd
 
 comments:

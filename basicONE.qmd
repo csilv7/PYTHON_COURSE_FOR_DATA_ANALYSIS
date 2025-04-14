@@ -206,7 +206,7 @@ No entanto, essa abordagem não é a mais eficiente. Para facilitar cálculos de
 9 ** 0
 ```
 
-Seguindo essa linha de raciocínio, para calcular a operação de **Radiação** - lembrando que $\sqrt{x} = x^{1/2}$ - temos,
+Seguindo essa linha de raciocínio, para calcular a operação de raiz quadrada - lembrando que toda raiz na verdade, é um expoente, isto é, $\sqrt{x} = x^{1/2}$ - temos,
 
 ```{python}
 81 ** 0.5

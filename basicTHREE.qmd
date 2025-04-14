@@ -17,7 +17,111 @@ reticulate::use_python("C:/Users/user/anaconda3/python.exe", required = TRUE)
 
 # Controle de Fluxo
 
+## Introdução
+
+Em programação, o **controle de fluxo** determina a ordem em que as instruções são executadas em um programa. Em Python, isso permite criar programas que tomam decisões e repetem ações com base em condições específicas, tornando seu código mais dinâmico e adaptável.
+
+**Neste capítulo, exploraremos as principais estruturas de controle de fluxo:**
+
+* **Condicionais (`if`, `elif`, `else`)**: Permitem executar blocos de código diferentes dependendo se uma condição é verdadeira ou falsa.
+* **Laços (`for`, `while`)**: Permitem repetir um bloco de código várias vezes, seja por um número específico de vezes ou enquanto uma condição for verdadeira.
+* **Tratamento de exceções (`try`, `except`, `finally`)**: Permitem lidar com erros e situações inesperadas sem interromper o programa.
+* **Palavras-chave (`break`, `continue`, `pass`)**: Permitem controlar o fluxo de execução dentro de laços.
+
+**Por que o controle de fluxo é importante?**
+
+Imagine um programa que:
+
+* Decide se um usuário tem acesso a um sistema (`if`).
+* Repete uma ação até que um download seja concluído (`while`).
+* Percorre uma lista de produtos para calcular descontos (`for`).
+* Previne erros se um arquivo não for encontrado (`try/except`).
+
+Sem controle de fluxo, nossos programas seriam lineares e limitados. Com ele, ganhamos **flexibilidade** e **poder** para resolver problemas complexos.
+
+Dominar o controle de fluxo é essencial para qualquer pessoa que esteja aprendendo programação, pois ele está presente em praticamente todo código real. Vamos começar a explorar cada conceito com exemplos práticos e exercícios!
+
 ## Estruturas de Decisão
+
+As estruturas de decisão em Python são usadas para controlar o **fluxo do programa**, ou seja, para **decidir qual bloco de código será executado** dependendo de uma ou mais condições. Pense como um semáforo: dependendo da cor, uma ação diferente deve ser tomada — o mesmo acontece em um programa.
+
+- Exemplo do mundo real:
+
+```
+Se estiver nublado:
+    Levarei guarda-chuva
+Senão:
+    Não levarei
+```
+
+> **Nota: Em Python, a indentação (recuo de quatro espaços ou um tab) é obrigatória para definir os blocos de código. Isso significa que o que estiver indentado será considerado parte da condição.**
+
+### Estrutura `if` e `else`
+
+Vamos começar com o básico: `if` (se) e `else` (senão).
+
+```{python}
+a = 7
+
+if a > 3:
+    print("A variável 'a' é maior que 3")
+else:
+    print("A variável 'a' é menor ou igual a 3")
+```
+
+### Estrutura `if`, `elif` e `else`
+
+Se quisermos testar mais de uma condição, usamos o `elif` (abreviação de `else if`). Assim, podemos checar várias possibilidades antes de cair no `else`.
+
+```{python}
+valor = 3
+
+if valor == 1:
+    print("Valor é 1")
+elif valor == 2:
+    print("Valor é 2")
+elif valor == 3:
+    print("Valor é 3")
+else:
+    print("Valor não corresponde a nenhuma das opções anteriores")
+```
+
+> **O Python executa apenas o primeiro bloco de código cuja condição for verdadeira. Os demais são ignorados.**
+
+### Comparando `if` + `elif` *vs* vários `if` isolados
+
+É importante entender a diferença entre usar `elif` e vários `if` consecutivos.
+
+```{python}
+a = 1
+
+if a == 1:
+    print("Caiu no 1º if")
+elif a >= 1:
+    print("Caiu no elif")
+else:
+    print("Caiu no else")
+```
+
+Nesse exemplo, apenas o primeiro bloco (`if a == 1`) será executado.
+
+Agora, veja o que acontece se usamos dois if separados:
+
+```{python}
+a = 1
+
+if a == 1:
+    print("Caiu no 1º if")
+
+if a >= 1:
+    print("Caiu no 2º if")
+else:
+    print("Caiu no else")
+```
+
+Aqui, ambos os blocos `if` serão avaliados independentemente. Isso pode ser útil em algumas situações, mas exige atenção!
+
+Lembre das @tbl-operLogic (operadores lógicos) e @tbl-conecLogic (conectores lógicos).
 
 ## Estruturas de Repetição
 

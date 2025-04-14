@@ -284,7 +284,7 @@ print(frase.split())
 #### Outros métodos
 
 ```{python}
-texto = " Python é  legal! "
+texto = " Python é legal! "
 print(texto.lower())     # Deixa tudo minúscula
 print(texto.upper())     # Deixa tudo maiúscula
 print(texto.strip())     # Remove espaços extras
@@ -501,7 +501,6 @@ print()
 # Ordenado de forma crescente
 va_modified.sort()
 print(va_modified)
-print()
 
 # Ordenado de forma decrescente
 va_modified.sort(reverse=True)
@@ -529,8 +528,6 @@ l2 = l1.copy() # l2 é a cópia de l1
 print(l1)
 print(l2)
 
-print()
-
 # Adicioando um elemento novo somente a l2
 l2.append([1/4, 1/2, 3/4, 1])
 
@@ -549,8 +546,6 @@ l2 = l1 # l2 'igual' a l1
 # Visualizando
 print(l1)
 print(l2)
-
-print()
 
 # Adicioando um elemento novo somente a l2
 l2.append([1/4, 1/2, 3/4, 1])
@@ -679,7 +674,6 @@ Neste exemplo, `"ana"` é uma chave que está associada ao valor `123456`. Cada 
 
 ```{python}
 print(receita)
-print()
 print(telefones)
 ```
 
@@ -747,7 +741,7 @@ capitais.get("PA")
 capitais.get("PA", "Não tem!")
 ```
 
-Note que o método `get()` funciona de forma similar ao código `dicionário[chave]`, entretanto, caso a chave não exista garantimos que o código não gere erro diferente do que aconteceria fosse usado `dicionário[chave]`.
+Note que o método `get()` funciona de forma similar ao código `dicionário[chave]`, entretanto, caso a chave não exista garantimos que o código não gere erro diferente do que aconteceria caso fosse usado `dicionário[chave]`.
 
 Repare, também, que a chave `"PA"` não foi adicionada ao dicionário. 
 
@@ -763,6 +757,232 @@ print(capitais.keys())
 # Verificando
 print(f'A chave "PA" está no dicionário capitais? {"PA" in capitais.keys()}')
 ```
+
+Note que os valores de um dicionário pode ser qualquer tipo de objeto. No entanto, foi usado, até então, para exemplos, apenas `strings`. Porém, pode-se colocar todo tipo de coisa dentro dos dicionários, incluindo listas e até mesmo outros dicionários:
+
+```{python}
+numeros = {"primos": [2, 3, 5], "pares": [0, 2, 4], "ímpares": [1, 3, 5]}
+print(numeros)
+```
+
+```{python}
+docente = {
+  "Nome": "Prof Dr Vinícius Duarte Lima", 
+  "Formação": {"Graduação": "Eng Elétrica", "Mestrado": "Eng Elétrica", "Doutorado": "Eng Elétrica"},
+  "Idade": 45,
+}
+
+print(docente)
+```
+
+Mesmo que os pares `chave: valor` estejam organizados na ordem que foram colocados, não podemos acessá-los por índices como faríamos em listas:
+
+```         
+[Input]  : numeros[2]
+[Output] : KeyError: 2
+```
+
+Assim como os valores não precisam ser do tipo string, o mesmo vale para as chaves:
+
+```{python}
+numeros_por_extenso = {2: "dois", 1: "um", 3: "três", 0: "zero"}
+numeros_por_extenso[0]
+```
+
+```{python}
+numeros_por_extenso[2]
+```
+
+> **Nota:** Listas e outros dicionários não podem ser usados como chaves por serem de tipos mutáveis.
+
+### Adicionando, Alterando e Removendo Elementos
+
+Para exemplificar os comandos desta seção, considere o dicionário abaixo.
+
+```{python}
+# Informações de Cleiton
+pessoa = {"nome": "Cleiton", "idade": 34, "família": {"mãe": "Maria", "pai": "Enzo"}}
+
+# Visualizando
+pessoa
+```
+
+Para adicionar o item `"masculino"` a chave `"genêro"` podemos usar os seguintes comandos:
+
+```{python}
+# Adicionando elemento
+pessoa["genêro"] = "romântico"
+
+# Visualizando
+pessoa
+```
+
+De forma equivalente, temos:
+
+```{python}
+# Dicionário de meses do ano
+meses = {1: "Janeiro", 2: "Fevereiro", 3: "Março"}
+
+# Adicionando o mês de "Abril" na chave 4
+meses[4] = "Setembro"
+
+# Visualizando
+meses
+```
+As vezes, podem haver inconsistências nos dados, logo, se torna necessário corrigir tais inconsistências. Isso pode ser feito de forma muito simples, veja:
+
+```{python}
+# Executando alterações
+pessoa["genêro"] = "masculino"
+meses[4] = "Abril"
+
+# Visualizando
+print(pessoa)
+print(meses)
+```
+
+Um dúvida que talvez possa surgir é como fazer alteração em listas que estão contidas em dicionários. Na verdade, isso é feito de forma bastante objetiva, veja:
+
+```{python}
+# Novo dicionário
+lixo = {"plástico": ["garrafa", "copinho", "canudo"], 
+        "papel": ["folha amassada", "guardanapo"], 
+        "orgânico": ["batata", "resto do bandeco", "casca de banana"]}
+
+# Visualizando
+print(lixo)
+
+# Obtendo lista de interesse para alteração
+lista_de_interesse = lixo["plástico"]
+
+# Verificando em qual posição está o elemneto que deve ser alterado
+id = lista_de_interesse.index("garrafa")
+
+# Fazendo a alteração diretamente no dicionário
+lixo['plástico'][id] = "sacola"
+
+# Visualizando dicionário alterado
+lixo
+```
+
+Note que poderiamos ser mais direto, pois as listas em questão têm comprimentos pequenos. Porém, tal código já pode ser implementado para listas de grande comprimento.
+
+Porém, ao lidarmos com dicionários, talvez precisemos excluir algum elemento. Serão apresentadas duas formas de fazer isso.
+
+1. Usando o método `pop()`:
+```{python}
+pessoa.pop("família")
+```
+Repare que `dicionário.pop(chave)` excluí o elemento e retorna os itens da chave excluída. Para visualizarmos o resultado basta chamar o dicionário.
+```{python}
+pessoa
+```
+
+2. Usando o comando `del` do Python Básico:
+```{python}
+del meses[4]
+```
+Diferente do método `pop()`, o comando `del` não retorna nada. Porém, para visualizar o resultado, precisamos chamar o objeto.
+```{python}
+meses
+```
+Para excluir todos os elementos de um dicionário, temos o método `clear()`:
+
+```{python}
+# Apagando todos os elementos do dicionário
+lixo.clear()
+
+# Visualizando
+lixo
+```
+
+### Função `list()` e Função `len()` para Dicionários
+
+A função `list()` converte um dicionário em uma lista contendo apenas suas chaves:
+
+```{python}
+institutos_uspsc = {
+    "IFSC": "Instituto de Física de São Carlos",
+    "ICMC": "Instituto de Ciências Matemáticas e de Computação",
+    "EESC": "Escola de Engenharia de São Carlos",
+    "IAU": "Instituto de Arquitetura e Urbanismo",
+    "IQSC": "Instituto de Química de São Carlos"
+}
+
+# Convertendo dicionário em lista de chaves
+lista_chaves = list(institutos_uspsc)
+print(lista_chaves)
+```
+
+A função `len()` retorna o número de itens em um objeto. Para dicionários, ela conta o número de pares chave-valor:
+
+```{python}
+# Contando itens no dicionário
+quantidade_institutos = len(institutos_uspsc)
+print(quantidade_institutos)
+
+# Equivalente a contar as chaves convertidas em lista
+print(len(list(institutos_uspsc)))
+```
+
+### Outros comandos para dicionários
+
+Vejamos agora os métodos `items()` e `values()`. Considere o seguinte dicionário:
+
+```{python}
+pessoa = {"nome": "Enzo", "RA": 242334, "curso": "fiscomp"}
+```
+
+1. `items()` - Retorna uma visão dos pares chave-valor:
+```{python}
+pares = pessoa.items()
+print(list(pares))
+```
+
+2. `values()` - Retorna uma visão dos valores armazenados:
+
+```{python}
+valores = list(pessoa.values())
+print(valores)
+```
+
+**Observação importante:** A função `list()` aplicada diretamente a um dicionário (`list(pessoa)`) retorna apenas as chaves, equivalente a `list(pessoa.keys())`.
+
+Dicionários em Python (versões 3.7+) mantêm a ordem de inserção, mas a igualdade entre dicionários considera apenas os pares chave-valor, não a ordem:
+
+```{python}
+numerinhos = {"um": 1, "dois": 2, "três": 3}
+numeritos = {"três": 3, "dois": 2, "um": 1}
+
+print(numerinhos == numeritos)
+print(numerinhos)  # Mostra na ordem de inserção
+print(numeritos)   # Mostra na ordem de inserção diferente
+```
+
+Outro comando que pode ser usado para adicionar elementos em um dicionário pode ser o método `update()`.
+
+```{python}
+# Lembra do dicionários receitas?
+print(receitas)
+
+# Nova receita
+outros_elementos = {"mingau": "massa, leite, açúcar"}
+
+# Adicionando a nova receita
+receitas.update(outros_elementos)
+
+# Visualizando
+print(receitas)
+```
+
+
+- **Resumão:**
+
+1. Os métodos `items()` e `values()` (e `keys()`) retornam objetos de visualização que refletem automaticamente as alterações no dicionário original;
+
+2. A partir do Python 3.7, a ordem de inserção é preservada como característica da implementação, tornando-se parte da especificação na versão 3.8;
+
+3. Uso do método `update` para integralização de dicionários.
 
 :::: progress
 :::: {.progress-bar style="width: 100%;"}

@@ -169,7 +169,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Curso de Python</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/csilv7/CURSO_PYTHON/tree/main/book/" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/csilv7/CURSO_PYTHON/tree/main/docs/" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -218,8 +218,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./basicTHREE.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Controle de Fluxo</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Modules.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Módulos</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Módulos</span></span></a>
   </div>
 </li>
     </ul>
@@ -251,7 +257,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">2.3</span> Exercícios</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/csilv7/CURSO_PYTHON/edit/main/book/basicONE.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/csilv7/CURSO_PYTHON/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li><li><a href="https://github.com/csilv7/CURSO_PYTHON/blob/main/book/basicONE.qmd" class="toc-action"><i class="bi empty"></i>Ver o código fonte</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/csilv7/CURSO_PYTHON/edit/main/docs/basicONE.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -578,7 +584,7 @@ print(Hello, World!")</code></pre>
 <pre><code>1</code></pre>
 </div>
 </div>
-<p>Seguindo essa linha de raciocínio, para calcular a operação de <strong>Radiação</strong> - lembrando que <span class="math inline">\(\sqrt{x} = x^{1/2}\)</span> - temos,</p>
+<p>Seguindo essa linha de raciocínio, para calcular a operação de raiz quadrada - lembrando que toda raiz na verdade, é um expoente, isto é, <span class="math inline">\(\sqrt{x} = x^{1/2}\)</span> - temos,</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -1355,7 +1361,7 @@ sqrt(x, /)
 <div class="sourceCode cell-code" id="cb169"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="bu">globals</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'os': &lt;module 'os' (frozen)&gt;, 'r': &lt;__main__.R object at 0x000001D230991820&gt;, 'math': &lt;module 'math' (built-in)&gt;, 'numero': 6, 'frase': "Me dá um copo d'água.", 'pi': 3.141592653589793, 'crieiumavariavelcomnomegiganteeestoucompreguiçadeescrevertudodenovo': 10, 'x': 1, 'y': 2.3, 'z': 62, 'n': 10, 'num': 6, 'a': 1, 'b': 2, 'aux': 1, 'c': 2, 'd': 1, 'palavra': 'Python', 'logic': True}</code></pre>
+<pre><code>{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'os': &lt;module 'os' (frozen)&gt;, 'r': &lt;__main__.R object at 0x000001DDA88F0CB0&gt;, 'math': &lt;module 'math' (built-in)&gt;, 'numero': 6, 'frase': "Me dá um copo d'água.", 'pi': 3.141592653589793, 'crieiumavariavelcomnomegiganteeestoucompreguiçadeescrevertudodenovo': 10, 'x': 1, 'y': 2.3, 'z': 62, 'n': 10, 'num': 6, 'a': 1, 'b': 2, 'aux': 1, 'c': 2, 'd': 1, 'palavra': 'Python', 'logic': True}</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1364,7 +1370,7 @@ sqrt(x, /)
 <div class="sourceCode cell-code" id="cb171"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="bu">locals</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'os': &lt;module 'os' (frozen)&gt;, 'r': &lt;__main__.R object at 0x000001D230991820&gt;, 'math': &lt;module 'math' (built-in)&gt;, 'numero': 6, 'frase': "Me dá um copo d'água.", 'pi': 3.141592653589793, 'crieiumavariavelcomnomegiganteeestoucompreguiçadeescrevertudodenovo': 10, 'x': 1, 'y': 2.3, 'z': 62, 'n': 10, 'num': 6, 'a': 1, 'b': 2, 'aux': 1, 'c': 2, 'd': 1, 'palavra': 'Python', 'logic': True}</code></pre>
+<pre><code>{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'os': &lt;module 'os' (frozen)&gt;, 'r': &lt;__main__.R object at 0x000001DDA88F0CB0&gt;, 'math': &lt;module 'math' (built-in)&gt;, 'numero': 6, 'frase': "Me dá um copo d'água.", 'pi': 3.141592653589793, 'crieiumavariavelcomnomegiganteeestoucompreguiçadeescrevertudodenovo': 10, 'x': 1, 'y': 2.3, 'z': 62, 'n': 10, 'num': 6, 'a': 1, 'b': 2, 'aux': 1, 'c': 2, 'd': 1, 'palavra': 'Python', 'logic': True}</code></pre>
 </div>
 </div>
 <p>Se estiver usando o IPython, os comandos mágicos <code>%who</code> e <code>%whos</code> são ótimas alternativas, pois filtram as variáveis criadas internamente pelo Python, exibindo apenas aquelas que você declarou.</p>
@@ -2245,7 +2251,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb178-252"><a href="#cb178-252" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span> <span class="op">**</span> <span class="dv">0</span></span>
 <span id="cb178-253"><a href="#cb178-253" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb178-254"><a href="#cb178-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb178-255"><a href="#cb178-255" aria-hidden="true" tabindex="-1"></a>Seguindo essa linha de raciocínio, para calcular a operação de **Radiação** - lembrando que $\sqrt{x} = x^{1/2}$ - temos,</span>
+<span id="cb178-255"><a href="#cb178-255" aria-hidden="true" tabindex="-1"></a>Seguindo essa linha de raciocínio, para calcular a operação de raiz quadrada - lembrando que toda raiz na verdade, é um expoente, isto é, $\sqrt{x} = x^{1/2}$ - temos,</span>
 <span id="cb178-256"><a href="#cb178-256" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb178-259"><a href="#cb178-259" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb178-260"><a href="#cb178-260" aria-hidden="true" tabindex="-1"></a><span class="dv">81</span> <span class="op">**</span> <span class="fl">0.5</span></span>
@@ -2713,7 +2719,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/csilv7/CURSO_PYTHON/edit/main/book/basicONE.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li><li><a href="https://github.com/csilv7/CURSO_PYTHON/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li><li><a href="https://github.com/csilv7/CURSO_PYTHON/blob/main/book/basicONE.qmd" class="toc-action"><i class="bi empty"></i>Ver o código fonte</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/csilv7/CURSO_PYTHON/edit/main/docs/basicONE.qmd" class="toc-action"><i class="bi bi-github"></i>Editar essa página</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>Construído <a href="https://quarto.org/"> Pacote Quarto no R4.3</a>.</p>
 </div>
