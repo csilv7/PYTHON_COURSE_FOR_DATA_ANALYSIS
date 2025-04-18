@@ -18,7 +18,7 @@ book:
       **SILVA, B.C.R**
     right: |
       Construído <a href="https://quarto.org/"> Pacote Quarto no R4.3</a>.
-  repo-url : https://github.com/csilv7/CURSO_PYTHON
+  repo-url : https://github.com/csilv7/PYTHON_COURSE_FOR_DATA_ANALYSIS
   repo-subdir: docs
   repo-branch: main
   repo-actions: edit #[edit, issue, source]
@@ -26,10 +26,10 @@ book:
   page-navigation: true
   chapters:
     - index.qmd
-    - basicONE.qmd
-    - basicTWO.qmd
-    - basicTHREE.qmd
-    - Modules.qmd
+    - BASIC_CI.qmd
+    - BASIC_CII.qmd
+    - BASIC_CIII.qmd
+    - MODULES.qmd
 
 comments:
   hypothesis: true
@@ -37,15 +37,21 @@ comments:
 format:
   html:
     number-sections: true
-    #df-print: paged
-    theme:
-      light: [blue,custom.scss]
-      dark:  [cyborg,custom.scss]
     code-fold: true
     code-tools: true
     code-link: true
     toc-title: Índice
     toc-location: right
+    #fontcolor: "black"
+    #theme:
+    #  light: [blue, custom.scss]
+    #  dark:  [cyborg, custom.scss]
+    #theme: "lux"
+    theme:
+      light: [lux, custom.scss]
+      dark:  [cyborg, custom.scss]
+    highlight-style: monokai
+    df-print: paged
 
 execute:
   echo: true

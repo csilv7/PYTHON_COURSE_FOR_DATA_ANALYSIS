@@ -1,0 +1,665 @@
+```{r include=FALSE, echo=FALSE}
+library(reticulate)
+use_python("C:/Users/user/anaconda3/python.exe", required = TRUE)
+```
+
+```{=html}
+<style>
+  body{text-align: justify}
+</style>
+```
+
+:::: progress
+:::: {.progress-bar style="width: 100%;"}
+::::
+::::
+
+# Primeiros Passos
+
+## Introdução ao Python
+
+### O que é Python?
+
+*Python* é uma *linguagem de programação* poderosa e versátil. Em termos simples, isso significa que:
+
+1.  Ela segue regras específicas para organizar palavras e comandos (sintaxe);
+2.  Esses comandos são interpretados pelo computador para realizar tarefas e resolver problemas.
+
+Com Python, escrevemos um *código fonte* que o computador interpreta e executa, realizando as tarefas que desejamos. **Mas por que usar Python?** Aqui estão algumas características que tornam Python uma escolha popular:
+
+-   **Interpretada:** O código é executado diretamente pelo interpretador, sem necessidade de compilação prévia.
+-   **Alto nível:** A linguagem abstrai detalhes técnicos do computador, permitindo que você se concentre na lógica do programa.
+-   **Propósito geral:** Pode ser usada em diversas áreas, como automação, análise de dados, inteligência artificial, desenvolvimento web e muito mais.
+-   **Tipagem dinâmica:** O interpretador identifica automaticamente o tipo de dado de cada variável, simplificando o desenvolvimento.
+
+Por essas e várias outras características, Python é uma linguagem simples, elegante e altamente legível. Sua versatilidade a torna uma das linguagens mais populares do mundo, sendo utilizada por empresas como Google, NASA, Facebook, Amazon, Spotify e muitas outras para desenvolver soluções inovadoras.
+
+### Instalação (Anaconda) e Primeiro Contato com o Jupyter Notebook
+
+Para começar a usar Python, recomendamos a instalação da **Distribuição Anaconda**, que inclui o Python e ferramentas úteis como o **Jupyter Notebook**, ideal para aprender e experimentar código.
+
+-   **Download do Anaconda:** [Clique aqui para baixar](https://www.anaconda.com/download).
+-   **Vídeo de suporte:** Assista a este [tutorial de instalação no YouTube](https://youtu.be/_eK0z5QbpKA?si=iqLmmQcuDoQqZ-b).
+
+Se tiver dúvidas durante a instalação, entre em contato comigo: 
+
+- **Email:** breno.silva\@icen.ufpa.br
+
+## Sintaxe Básica
+
+### Função `print()`
+
+Vamos começar com o clássico *Hello, World!* em Python:
+
+```{python}
+print("Hello, World!")
+```
+
+Em programação, a palavra *imprimir* (ou *print*, em inglês) é usada para se referir à ação de exibir algo na tela.
+
+A função `print()` é uma das funções mais básicas e úteis do Python. Ela exibe na tela qualquer conteúdo que você passar entre os parênteses. Simples assim! **:)**
+
+#### Erros Comuns:
+
+Aqui estão alguns erros comuns ao usar a função `print()` e como o Python responde a eles:
+
+1.  **Usar a letra P maiúscula ao invés de minúscula:**
+
+```         
+Print("Hello World!")
+```
+
+**Erro:** `NameError: name 'Print' is not defined`.
+
+2.  **Esquecer de abrir e fechar aspas no texto que é passado para a função `print()`:**
+
+```         
+print(Hello, World!)
+```
+
+**Erro:** `SyntaxError: invalid syntax`.
+
+3.  **Esquecer de abrir ou fechar as aspas:**
+
+```         
+print("Hello, World!)
+print(Hello, World!")
+```
+
+**Erro:** `SyntaxError: unterminated string literal (detected at line 1)`
+
+4.  **Começar com aspas simples e terminar com aspas duplas ou vice-versa:**
+
+```         
+print('Hello, World!")
+```
+
+**Erro:** `SyntaxError: unterminated string literal (detected at line 1)`
+
+Caso você precise usar aspas dentro do texto, siga estes exemplos:
+
+```{python}
+print('Python é legal! Mas não o "legal" como dizem pra outras coisas')
+print("Python é legal! Mas não o 'legal' como dizem pra outras coisas")
+```
+
+Para imprimir um texto em várias linhas, use o caractere especial `\n`, que indica uma quebra de linha. Por exemplo:
+
+```{python}
+print("Veja esse texto. \n Aspas duplas: \" \n Aspas simples: '")
+```
+
+### Operadores Matemáticos
+
+Assim como a matemática nos oferece uma variedade de operadores para realização de cálculos, o Python também faz uso desses operadores. Vamos explorar os principais:
+
+-   Operação de **Soma (`+`)** & Operação de **Subtração (`-`)**:
+
+```{python}
+2 + 3
+```
+
+```{python}
+1.77 + 4.95
+```
+
+```{python}
+6 - 4
+```
+
+```{python}
+7 - 8
+```
+
+-   Operação de **Multiplicação (`*`)** & Operação de **Divisão (`/`)**:
+
+```{python}
+7 * 8
+```
+
+```{python}
+7.5 * 8.9
+```
+
+```{python}
+2 * 2 * 2
+```
+
+```{python}
+10 / 3
+```
+
+```{python}
+666 / 137
+```
+
+```{python}
+50 / 0.75
+```
+
+Ao fazer uma divisão por zero, é retornado o erro: `ZeroDivisionError: division by zero`. O Python também apresenta outras formas de dividir. Tem-se a chamada **Divisão Inteira (`//`):**
+
+```{python}
+10 // 3
+```
+
+```{python}
+666 // 137
+```
+
+```{python}
+50 // 0.75
+```
+
+Note que a divisão inteira retorna o quociente da divisão, descartando (truncando) a parte decimal. A outra divisão embutida no Python é aquela que retorna o **Resto da Divisão (`%`):**
+
+```{python}
+1 % 2
+```
+
+```{python}
+4 % 2
+```
+
+```{python}
+9 % 3
+```
+
+Agora que aprendemos os operadores aritméticos básicos, podemos avançar. Mas como calcular $2^{10}$? A abordagem mais intuitiva - e possível com o ensinado até aqui - seria multiplicar o número $2$ por si mesmo dez vezes:
+
+```{python}
+2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2
+```
+
+No entanto, essa abordagem não é a mais eficiente. Para facilitar cálculos de potência, o Python oferece um operador específico: o operador de **Exponenciação (`**`)**.
+
+```{python}
+2 ** 10
+```
+
+```{python}
+10 ** 3
+```
+
+```{python}
+9 ** 0
+```
+
+Seguindo essa linha de raciocínio, para calcular a operação de raiz quadrada - lembrando que toda raiz na verdade, é um expoente, isto é, $\sqrt{x} = x^{1/2}$ - temos,
+
+```{python}
+81 ** 0.5
+```
+
+Entretanto, a forma mais adequada para realizar tal operação é é usar a função `sqrt()` da biblioteca **`math`**:
+
+```{python}
+import math
+math.sqrt(81)
+```
+
+Na primeira linha do exemplo, importamos o módulo **`math`**, biblioteca padrão do Python, e em seguida, utilizamos a função `sqrt()` para calcular $\sqrt{81}$. Lembre-se de executar `import math` antes de utilizar qualquer função ou constante desse módulo.
+
+### Expressões Numéricas
+
+Com diversos operadores já apresentados, é possível combiná-los para resolver problemas mais complexos como expressões numéricas. Veja os exemplos:
+
+```{python}
+3 + 4 * 2
+```
+
+```{python}
+7 + 3 * 6 - 4 ** 2
+```
+
+```{python}
+(3 + 4) * 2
+```
+
+```{python}
+1 / (8 / 4) ** (5 - 2)
+```
+
+Quando uma expressão contém múltiplos operadores, a ordem de avaliação é determinada pelas regras de precedência. O Python segue as mesmas regras de precedência da matemática, frequentemente representadas pelo acrônimo **PEMDAS**:
+
+1.  **P**arênteses
+2.  **E**xponenciação
+3.  **M**ultiplicação e **D**ivisão (mesma precedência)
+4.  **A**dição e **S**ubtração (mesma precedência)
+
+> **❗Nota:** Ao trabalhar com números decimais em Python, pode-se observar um comportamento inesperado. Isso não é um erro no código ou na linguagem, mas uma consequência da forma como os computadores representam números de ponto flutuante.
+>
+> **Por que isso acontece?** A maioria dos computadores utiliza a representação binária (base 2) para armazenar números. O problema é que muitas frações decimais (base 10), como 0.1, não podem ser representadas exatamente em binário. Isso ocorre porque a representação binária tem um número finito de dígitos, assim como ocorre na representação decimal. Por exemplo, ao representar $1/3$ em decimal, obtém-se uma repetição infinita: $0.3333 \ldots$ Da mesma forma, a conversão de 0.1 para binário gera uma fração periódica infinita.
+>
+> **IEEE 754 e a precisão limitada:** Os computadores modernos seguem o padrão IEEE 754 para representar números de ponto flutuante. Esse padrão define como os números são armazenados na memória, incluindo a precisão. Em Python, os números de ponto flutuante geralmente utilizam precisão dupla do IEEE 754, que oferece 53 bits de precisão. Quando um número como 0.1 é digitado, o computador encontra a fração binária mais próxima possível dentro desse limite de precisão. O resultado é um valor muito próximo de 0.1, mas não exatamente igual.
+
+### Comparações Lógicas
+
+A @tbl-operLogic apresenta os operadores de comparação em Python e seus significados. Esses operadores são fundamentais para a construção de expressões lógicas e tomadas de decisão em programas. A tabela abaixo detalha cada operador:
+
+```{r, echo=FALSE}
+#| label: tbl-operLogic
+#| tbl-cap: "Operadores de Comparação e seus Significados"
+
+library(knitr)
+
+# Criando os dados para a tabela
+tabela <- data.frame(
+  `Operador` = c("<", "`>`", "<=", ">=", "==", "!="),
+  `Significado` = c(
+    "Menor que", 
+    "Maior que", 
+    "Menor ou igual a", 
+    "Maior ou igual a", 
+    "Igual a", 
+    "Diferente de"
+  )
+)
+
+# Gerando a tabela com kable
+kable(tabela, align = "c", col.names = c("Operador", "Significado"))
+```
+
+A seguir, são dados alguns exemplos.
+
+```{python}
+2 < 10
+```
+
+```{python}
+2 > 10
+```
+
+```{python}
+print('Comparação Lógica - 10 menor que 10:', 10 < 10)
+print('Comparação Lógica - 10 maior que 10:', 10 > 10)
+print('Comparação Lógica - 10 menor ou igual a 10:', 10 <= 10)
+print('Comparação Lógica - 10 maior ou igual a 10:', 10 >= 10)
+print('Comparação Lógica - 10 igual a 10:', 10 == 10)
+print('Comparação Lógica - 10 diferente de 10:', 10 != 10)
+```
+
+A @tbl-conecLogic mostra conectores lógicos em Python, veja:
+
+```{r, echo=FALSE}
+#| label: tbl-conecLogic
+#| tbl-cap: "Tabela de Operações e seus Significados"
+
+library(knitr)
+
+# Criando os dados para a tabela
+tabela <- data.frame(
+  Operação = c("and", "or", "not", "in"),
+  Significado = c("1ª condição E 2ª condição", "1ª condição OU 2ª condição", "Negação (Não)", "Está contido em")
+)
+
+# Gerando a tabela com kable
+kable(tabela)
+```
+
+Veja alguns exemplos dos conectores lógicos:
+
+```{python}
+print((1 and 4) < 3)
+print((1 or 4) < 3)
+print((1 and 2 and 2.99) < 3)
+print((1 or 2 or 2.99) > 3)
+```
+
+```{python}
+print((5 >= 4.99) and (10 <= 10.01))
+print((5 >= 4.99) and (10 == 10.01))
+```
+
+```{python}
+print((5 >= 4.99) or (10 <= 10.01))
+print((5 >= 4.99) or (10 == 10.01))
+```
+
+```{python}
+print(1 == 1)
+print(not 1 == 1)
+print(not not 1 == 1)
+print(not not not 1 == 1)
+```
+
+> **❗Nota:** A ordem de prioridade dos operadores lógicos em Python segue regras específicas. Expressões booleanas referidas ao operador `not` possui maior precedência que `and`, que por sua vez tem maior precedência que `or`. Isso significa que `not` será avaliado antes de `and`, e `and` antes de `or`.
+>
+>Observe o exemplo abaixo, que ilustra essa hierarquia de avaliação:
+```{python}
+not False and True or False
+```
+>Explicação do código:
+>
+1. O operador `not` é avaliado primeiro: `not False` resulta em `True`.
+2. Em seguida, `and` é avaliado: `True and True` resulta em `True`.
+3. Por fim, `or` é avaliado: `True or False` resulta em `True`.
+
+### Variáveis e Atribuições
+
+Uma **variável é um nome** que se refere a um valor (objetp). Já **a atribuição é o processo** de criar uma variável e associar um valor a ela. Veja alguns exemplos:
+
+```{python}
+numero = 2 * 3
+numero
+```
+
+```{python}
+frase = "Me dá um copo d'água."
+frase
+```
+
+```{python}
+pi = 3.141592
+print(pi)
+
+pi = math.pi
+print(pi)
+```
+
+No exemplo acima, foram realizadas três atribuições:
+
+- A variável `numero` recebeu um valor inteiro.
+- A variável `frase` armazenou uma string.
+- A variável `pi` foi inicialmente atribuída a um valor de ponto flutuante e, em seguida, recebeu o valor mais preciso de $\pi$ disponível na biblioteca `math`.
+
+#### Nomes de Variáveis
+
+Bons programadores escolhem nomes significativos para as suas variáveis, tal como fazem a documentação do propósito da mesma.É recomendável escolher nomes descritivos para variáveis, pois isso melhora a legibilidade do código e facilita sua manutenção.
+
+Em Python, os nomes de variáveis:
+
+- ✅Podem conter letras e números, mas não podem começar com números.
+- ✅Podem usar letras maiúsculas, embora a convenção seja utilizar apenas minúsculas.
+- ✅Não podem conter espaços nem caracteres especiais (exceto o underscore: `_`)
+
+```{python}
+crieiumavariavelcomnomegiganteeestoucompreguiçadeescrevertudodenovo = 10
+crieiumavariavelcomnomegiganteeestoucompreguiçadeescrevertudodenovo
+```
+
+Tentar dar um nome ilegal a uma variável ocasionará erro de sintaxe:
+
+```         
+[Input]  : 123voa = 10
+[Output] : SyntaxError: invalid decimal literal
+```
+
+```         
+[Input]  : ol@ = "oi"
+[Output] : SyntaxError: invalid syntax
+```
+
+```         
+[Input]  : def = 2.7
+[Output] : SyntaxError: invalid syntax
+```
+
+O nome `123voa` é inválido porque começa com um número, enquanto `ol@` contém um caractere especial (`@`). Já `def` não pode ser usado porque é uma palavra-chave da linguagem, ou seja, um termo reservado pelo Python para funções específicas.
+
+Outro erro comum ocorre ao tentar acessar uma variável que ainda não foi definida:
+
+```         
+[Input]  : nao_definida
+[Output] : NameError: name 'nao_definida' is not defined
+```
+#### Atribuições com Expressões
+
+Além de valores diretos, podemos atribuir expressões a variáveis:
+
+```{python}
+x = 3 * 5 - 2
+print(x)
+
+y = 3 * x + 10
+print(y)
+
+z = x + y
+print(z)
+```
+
+```{python}
+n = 10
+n + 2  # Retorna 12, mas não altera 'n'
+```
+
+```{python}
+9 - n  # Retorna -1, mas não altera 'n'
+```
+
+Para atualizar o valor de uma variável, podemos usar operadores de atribuição compostos:
+
+```{python}
+num = 4
+num += 3  # Equivalente a num = num + 3
+print(num)
+
+num = 2
+num *= 3  # Equivalente a num = num * 3
+print(num)
+```
+
+#### Atribuição Múltipla
+
+Imagine um problema que envolve duas variáveis `a` e `b`. O Python permite a **atribuição múltipla**, o que pode ser útil para trocar valores entre variáveis de forma eficiente.
+
+```{python}
+a, b = 1, 200
+print(a, b)  # Saída: 1 200
+```
+
+Agora, pense como poderiamos trocar os valores dessas variáveis. Pensou? Em algum momento deve ter passado pela sua cabeça a seguinte lógica:
+
+```{python}
+a = b # Perde-se o valor original de a (1)
+print(a)
+
+
+b = a # Como perdeu-se a, `b vai continuar com seu valor original (200)
+print(b)
+```
+
+Em outras linguagens, para trocar valores entre duas variáveis, seria necessário usar uma variável auxiliar:
+
+```{python}
+a, b = 1, 200
+print(a, b)  # Saída: 1 200
+
+aux = a
+a = b
+b = aux
+print(a, b)  # Agora a = 200 e b = 1
+```
+No entanto, em Python, a troca pode ser feita de forma mais elegante usando atribuição múltipla:
+
+```{python}
+a, b = 1, 200
+print(a, b)  # Saída: 1 200
+
+a, b = b, a
+print(a, b)  # Agora a = 200 e b = 1
+```
+
+Essa abordagem pode ser expandida para múltiplas variáveis:
+
+```{python}
+a, b, c, d = 1, 2, 3, 4
+print(a, b, c, d)
+```
+Também podemos inverter os valores de várias variáveis de uma vez:
+
+```{python}
+a, b, c, d = d, c, b, a
+print(a, b, c, d)
+```
+### Tipos de Objetos
+
+Criamos muitas variáveis até agora. Você se lembra do tipo de cada uma? Para verificar o tipo de um objeto ou variável, usamos a função `type()`:
+
+```{python}
+x = 1
+print(type(x))
+
+y = 2.3
+print(type(y))
+
+palavra = "Python"
+print(type(palavra))
+
+logic = True
+print(type(logic))
+```
+
+O Python possui alguns tipos básicos de objetos, entre eles:
+
+- `bool`: Verdadeiro ou Falso (`True` ou `False`);
+- `int`: Números Inteiros;
+- `float`: Números Reais;
+- `complex`: Números Complexos;
+- `str`: Textos ou conjunto de caracteres (`strings`);
+- `tuple`: Listas imutáveis
+- `list`: Listas;
+- `dict`: Dicionários.
+
+Os demais tipos de objetos serão abordados com mais detalhes posteriormente.
+
+### Métodos e Atributos
+
+Em Python, os conceitos de métodos e atributos são fundamentais na programação orientada a objetos (POO). Eles definem as características e comportamentos dos objetos.
+
+#### Métodos
+
+- **Definição:**
+    * Métodos são funções definidas dentro de um objeto. Eles definem os comportamentos ou ações que um objeto pode realizar.
+    * Pense neles como as "ações" que um objeto pode executar.
+- **Exemplo:**
+    * Em um objeto "`carro`", métodos poderiam ser "`ligar()`", "`acelerar()`" e "`frear()`".
+- **Acesso:**
+    * Chamamos métodos usando a sintaxe `objeto.método()`.
+
+#### Atributos
+
+- **Definição:**
+    * Atributos são variáveis que armazenam dados dentro de um objeto. Eles representam as características ou propriedades de um objeto.
+    * Pense neles como as "informações" (sobre o objeto por isso características) que um objeto carrega consigo.
+- **Exemplo:**
+    * Em um objeto "`carro`", atributos poderiam ser "`cor`", "`marca`", "`modelo`" e "`ano`".
+- **Acesso:**
+    * Acessamos atributos usando a sintaxe `objeto.atributo`.
+
+#### Relação entre Métodos e Atributos
+
+Métodos frequentemente manipulam os atributos de um objeto. Por exemplo, um método "`acelerar()`" pode modificar o atributo "`velocidade`" de um objeto `carro`.
+
+**Em resumo:**
+
+* Atributos são as características que um objeto possui.
+* Métodos são as ações que um objeto pode realizar.
+
+Essa distinção permite criar objetos que representam entidades do mundo real com suas próprias características e comportamentos.
+
+### Buscando ajuda
+
+Está com dúvida sobre algum comando ou função? Use a função `help()` e digite o que deseja buscar.
+
+```{python}
+help()
+```
+
+Para obter ajuda sobre algo específico, basta passar o nome da função como argumento:
+
+```{python}
+help(print)
+```
+
+```{python}
+import math
+help(math.sqrt)
+```
+
+### Explorando as variáveis no código
+
+Em algum momento, você pode querer saber quais variáveis já foram declaradas ou verificar seus valores atuais. Podemos listar todas as variáveis declaradas no código usando o comando `dir()`. Veja um exemplo:
+
+```{python}
+a = 1
+b = 2
+dir()
+```
+
+Note que as variáveis declaradas aparecem próximas ao final do resultado de `dir()`. Não se preocupe com os outros elementos exibidos — eles são criados e usados pelo próprio Python e não são relevantes no momento.
+
+Outra opção para visualizar as variáveis declaradas é utilizar os comandos `globals()` e `locals()`. Ambos mostram não apenas os nomes das variáveis, mas também seus valores atuais. A diferença entre eles está no escopo em que atuam, mas seus resultados são semelhantes:
+
+```{python}
+globals()
+```
+
+```{python}
+locals()
+```
+
+Se estiver usando o IPython, os comandos mágicos `%who` e `%whos` são ótimas alternativas, pois filtram as variáveis criadas internamente pelo Python, exibindo apenas aquelas que você declarou.
+
+## Exercícios
+
+**1. Escreva um programa que imprima na tela a seguinte mensagem: `Bem-vindo ao mundo Python!`.**
+
+**2. Corrija os erros nos seguintes comandos `print()`:**
+
+```
+print("Python é incrível!)
+Print('Aprendendo Python')
+print("Python é legal! Mas não o 'legal como dizem pra outras coisas")
+```
+
+**3. Utilize `print()` para exibir o seguinte texto em três linhas diferentes:**
+
+```
+Aprender Python  
+é muito  
+divertido!
+```
+
+**4. Realize as operações matemáticas a seguir, guarde em uma variável e exiba os resultados. Além de determinar a ordem de execução conforme as regras de precedência matemática:**
+
+- a)  $$\dfrac{100 − 413 \cdot (20 − 5 \times 4)}{5}$$
+- b)  $$\dfrac{ \left[(3^{4} + \sqrt{144})(100 - 95,5) \right] + 6 }{-80 + 2^{4}}$$
+- c)  $$3,9 \cdot 10^{-2} + 5,2 \cdot 10^{-1/3}$$
+
+**5. Os seguintes códigos contém erros. Identifique e corrija:**
+
+```
+print('Vamos aprender Python!)
+```
+```
+10 + "20"
+```
+```
+x = 3
+10,35 x 0.01
+```
+:::: progress
+:::: {.progress-bar style="width: 100%;"}
+::::
+::::

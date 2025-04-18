@@ -1,0 +1,988 @@
+```{r include=FALSE, echo=FALSE}
+library(reticulate)
+use_python("C:/Users/user/anaconda3/python.exe", required = TRUE)
+```
+
+```{=html}
+<style>
+  body{text-align: justify}
+</style>
+```
+
+:::: progress
+:::: {.progress-bar style="width: 100%;"}
+::::
+::::
+
+# Objetos no Python
+
+## Introdução
+
+Ao longo do curso, já mencionamos alguns tipos de objetos enquanto explorávamos conceitos básicos de Python. Você provavelmente já viu variáveis sendo criadas e usadas, e até notou que diferentes valores podem ter diferentes tipos. Agora, chegou o momento de entender melhor os objetos básicos do Python e como eles funcionam.
+
+Neste capítulo, vamos explorar os principais tipos de objetos que o Python nos oferece, como números, strings, listas e dicionários. Além disso, veremos como identificar o tipo de um objeto, buscar ajuda sobre funções e entender melhor as variáveis disponíveis no código.
+
+Com essa nova organização do curso, o conteúdo foi dividido em capítulos menores para facilitar o aprendizado. Isso evita que tudo seja ensinado de uma vez, tornando a experiência mais dinâmica e leve. Então, vamos começar nossa jornada pelos objetos do Python! 🚀
+
+## Strings
+
+Também chamada de sequência de caracteres, textos ou dados alfanuméricos, uma *string* é um tipo de dado que armazena uma *sequência de caracteres*. Em Python, pode ser definida com aspas simples (`'`), duplas (`"`) ou triplas (`'''` ou `"""`).
+
+```{python}
+"Texto com acentos e cedilhas: hoje é dia de caça!"
+```
+
+```{python}
+# As strings aceitam aspas simples também
+nome = 'Silvio Santos'
+nome
+```
+
+### Operações com Strings
+
+Podemos realizar diversas operações matemáticas e manipulações em strings.
+
+```{python}
+# Multiplicação repete a string
+nome * 3
+```
+```
+[Input]:  nome * 3.14
+[Output]: TypeError: can't multiply sequence by non-int of type 'float'
+```
+```{python}
+# Concatenação de strings
+canto1 = 'vem aí, '
+canto2 = 'lá '
+nome + ' ' + canto1 + canto2 * 6 + '!!'
+```
+
+### Strings Multilinhas
+
+Para definir strings que ocupam múltiplas linhas, utilize três aspas (`'''` ou `"""`):
+
+```{python}
+str_grande = '''Aqui consigo inserir um textão com várias linhas.
+Posso iniciar em uma...
+... continuar em outra...
+... e seguir quantas precisar.'''
+
+str_grande
+```
+
+```{python}
+print(str_grande)
+```
+
+Caso seja necessário incluir aspas dentro da string, podemos alternar entre aspas simples e duplas:
+
+```{python}
+agua = "Me dá um copo d'água"
+agua
+```
+
+Também podemos usar todas as aspas ao mesmo tempo:
+
+```{python}
+todas_as_aspas = """Essa é uma string que tem:
+- aspas 'simples'
+- aspas "duplas"
+- aspas '''triplas'''
+Legal, né?"""
+                    
+print(todas_as_aspas)
+```
+
+### Tamanho de uma String
+
+A função embutida `len()` nos permite obter o número de caracteres de uma string, incluindo espaços e pontuação:
+
+```{python}
+len('Abracadabra')
+```
+
+```{python}
+frase = 'Faz um pull request lá'
+len(frase)
+```
+
+```{python}
+palavra = "Python"
+len(palavra)
+```
+
+
+### Manipulação de Strings
+
+#### Indexação
+
+Cada caractere em uma string possui um índice, começando em `0` para o primeiro elemento e indo até `len(string) - 1` para o último elemento ou `-1`.
+
+> *Índices negativos percorrem de trás para frente*
+
+Para um melhor entendimento inicial, considere a variável criada na subseção anterir:`palavra`. Partindo da definição acima, podemos afirmar que os índices da variável `palavra` segue o formato:
+
+| P   | y   | t   | h   | o   | n   |
+|-----|-----|-----|-----|-----|-----|
+| 0   | 1   | 2   | 3   | 4   | 5   |
+| -6  | -5  | -4  | -3  | -2  | -1  |
+
+Vejamos alguns exemplos:
+
+```{python}
+# Primeiro caractere
+print(palavra[0])
+print(palavra[-6])
+```
+```{python}
+# Primeiro caractere
+print(palavra[5])
+print(palavra[-1])
+```
+
+#### Fatiamento
+
+Fatiamento (*slincing*) é a capacidade de extrair partes de uma string utilizando `inicio:fim - 1:passo`.
+
+```{python}
+# Guardando um objeto do tipo str na variável frase
+frase = "A programação em " + palavra + " é diferenciada!"
+frase
+```
+
+```{python}
+# Comprimento da variável frase
+nStr = len(frase)
+nStr
+```
+```{python}
+# Obtendo a frase completa usando fatiamento
+print(frase[:nStr - 1])
+print(frase[-nStr:])
+```
+```{python}
+# Obtendo a frase de dois em dois caractere
+print(frase[:nStr - 1:2])
+print(frase[-nStr::2])
+```
+```{python}
+# Obtendo apenas 'A programação'
+print(frase[:14])
+print(frase[:-25])
+```
+
+```{python}
+# Obtendo o que há depois de 'A programação'
+print(frase[14:])
+print(frase[-25:])
+```
+
+```{python}
+# Obtendo toda a frase de trás para frente
+print(frase[::-1])
+```
+> **Nota:** Omitir o primeiro índice (`start`) ou o segundo índice (`stop`) significa, respectivamente, começar desde o começo ou terminar no fim.
+
+Resumindo: para fazer uma fatia de nossa string, precisamos saber de onde começa, até onde vai e o tamanho do passo.
+
+```         
+fatiável[começo : fim : passo]
+```
+
+##### Atenção para o uso de indexação e fatiamento
+
+As fatias incluem o índice do primeiro elemento e não incluem o elemento do índice final. Por isso que `frase[0:-1]` perde o último elemento.
+
+Caso o **fim** da fatia seja antes do começo, obtemos um resultado vazio:
+
+```{python}
+frase[59:105]
+```
+
+O que acontece com uma fatia que está fora da string?
+
+```{python}
+frase[123:345]
+```
+
+E se o **fim** da fatia for superior ao comprimento da string? Sem problemas, o Python pecorrer a string até o onde der:
+
+```{python}
+frase[8:123456789]
+```
+
+Mas um índice fora do intervalo em acesso direto gera erro:
+
+```         
+[Input]  : frase[123456789]
+[Output] : IndexError: string index out of range
+```
+
+Quando usamos passos negativos, a fatia começa no **fim** e termina no **começo** e é percorrida ao contrário. Ou seja, invertemos a ordem. Mas tome cuidado:
+
+```{python}
+"Python"[2:6]
+```
+
+```{python}
+"Python"[2:6:-1]
+```
+
+```{python}
+"Python"[6:2]
+```
+
+```{python}
+"Python"[6:2:-1]
+```
+
+- `"Python"[6:2]`: O índice de início (6) é maior que o índice de fim (2), e o passo é positivo (default). Nesse caso, o resultado é uma string vazia, pois o slicing avança para a direita, mas o fim está à esquerda.
+- `"Python"[2:6:-1]`: O índice de início (2) é menor que o índice de fim (6), mas o passo é negativo (-1). O slicing tenta avançar para a esquerda, mas o fim está à direita. Novamente, o resultado é uma string vazia.
+- `"Python"[6:2:-1]`: O índice de início (6) é maior que o índice de fim (2), e o passo é negativo (-1). O slicing avança para a esquerda, começando do índice 6 ('n') até o índice 2 ('t'), excluindo-o. Isso resulta na string "noh".
+
+### Formatação de Strings
+
+Podemos formatar strings utilizando `f-strings`, `.format()` ou `%`:
+
+```{python}
+nome = "Breno"
+idade = 21
+
+print(f"Olá, meu nome é {nome} e tenho {idade} anos.")           # f-strings
+print("Olá, meu nome é {} e tenho {} anos.".format(nome, idade)) # format()
+print("Olá, meu nome é %s e tenho %d anos." % (nome, idade))     # Estilo antigo
+```
+O autor recomenda usar a primeira opção.
+
+### Métodos Úteis para Strings
+
+#### Método `split()`
+
+```{python}
+# E da variável todas_as_aspas?
+todas_as_aspas
+```
+
+```{python}
+
+# Aplicando método splint sem argumento (default)
+print(todas_as_aspas.split())
+
+# Aplicando método splint com argumento
+print(todas_as_aspas.split("\n"))
+```
+
+```{python}
+# Lembra da variável frase?
+print(frase)
+
+# Veja como ela fica depois do método split
+print(frase.split())
+```
+
+#### Outros métodos
+
+```{python}
+texto = " Python é legal! "
+print(texto.lower())     # Deixa tudo minúscula
+print(texto.upper())     # Deixa tudo maiúscula
+print(texto.strip())     # Remove espaços extras
+print(texto.replace("Python", "Programar"))  # Troca 'Python' por 'Programar'
+print(texto.index("é"))  # Retorna o índice da primeira ocorrência de 'é'
+print(texto.count("a"))  # Conta quantas vezes 'a' aparece
+```
+## Listas
+
+Listas são uma das estruturas de dados mais usadas em Python. Elas permitem armazenar múltiplos valores em uma única variável e suportam diversos tipos de operações.
+
+### Declaração de Listas
+
+Uma lista em Python é definida utilizando colchetes `[]`, e seus elementos são separados por vírgulas:
+
+```{python}
+# Lista de números
+numeros = [1, 2, 3, 4, 5]
+
+# Lista de strings
+frutas = ["maça", "banana", "abacaxi"]
+
+# Lista mista
+dados = [25, "João", True, 3.14]
+```
+
+Uma lista também pode ser vazia, algo que futaremente veremos que pode ser muito útil, por exemplo:
+
+```{python}
+vazia = []
+vazia
+```
+
+### Indexação e Fatiamento
+
+A ideia de índices e fatias de listas funciona de forma muito parecida com a que foi vista em strings.
+
+```{python}
+numeros[0] # Primeiro elemento
+```
+
+```{python}
+numeros[-1] # Último elemento
+```
+
+Assim como na indexação de strings, ao tentar acessar um índice inválido de uma lista é retornado um erro.
+
+Ao ínves de simplesmente acessar um elemneto através de seu índice, podemos obter uma fatia, que pode ser muito mais interessante.
+
+```{python}
+numeros[::2] # Do começo ao fim, de 2 em 2 elementos
+```
+
+```{python}
+numeros[::-2] # Do fim ao começo, de 2 em 2 elementos
+```
+
+```{python}
+numeros[:3]   # Três primeiros elementos
+```
+
+```{python}
+numeros[3:]   # Elementos a partir do índice 3
+```
+
+```{python}
+numeros[::-1] # Lista invertida
+```
+
+### Trabalhando com Listas
+
+Imagine que se queira saber se um determinado elemento (objeto) está contido em determinada lista. Poderiamos ficar procurando elemento a elemento, vamos tentar essa abordagem. Verifique se o elemento `0.3146778807984779` está contido na lista abaixo:
+
+```{python}
+import random as rd
+
+rd.seed(42)
+
+va = [rd.random() for _ in range(100)]
+va
+```
+Note que não é viável essa abordagem. Para está finalidade devemos usar o operador lógico `in`. Veja o exemplo:
+
+```{python}
+0.3146778807984779 in va # 'elemento' está contido em 'lista'
+```
+
+Lembra do operador `not`? Podemos combiná-lo com o `in` para verificar se um elemento 'não está' contido em uma determina lista. Sendo o contrário (negação) da afirmação acima.
+
+```{python}
+0.3146778807984779 not in va # 'elemento' não está contido em 'lista'
+```
+
+Veja um exemplo de como o `in` funciona em uma outra situação.
+
+```{python}
+lista_mista = ['duas palavras', 42, True, ['batman', 'robin'], -0.84, 'hipófise']
+42 in lista_mista
+```
+
+```{python}
+'batman' in lista_mista
+```
+
+```{python}
+'batman' in lista_mista[3] # Note que o elemento com índice 3 também é uma lista
+```
+
+Consegue me dizer quantos elementos têm na lista `va`? Fique tranquilo! Não precisa contar, pode ser usado a função `len` do Python para responder essa pergunta.
+
+```{python}
+len(va)
+```
+
+```{python}
+len(lista_mista[3])
+```
+
+### Adicionar e Remover elementos de uma Lista
+
+Podemos adicionar elementos de diversas formas:
+
+```{python}
+# Adiciona um único elemento ao final da lista
+numeros.append(6)
+numeros
+```
+
+```{python}
+# Adiciona vários elementos ao final da lista
+numeros.extend([7, 8, 9])
+numeros
+```
+
+```{python}
+# Adiciona um elemento em uma posição específica
+numeros.insert(2, 15)  # Insere o número 15 na posição 2 (3º elemento)
+numeros
+```
+
+Podemos remover/excluir elementos de uma lista das seguintes formas:
+
+```{python}
+# Remove a primeira ocorrência de um valor específico
+numeros.remove(15)  # Remove o número 15
+numeros
+```
+
+```{python}
+# Exclui o último elemento da lista
+del numeros[-1]
+numeros
+```
+
+E se, por exemplo, eu precisar começar a lista do zero? Pode-se remover todos os elementos de uma lista, usando o método `clear()`:
+
+```{python}
+va.clear()
+print("Lista de números aleatórios:")
+print(va)
+
+va = [rd.random() for _ in range(100)]
+print("Lista de números aleatórios:")
+print(va)
+```
+
+### Modificando elementos
+
+Como as listas são mutáveis, podemos alterar seus valores diretamente:
+
+```{python}
+print(f"Antes da modificação: \n {frutas}")
+
+# Alterando 'banana' por 'melancia'
+frutas[1] = "melancia"
+
+# Visualizando
+print(f"Depois da modificação: \n {frutas}")
+```
+
+Outra forma de se fazer a modificação é:
+
+```{python}
+# Obtendo a posição (índice) da fruta (string) 'melancia'
+id = frutas.index("melancia")
+
+# Alterando 'melancia' por 'banana'
+frutas[id] = "melancia"
+
+# Visualizando
+print(frutas)
+```
+
+### Ordenação de Listas
+
+Por vários motivos, pode ser útil ter em mãos uma lista ordenada. Como fazer isso? Veja os exemplos:
+
+```{python}
+desordenada = ['b', 'z', 'k', 'a', 'h']
+print(f"Lista desordenada: \n {desordenada}")
+
+# Ordenando
+desordenada.sort()
+print(f"Lista ordenada: \n {desordenada}")
+```
+Voltemos a lista `va`:
+
+```{python}
+# Modificando va um pouco
+va_modified = [round(va[i] * 100) for i in range(len(va))]
+print(va_modified)
+print()
+
+# Ordenado de forma crescente
+va_modified.sort()
+print(va_modified)
+
+# Ordenado de forma decrescente
+va_modified.sort(reverse=True)
+print(va_modified)
+```
+
+Além do método `sort`, tem a função nativa do Python. Função `sorted()`: 
+
+```{python}
+# Ordenado de forma crescente novamente
+va_modified = sorted(va_modified)
+print(va_modified)
+```
+
+### Cópia de Listas
+
+Cópia ou cópias de listas se torna algo de grande valor quando se quer fazer alguma manipulação, porém não se quer alterar as informações originais. Para isso, deve-se usar o método `copy()`:
+
+```{python}
+# Criando listas
+l1 = [[1, 2, 3], ["x", "y", "z"], [True, False]]
+l2 = l1.copy() # l2 é a cópia de l1
+
+# Visualizando
+print(l1)
+print(l2)
+
+# Adicioando um elemento novo somente a l2
+l2.append([1/4, 1/2, 3/4, 1])
+
+# Visualizando
+print(l1)
+print(l2)
+```
+
+Agora, observe o que acontece se não fizer uso do `copy()`:
+
+```{python}
+# Criando listas
+l1 = [[1, 2, 3], ["x", "y", "z"], [True, False]]
+l2 = l1 # l2 'igual' a l1
+
+# Visualizando
+print(l1)
+print(l2)
+
+# Adicioando um elemento novo somente a l2
+l2.append([1/4, 1/2, 3/4, 1])
+
+# Visualizando
+print(l1)
+print(l2)
+```
+
+### Operando Listas
+
+Fazendo uso ao conhecimento adquirido de strings. Temos os operadores `+` e `*`, que funcionam de forma muito similar e obdecem as mesmas regras.
+
+O operador `+` concatena (semelhante ao método `extend()`) listas:
+
+```{python}
+a = [1, 2, 3]
+b = [4, 5, 6]
+c = a + b
+c
+```
+
+O operador `*` repete a lista dado um número de vezes:
+
+```{python}
+a * 2
+```
+
+```{python}
+d = c + a + b + 2 * c
+d
+```
+
+O Python fornece várias outras operações úteis para listas, calculadas com funções do módulo básico do Python. Entretanto, tais funções só se aplicam a listas numéricas:
+
+```{python}
+print(f"Soma da lista 'd': {sum(d)}")
+print(f"Maior valor da lista 'd': {max(d)}")
+print(f"Menor valor da lista 'd': {min(d)}")
+```
+Agora, imagine que seja necessário saber quantas vezes um determinado elemento se repete dentro de uma lista. Tal ação pode ser feita pelo método `count()`:
+
+```{python}
+# Lembra dessa lista
+print(va_modified)
+
+# Quanta vezes o número 100 aparece?
+print(va_modified.count(100))
+```
+
+### Uso da Função `range()` em Listas
+
+Em Python, além de funções como print(), len(), sum(), max() e min(), temos a função range(), que também faz parte do módulo básico. Essa função é extremamente útil para criar sequências numéricas, especialmente listas. Imagine que você precise criar uma lista com os números de 1 a 200. Como fazer isso de forma eficiente?
+
+Uma abordagem seria escrever todos os números manualmente:
+
+```         
+lista_grande = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ..., 200]
+```
+
+No entanto, essa não é a forma mais prática. É aí que entra a função `range()`. Com ela, podemos gerar essa lista de forma muito mais simples:
+
+```{python}
+list(range(1, 201))  # Note que o limite superior é 201
+```
+
+O `range()` também oferece flexibilidade para gerar sequências com intervalos específicos. Por exemplo, para obter os números de 0 a 29, pulando de 5 em 5:
+
+```{python}
+list(range(0, 30, 5))
+```
+
+Além disso, o `range()` também oferece algumas coisas interessantes. Por exemplo, imprimir os números espaçados de 5 em 5, entre 0 e 30:
+
+```{python}
+list(range(0, 30, 5))
+```
+
+A sintaxe geral do `range()` é: `range(start, stop, step)`, onde:
+
+- `start`: O valor inicial da sequência (inclusivo).
+- `stop`: O valor final da sequência (exclusivo).
+- `step`: O intervalo entre os valores.
+
+Por que precisamos converter `range()` para `list`?
+
+```{python}
+print(range(200))
+print(type(range(200)))
+```
+
+Isso acontece porque `range(`) retorna um objeto do tipo `range`, que representa uma sequência numérica, mas não é uma lista em si. Para visualizar os números, precisamos convertê-lo explicitamente para uma lista:
+
+```{python}
+range_lista = list(range(200))
+print(range_lista)
+```
+
+## Dicionários
+
+Dicionários em Python são estruturas de dados poderosas que armazenam informações no formato chave-valor. Diferentemente das listas, que são indexadas por números, os dicionários usam chaves imutáveis (strings, números, tuplas, etc.) para acessar seus valores.
+
+Um dicionário é uma coleção de pares chave-valor, onde cada chave é única e está associada a um valor: `{chave: valor}`.
+
+- **Chaves Únicas:** Uma característica fundamental dos dicionários é que cada chave deve ser única. Tentar inserir chaves duplicadas resultará na substituição do valor anterior.
+
+### Declaração de Dicionários
+
+Em Python, dicionários podem ser criados de diversas maneiras, oferecendo flexibilidade para diferentes situações.
+
+1. **Criação Direta com Chaves e Valores:**
+
+```{python}
+# Dicionário com informações de uma receita
+receita = {
+    "farinha": "2 xícaras",
+    "ovos": 3,
+    "leite condensado": "1 lata"
+}
+
+# Dicionário com números de telefone
+telefones = {"ana": 123456, "yudi": 40028922, "julia": 4124492}
+```
+
+Neste exemplo, `"ana"` é uma chave que está associada ao valor `123456`. Cada par chave-valor é separado por vírgula.
+
+```{python}
+print(receita)
+print(telefones)
+```
+
+2. **Criação de um Dicionário Vazio:**
+
+Você pode criar um dicionário vazio usando apenas chaves {}:
+
+```{python}
+contatos = {}
+contatos
+```
+
+3. **Criação com a Função dict():**
+
+A função `dict()` permite criar dicionários de forma mais explícita, especialmente quando as chaves são strings simples:
+
+```{python}
+pessoa = dict(nome="Carlos", idade=30, cidade="São Paulo")
+pessoa
+```
+
+4. **Com uma lista de listas:**
+
+```{python}
+# Definindo três listas diferentes
+l1 = ["brigadeiro", "leite condesado, achocolatado"]
+l2 = ["omelete", "ovos, azeite, condimentos a gosto"]
+l3 = ["ovo frito", "ovo, óleo, condimentos a gosto"]
+
+# Criando uma lista de listas
+lr = [l1, l2, l3]
+
+# Visualizando resultado
+lr
+```
+
+```{python}
+# Transformando lista de listas em um dicionário
+receitas = dict(lr)
+
+# Visualizando o resultado
+receitas
+```
+
+### Chaves
+
+Podemos acessar os valores de um dicionário através de suas chaves:
+
+```{python}
+# Definindo um dicionário para capitais de estados brasileiros
+capitais = {"SP": "São Paulo", "AC": "Rio Branco", "TO": "Palmas",
+            "RJ": "Rio de Janeiro", "SE": "Aracaju", "MG": "Belo Horizonte"}
+
+# Acessando o valor correspondente a chave "MG"
+capitais["MG"]
+```
+
+Caso a chave não exista, podemos evitar erros usando o método `get()`:
+
+```{python}
+capitais.get("PA")
+```
+
+```{python}
+capitais.get("PA", "Não tem!")
+```
+
+Note que o método `get()` funciona de forma similar ao código `dicionário[chave]`, entretanto, caso a chave não exista garantimos que o código não gere erro diferente do que aconteceria caso fosse usado `dicionário[chave]`.
+
+Repare, também, que a chave `"PA"` não foi adicionada ao dicionário. 
+
+```{python}
+capitais
+```
+Agora, se o objetivo não for saber o valor associado a determinada chave, mas sim saber se a chave existe, isso pode ser feito usando o método `keys` e o operador lógico `in`:
+
+```{python}
+# Chaves do Dicionário
+print(capitais.keys())
+
+# Verificando
+print(f'A chave "PA" está no dicionário capitais? {"PA" in capitais.keys()}')
+```
+
+Note que os valores de um dicionário pode ser qualquer tipo de objeto. No entanto, foi usado, até então, para exemplos, apenas `strings`. Porém, pode-se colocar todo tipo de coisa dentro dos dicionários, incluindo listas e até mesmo outros dicionários:
+
+```{python}
+numeros = {"primos": [2, 3, 5], "pares": [0, 2, 4], "ímpares": [1, 3, 5]}
+print(numeros)
+```
+
+```{python}
+docente = {
+  "Nome": "Prof Dr Vinícius Duarte Lima", 
+  "Formação": {"Graduação": "Eng Elétrica", "Mestrado": "Eng Elétrica", "Doutorado": "Eng Elétrica"},
+  "Idade": 45,
+}
+
+print(docente)
+```
+
+Mesmo que os pares `chave: valor` estejam organizados na ordem que foram colocados, não podemos acessá-los por índices como faríamos em listas:
+
+```         
+[Input]  : numeros[2]
+[Output] : KeyError: 2
+```
+
+Assim como os valores não precisam ser do tipo string, o mesmo vale para as chaves:
+
+```{python}
+numeros_por_extenso = {2: "dois", 1: "um", 3: "três", 0: "zero"}
+numeros_por_extenso[0]
+```
+
+```{python}
+numeros_por_extenso[2]
+```
+
+> **Nota:** Listas e outros dicionários não podem ser usados como chaves por serem de tipos mutáveis.
+
+### Adicionando, Alterando e Removendo Elementos
+
+Para exemplificar os comandos desta seção, considere o dicionário abaixo.
+
+```{python}
+# Informações de Cleiton
+pessoa = {"nome": "Cleiton", "idade": 34, "família": {"mãe": "Maria", "pai": "Enzo"}}
+
+# Visualizando
+pessoa
+```
+
+Para adicionar o item `"masculino"` a chave `"genêro"` podemos usar os seguintes comandos:
+
+```{python}
+# Adicionando elemento
+pessoa["genêro"] = "romântico"
+
+# Visualizando
+pessoa
+```
+
+De forma equivalente, temos:
+
+```{python}
+# Dicionário de meses do ano
+meses = {1: "Janeiro", 2: "Fevereiro", 3: "Março"}
+
+# Adicionando o mês de "Abril" na chave 4
+meses[4] = "Setembro"
+
+# Visualizando
+meses
+```
+As vezes, podem haver inconsistências nos dados, logo, se torna necessário corrigir tais inconsistências. Isso pode ser feito de forma muito simples, veja:
+
+```{python}
+# Executando alterações
+pessoa["genêro"] = "masculino"
+meses[4] = "Abril"
+
+# Visualizando
+print(pessoa)
+print(meses)
+```
+
+Um dúvida que talvez possa surgir é como fazer alteração em listas que estão contidas em dicionários. Na verdade, isso é feito de forma bastante objetiva, veja:
+
+```{python}
+# Novo dicionário
+lixo = {"plástico": ["garrafa", "copinho", "canudo"], 
+        "papel": ["folha amassada", "guardanapo"], 
+        "orgânico": ["batata", "resto do bandeco", "casca de banana"]}
+
+# Visualizando
+print(lixo)
+
+# Obtendo lista de interesse para alteração
+lista_de_interesse = lixo["plástico"]
+
+# Verificando em qual posição está o elemneto que deve ser alterado
+id = lista_de_interesse.index("garrafa")
+
+# Fazendo a alteração diretamente no dicionário
+lixo['plástico'][id] = "sacola"
+
+# Visualizando dicionário alterado
+lixo
+```
+
+Note que poderiamos ser mais direto, pois as listas em questão têm comprimentos pequenos. Porém, tal código já pode ser implementado para listas de grande comprimento.
+
+Porém, ao lidarmos com dicionários, talvez precisemos excluir algum elemento. Serão apresentadas duas formas de fazer isso.
+
+1. Usando o método `pop()`:
+```{python}
+pessoa.pop("família")
+```
+Repare que `dicionário.pop(chave)` excluí o elemento e retorna os itens da chave excluída. Para visualizarmos o resultado basta chamar o dicionário.
+```{python}
+pessoa
+```
+
+2. Usando o comando `del` do Python Básico:
+```{python}
+del meses[4]
+```
+Diferente do método `pop()`, o comando `del` não retorna nada. Porém, para visualizar o resultado, precisamos chamar o objeto.
+```{python}
+meses
+```
+Para excluir todos os elementos de um dicionário, temos o método `clear()`:
+
+```{python}
+# Apagando todos os elementos do dicionário
+lixo.clear()
+
+# Visualizando
+lixo
+```
+
+### Função `list()` e Função `len()` para Dicionários
+
+A função `list()` converte um dicionário em uma lista contendo apenas suas chaves:
+
+```{python}
+institutos_uspsc = {
+    "IFSC": "Instituto de Física de São Carlos",
+    "ICMC": "Instituto de Ciências Matemáticas e de Computação",
+    "EESC": "Escola de Engenharia de São Carlos",
+    "IAU": "Instituto de Arquitetura e Urbanismo",
+    "IQSC": "Instituto de Química de São Carlos"
+}
+
+# Convertendo dicionário em lista de chaves
+lista_chaves = list(institutos_uspsc)
+print(lista_chaves)
+```
+
+A função `len()` retorna o número de itens em um objeto. Para dicionários, ela conta o número de pares chave-valor:
+
+```{python}
+# Contando itens no dicionário
+quantidade_institutos = len(institutos_uspsc)
+print(quantidade_institutos)
+
+# Equivalente a contar as chaves convertidas em lista
+print(len(list(institutos_uspsc)))
+```
+
+### Outros comandos para dicionários
+
+Vejamos agora os métodos `items()` e `values()`. Considere o seguinte dicionário:
+
+```{python}
+pessoa = {"nome": "Enzo", "RA": 242334, "curso": "fiscomp"}
+```
+
+1. `items()` - Retorna uma visão dos pares chave-valor:
+```{python}
+pares = pessoa.items()
+print(list(pares))
+```
+
+2. `values()` - Retorna uma visão dos valores armazenados:
+
+```{python}
+valores = list(pessoa.values())
+print(valores)
+```
+
+**Observação importante:** A função `list()` aplicada diretamente a um dicionário (`list(pessoa)`) retorna apenas as chaves, equivalente a `list(pessoa.keys())`.
+
+Dicionários em Python (versões 3.7+) mantêm a ordem de inserção, mas a igualdade entre dicionários considera apenas os pares chave-valor, não a ordem:
+
+```{python}
+numerinhos = {"um": 1, "dois": 2, "três": 3}
+numeritos = {"três": 3, "dois": 2, "um": 1}
+
+print(numerinhos == numeritos)
+print(numerinhos)  # Mostra na ordem de inserção
+print(numeritos)   # Mostra na ordem de inserção diferente
+```
+
+Outro comando que pode ser usado para adicionar elementos em um dicionário pode ser o método `update()`.
+
+```{python}
+# Lembra do dicionários receitas?
+print(receitas)
+
+# Nova receita
+outros_elementos = {"mingau": "massa, leite, açúcar"}
+
+# Adicionando a nova receita
+receitas.update(outros_elementos)
+
+# Visualizando
+print(receitas)
+```
+
+- **Resumão:**
+
+1. Os métodos `items()` e `values()` (e `keys()`) retornam objetos de visualização que refletem automaticamente as alterações no dicionário original;
+
+2. A partir do Python 3.7, a ordem de inserção é preservada como característica da implementação, tornando-se parte da especificação na versão 3.8;
+
+3. Uso do método `update` para integralização de dicionários.
+
+:::: progress
+:::: {.progress-bar style="width: 100%;"}
+::::
+::::
