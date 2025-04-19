@@ -65,6 +65,14 @@ O curso combina teoria com prática, oferecendo:
 -   Jupyter Notebook (recomendado), [Programiz](https://www.programiz.com/python-programming/online-compiler/) (recomendado apenas para coisas básicas), [Google Colaboratory](https://colab.research.google.com/), [Jupyter Notebook Online](https://jupyter.org/try-jupyter/lab/) ou qualquer editor de código, como VSCode.
 -   Instalação das bibliotecas: `numpy`, `pandas`, `matplotlib`, `seaborn`.
 
+## Sites de Apoio
+
+- [Python Academy](https://pythonacademy.com.br/)
+- [Python Academy](https://pythonacademy.com.br/)
+- [Python Academy](https://pythonacademy.com.br/)
+- [Python Academy](https://pythonacademy.com.br/)
+- [Python Academy](https://pythonacademy.com.br/)
+
 ------------------------------------------------------------------------
 
 Esperamos que este curso seja uma jornada enriquecedora, ajudando você a adquirir habilidades práticas e teóricas para trabalhar com dados de forma confiante. Vamos começar!

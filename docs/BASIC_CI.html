@@ -115,8 +115,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -550,7 +564,7 @@ print(Hello, World!")</code></pre>
 <pre><code>0</code></pre>
 </div>
 </div>
-<p>Agora que aprendemos os operadores aritméticos básicos, podemos avançar. Mas como calcular <span class="math inline">\(2^{10}\)</span>? A abordagem mais intuitiva - e possível com o ensinado até aqui - seria multiplicar o número <span class="math inline">\(2\)</span> por si mesmo dez vezes:</p>
+<p>Agora que aprendemos os operadores aritméticos básicos, podemos avançar. Mas como calcular <span class="math inline">2^{10}</span>? A abordagem mais intuitiva - e possível com o ensinado até aqui - seria multiplicar o número <span class="math inline">2</span> por si mesmo dez vezes:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -588,7 +602,7 @@ print(Hello, World!")</code></pre>
 <pre><code>1</code></pre>
 </div>
 </div>
-<p>Seguindo essa linha de raciocínio, para calcular a operação de raiz quadrada - lembrando que toda raiz na verdade, é um expoente, isto é, <span class="math inline">\(\sqrt{x} = x^{1/2}\)</span> - temos,</p>
+<p>Seguindo essa linha de raciocínio, para calcular a operação de raiz quadrada - lembrando que toda raiz na verdade, é um expoente, isto é, <span class="math inline">\sqrt{x} = x^{1/2}</span> - temos,</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Código</summary>
@@ -609,7 +623,7 @@ print(Hello, World!")</code></pre>
 <pre><code>9.0</code></pre>
 </div>
 </div>
-<p>Na primeira linha do exemplo, importamos o módulo <strong><code>math</code></strong>, biblioteca padrão do Python, e em seguida, utilizamos a função <code>sqrt()</code> para calcular <span class="math inline">\(\sqrt{81}\)</span>. Lembre-se de executar <code>import math</code> antes de utilizar qualquer função ou constante desse módulo.</p>
+<p>Na primeira linha do exemplo, importamos o módulo <strong><code>math</code></strong>, biblioteca padrão do Python, e em seguida, utilizamos a função <code>sqrt()</code> para calcular <span class="math inline">\sqrt{81}</span>. Lembre-se de executar <code>import math</code> antes de utilizar qualquer função ou constante desse módulo.</p>
 </section>
 <section id="expressões-numéricas" class="level3" data-number="2.2.3">
 <h3 data-number="2.2.3" class="anchored" data-anchor-id="expressões-numéricas"><span class="header-section-number">2.2.3</span> Expressões Numéricas</h3>
@@ -659,7 +673,7 @@ print(Hello, World!")</code></pre>
 </ol>
 <blockquote class="blockquote">
 <p><strong>❗Nota:</strong> Ao trabalhar com números decimais em Python, pode-se observar um comportamento inesperado. Isso não é um erro no código ou na linguagem, mas uma consequência da forma como os computadores representam números de ponto flutuante.</p>
-<p><strong>Por que isso acontece?</strong> A maioria dos computadores utiliza a representação binária (base 2) para armazenar números. O problema é que muitas frações decimais (base 10), como 0.1, não podem ser representadas exatamente em binário. Isso ocorre porque a representação binária tem um número finito de dígitos, assim como ocorre na representação decimal. Por exemplo, ao representar <span class="math inline">\(1/3\)</span> em decimal, obtém-se uma repetição infinita: <span class="math inline">\(0.3333 \ldots\)</span> Da mesma forma, a conversão de 0.1 para binário gera uma fração periódica infinita.</p>
+<p><strong>Por que isso acontece?</strong> A maioria dos computadores utiliza a representação binária (base 2) para armazenar números. O problema é que muitas frações decimais (base 10), como 0.1, não podem ser representadas exatamente em binário. Isso ocorre porque a representação binária tem um número finito de dígitos, assim como ocorre na representação decimal. Por exemplo, ao representar <span class="math inline">1/3</span> em decimal, obtém-se uma repetição infinita: <span class="math inline">0.3333 \ldots</span> Da mesma forma, a conversão de 0.1 para binário gera uma fração periódica infinita.</p>
 <p><strong>IEEE 754 e a precisão limitada:</strong> Os computadores modernos seguem o padrão IEEE 754 para representar números de ponto flutuante. Esse padrão define como os números são armazenados na memória, incluindo a precisão. Em Python, os números de ponto flutuante geralmente utilizam precisão dupla do IEEE 754, que oferece 53 bits de precisão. Quando um número como 0.1 é digitado, o computador encontra a fração binária mais próxima possível dentro desse limite de precisão. O resultado é um valor muito próximo de 0.1, mas não exatamente igual.</p>
 </blockquote>
 </section>
@@ -976,7 +990,7 @@ Tabela&nbsp;2.2: Tabela de Operações e seus Significados
 <ul>
 <li>A variável <code>numero</code> recebeu um valor inteiro.</li>
 <li>A variável <code>frase</code> armazenou uma string.</li>
-<li>A variável <code>pi</code> foi inicialmente atribuída a um valor de ponto flutuante e, em seguida, recebeu o valor mais preciso de <span class="math inline">\(\pi\)</span> disponível na biblioteca <code>math</code>.</li>
+<li>A variável <code>pi</code> foi inicialmente atribuída a um valor de ponto flutuante e, em seguida, recebeu o valor mais preciso de <span class="math inline">\pi</span> disponível na biblioteca <code>math</code>.</li>
 </ul>
 <section id="nomes-de-variáveis" class="level4" data-number="2.2.5.1">
 <h4 data-number="2.2.5.1" class="anchored" data-anchor-id="nomes-de-variáveis"><span class="header-section-number">2.2.5.1</span> Nomes de Variáveis</h4>
@@ -1365,7 +1379,7 @@ sqrt(x, /)
 <div class="sourceCode cell-code" id="cb169"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="bu">globals</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'os': &lt;module 'os' (frozen)&gt;, 'r': &lt;__main__.R object at 0x00000232B2141B20&gt;, 'math': &lt;module 'math' (built-in)&gt;, 'numero': 6, 'frase': "Me dá um copo d'água.", 'pi': 3.141592653589793, 'crieiumavariavelcomnomegiganteeestoucompreguiçadeescrevertudodenovo': 10, 'x': 1, 'y': 2.3, 'z': 62, 'n': 10, 'num': 6, 'a': 1, 'b': 2, 'aux': 1, 'c': 2, 'd': 1, 'palavra': 'Python', 'logic': True}</code></pre>
+<pre><code>{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'os': &lt;module 'os' (frozen)&gt;, 'r': &lt;__main__.R object at 0x000002A8C9DBDCA0&gt;, 'math': &lt;module 'math' (built-in)&gt;, 'numero': 6, 'frase': "Me dá um copo d'água.", 'pi': 3.141592653589793, 'crieiumavariavelcomnomegiganteeestoucompreguiçadeescrevertudodenovo': 10, 'x': 1, 'y': 2.3, 'z': 62, 'n': 10, 'num': 6, 'a': 1, 'b': 2, 'aux': 1, 'c': 2, 'd': 1, 'palavra': 'Python', 'logic': True}</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1374,7 +1388,7 @@ sqrt(x, /)
 <div class="sourceCode cell-code" id="cb171"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="bu">locals</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'os': &lt;module 'os' (frozen)&gt;, 'r': &lt;__main__.R object at 0x00000232B2141B20&gt;, 'math': &lt;module 'math' (built-in)&gt;, 'numero': 6, 'frase': "Me dá um copo d'água.", 'pi': 3.141592653589793, 'crieiumavariavelcomnomegiganteeestoucompreguiçadeescrevertudodenovo': 10, 'x': 1, 'y': 2.3, 'z': 62, 'n': 10, 'num': 6, 'a': 1, 'b': 2, 'aux': 1, 'c': 2, 'd': 1, 'palavra': 'Python', 'logic': True}</code></pre>
+<pre><code>{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': &lt;class '_frozen_importlib.BuiltinImporter'&gt;, '__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;, 'os': &lt;module 'os' (frozen)&gt;, 'r': &lt;__main__.R object at 0x000002A8C9DBDCA0&gt;, 'math': &lt;module 'math' (built-in)&gt;, 'numero': 6, 'frase': "Me dá um copo d'água.", 'pi': 3.141592653589793, 'crieiumavariavelcomnomegiganteeestoucompreguiçadeescrevertudodenovo': 10, 'x': 1, 'y': 2.3, 'z': 62, 'n': 10, 'num': 6, 'a': 1, 'b': 2, 'aux': 1, 'c': 2, 'd': 1, 'palavra': 'Python', 'logic': True}</code></pre>
 </div>
 </div>
 <p>Se estiver usando o IPython, os comandos mágicos <code>%who</code> e <code>%whos</code> são ótimas alternativas, pois filtram as variáveis criadas internamente pelo Python, exibindo apenas aquelas que você declarou.</p>
@@ -1394,13 +1408,13 @@ divertido!</code></pre>
 <p><strong>4. Realize as operações matemáticas a seguir, guarde em uma variável e exiba os resultados. Além de determinar a ordem de execução conforme as regras de precedência matemática:</strong></p>
 <ul>
 <li><ol type="a">
-<li><span class="math display">\[\dfrac{100 − 413 \cdot (20 − 5 \times 4)}{5}\]</span></li>
+<li><span class="math display">\dfrac{100 − 413 \cdot (20 − 5 \times 4)}{5}</span></li>
 </ol></li>
 <li><ol start="2" type="a">
-<li><span class="math display">\[\dfrac{ \left[(3^{4} + \sqrt{144})(100 - 95,5) \right] + 6 }{-80 + 2^{4}}\]</span></li>
+<li><span class="math display">\dfrac{ \left[(3^{4} + \sqrt{144})(100 - 95,5) \right] + 6 }{-80 + 2^{4}}</span></li>
 </ol></li>
 <li><ol start="3" type="a">
-<li><span class="math display">\[3,9 \cdot 10^{-2} + 5,2 \cdot 10^{-1/3}\]</span></li>
+<li><span class="math display">3,9 \cdot 10^{-2} + 5,2 \cdot 10^{-1/3}</span></li>
 </ol></li>
 </ul>
 <p><strong>5. Os seguintes códigos contém erros. Identifique e corrija:</strong></p>

@@ -37,6 +37,7 @@ comments:
 format:
   html:
     number-sections: true
+    html-math-method: katex
     code-fold: true
     code-tools: true
     code-link: true
