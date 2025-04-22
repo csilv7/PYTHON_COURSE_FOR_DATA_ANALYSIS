@@ -5,13 +5,13 @@
 ```
 
 :::: progress
-:::: {.progress-bar style="width: 100%;"}
-::::
+::: {.progress-bar style="width: 100%;"}
+:::
 ::::
 
 | FAEST | CAEST | PYTHON |
-|----|----|----|
-| ![](https://www.faest.icen.ufpa.br/images/110.png){fig-align="center" width="350"} |  | ![](https://www.python.org/static/img/python-logo.png){fig-align="center" width="1750"} |
+|------------------------|------------------------|------------------------|
+| ![](/IMAGENS/LOGO_FAEST.jpeg){fig-align="center" width="400"} | ![](/IMAGENS/LOGO_CAEST.jpeg){fig-align="center" width="350"} | ![](/IMAGENS/LOGO_PYTHON.png){fig-align="center" width="350"} |
 
 # Introdução
 
@@ -67,17 +67,17 @@ O curso combina teoria com prática, oferecendo:
 
 ## Sites de Apoio
 
-- [Python Academy](https://pythonacademy.com.br/)
-- [Python Academy](https://pythonacademy.com.br/)
-- [Python Academy](https://pythonacademy.com.br/)
-- [Python Academy](https://pythonacademy.com.br/)
-- [Python Academy](https://pythonacademy.com.br/)
+-   [Python Academy](https://pythonacademy.com.br/)
+-   [Python Academy](https://pythonacademy.com.br/)
+-   [Python Academy](https://pythonacademy.com.br/)
+-   [Python Academy](https://pythonacademy.com.br/)
+-   [Python Academy](https://pythonacademy.com.br/)
 
 ------------------------------------------------------------------------
 
 Esperamos que este curso seja uma jornada enriquecedora, ajudando você a adquirir habilidades práticas e teóricas para trabalhar com dados de forma confiante. Vamos começar!
 
 :::: progress
-:::: {.progress-bar style="width: 100%;"}
-::::
+::: {.progress-bar style="width: 100%;"}
+:::
 ::::
