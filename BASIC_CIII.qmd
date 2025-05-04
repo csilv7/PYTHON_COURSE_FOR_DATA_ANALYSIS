@@ -24,14 +24,12 @@ Em programação, o **controle de fluxo** determina a ordem em que as instruçõ
 
 **Neste capítulo, exploraremos as principais estruturas de controle de fluxo:**
 
-* **Condicionais (`if`, `elif`, `else`)**: Permitem executar blocos de código diferentes dependendo se uma condição é verdadeira ou falsa.
-* **Laços (`for`, `while`)**: Permitem repetir um bloco de código várias vezes, seja por um número específico de vezes ou enquanto uma condição for verdadeira.
-* **Tratamento de exceções (`try`, `except`, `finally`)**: Permitem lidar com erros e situações inesperadas sem interromper o programa.
-* **Palavras-chave (`break`, `continue`, `pass`)**: Permitem controlar o fluxo de execução dentro de laços.
+* **Condicionais - `if`, `elif` e `else`:** Permitem executar blocos de código diferentes dependendo se uma condição é verdadeira ou falsa.
+* **Laços - `for` e `while`:** Permitem repetir um bloco de código várias vezes, seja por um número específico de vezes ou enquanto uma condição for verdadeira.
+* **Tratamento de exceções - `try`, `except` e `finally`:** Permitem lidar com erros e situações inesperadas sem interromper o programa.
+* **Palavras-chave - `break` e `continue`:** Permitem controlar o fluxo de execução dentro de laços.
 
-**Por que o controle de fluxo é importante?**
-
-Imagine um programa que:
+**Por que o controle de fluxo é importante?** Imagine um programa que:
 
 * Decide se um usuário tem acesso a um sistema (`if`).
 * Repete uma ação até que um download seja concluído (`while`).
@@ -57,87 +55,97 @@ Senão:
     Não levarei
 ```
 
-> **Nota: Em Python, a indentação (recuo de quatro espaços ou um tab) é obrigatória para definir os blocos de código. Isso significa que o que estiver indentado será considerado parte da condição.**
+> **Nota: Em Python, a indentação (recuo de quatro espaços ou um *tab*) é obrigatória para definir os blocos de código. Isso significa que o que estiver indentado será considerado parte da condição.**
 
 ---
 
-### Estrutura `if` e `else`
+### Estrutura `if` Simples
 
-Vamos começar com o básico: `if` (se) e `else` (senão).
+A estrutura mais básica do controle de fluxo é o `if`, que permite executar um bloco de código apenas se uma condição for verdadeira.
 
 ```{python}
-a = 7
+idade = 20
+if idade >= 18:
+    print("Você é maior de idade.")
+```
 
-if a > 3:
-    print("A variável 'a' é maior que 3")
+> Neste exemplo, como `idade` é 20, que é maior que 18, a mensagem será exibida.
+
+---
+
+### Estrutura `if/else`
+
+Se quisermos executar um código para o caso em que a condição não é satisfeita, usamos o `else`.
+
+```{python}
+idade = 16
+if idade >= 18:
+    print("Você é maior de idade.")
 else:
-    print("A variável 'a' é menor ou igual a 3")
+    print("Você é menor de idade.")
 ```
 
 ---
 
-### Estrutura `if`, `elif` e `else`
+### Estrutura `if/elif/else`
 
-Se quisermos testar mais de uma condição, usamos o `elif` (abreviação de `else if`). Assim, podemos checar várias possibilidades antes de cair no `else`.
+Para avaliar múltiplas condições, usamos `elif` ("else if").
 
 ```{python}
-valor = 3
-
-if valor == 1:
-    print("Valor é 1")
-elif valor == 2:
-    print("Valor é 2")
-elif valor == 3:
-    print("Valor é 3")
+nota = 8
+if nota >= 9:
+    conceito = "A"
+elif nota >= 7:
+    conceito = "B"
+elif nota >= 5:
+    conceito = "C"
 else:
-    print("Valor não corresponde a nenhuma das opções anteriores")
-```
+    conceito = "D"
 
-> **O Python executa apenas o primeiro bloco de código cuja condição for verdadeira. Os demais são ignorados.**
+print("Conceito:", conceito)
+```
 
 ---
 
-### Comparando `if` + `elif` *vs* vários `if` isolados {.unnumbered}
+### Comparação: `if/elif` *vs* `if` {.unnumbered}
 
-É importante entender a diferença entre usar `elif` e vários `if` consecutivos.
+Há uma diferênça ao usar as condições `if/elif` e usar vários `if` de forma consecutivas. É importante entender como essa diferênça funciona para que o seu programa não atenda mais de uma condição quando na verdade "apenas uma" é a verdadeira. Vamos há um exemplo claro e objetivo.
 
 ```{python}
-a = 1
-
-if a == 1:
+if 1 == 1:
     print("Caiu no 1º if")
-elif a >= 1:
+elif 1 >= 1:
     print("Caiu no elif")
 else:
     print("Caiu no else")
 ```
 
-Nesse exemplo, apenas o primeiro bloco (`if a == 1`) será executado.
+Perceba que duas condições em teste são verdadeiras. Porém, ao usarmos a estrutura `if/elif`, apenas *o bloco com a primeira condição verdadeira é executado*. No exemplo, apenas o blobo seguinte a condição `if a == 1` foi executado.
 
-Agora, veja o que acontece se usamos dois if separados:
+Agora, veja o exemplo adaptado a estrutura de `if` consecutivos:
 
 ```{python}
-a = 1
-
-if a == 1:
+if 1 == 1:
     print("Caiu no 1º if")
-
-if a >= 1:
+if 1 >= 1:
     print("Caiu no 2º if")
 else:
     print("Caiu no else")
 ```
 
-Aqui, ambos os blocos `if` serão avaliados independentemente. Isso pode ser útil em algumas situações, mas exige atenção!
+No bloco de código acima não há uma regra pré definida pelo Python. Ambos os blocos `if` serão avaliados independentemente. Isso pode ser útil em algumas situações, mas exige atenção!
 
 ---
 
 ### Outros Exemplos de Condicionais
 
+- **1º Exemplo - Condicionais Aninhadas:** Útil quando queremos verificar uma condição dada que outra já foi satisfeita. Ou seja, uma estrutura condicional pode estar dentro de outra.
+
 ```{python}
+# Definindo uma variável numérica
 value = 2.35
 
-# 1ª condição
+# 1ª condição (externa)
 if value <= 1:
   print("O valor é menor ou igual a 1")
   
@@ -175,19 +183,20 @@ else:
   
   # 1ª condição (interna) dada que 3ª condição (externa) foi satisfeita
   if value <= 2.5:
-    print("Porém está entre (2; 2,5]")
+    print("Podendo variar entre (2; 2,5]")
     
   # 2ª condição (interna) dada que 3ª condição (externa) foi satisfeita
   elif value <= 3:
-    print("Porém está entre (2,5; 3]")
+    print("Podendo variar entre (2,5; 3]")
     
   # 3ª condição (interna) dada que 3ª condição (externa) foi satisfeita
   else:
     print("O valor é maior que 3")
 ```
 
-```{python}
+- **2º Exemplo - Classificação de Valores:** Já pararam para pensar como o conceito é dado pelo sistema da Universidade Federal do Pará? A classificação ocorre da seguinte maneira:
 
+```{python}
 import random as rd
 
 rd.seed(123456789)
@@ -196,7 +205,6 @@ mean = sum(review) / len(review)
 print(f"Média das Avaliações: {round(mean, 2)}")
 
 # Em qual conceito está média estaria?
-
 if (mean >= 0) and (mean < 5):
   print("O conceito do aluno foi INSUFICIENTE")
 elif (mean >= 5) and (mean < 7):
@@ -209,11 +217,12 @@ else:
   print("Média de Avaliações Inválida")
 ```
 
+- **2º Exemplo - Classificação de Valores:** Já pararam para pensar como o conceito é dado pelo sistema da Universidade Federal do Pará? Mas também pode ser feita de forma mais direta:
+
 ```{python}
 print(f"Média das Avaliações: {round(mean, 2)}")
 
 # Em qual conceito está média estaria?
-
 if 0 <= mean < 5:
   print("O conceito do aluno foi INSUFICIENTE")
 elif 5 <= mean < 7:
@@ -226,69 +235,42 @@ else:
   print("Média de Avaliações Inválida")
 ```
 
+- **3º Exemplo - Condição com Expressão Ternária:** Forma reduzida do `if/else,` muito últil para atribuições simples. Exemplo com `string`:
+
 ```{python}
+# Dados do usuário
 age = 19
 CNH = True
 
+# Verificação com Expressão Ternária
 result = "Está apto a dirigir!" if age >= 18 and CNH != False else "Não está apto a dirigir!"
-result
+
+# Visualizar
+print(result)
 ```
 
-```{python}
-numero = 2.2 # int(input("Digite um número: "))
+- **3º Exemplo - Condição com Expressão Ternária:** Forma reduzida do `if/else,` muito últil para atribuições simples. Exemplo com `number`:
 
-if numero > 0:
-    print(f"{numero} é positivo")
-    if numero % 2 == 0:
-        print(f"{numero} é um número par")
-    else:
-        print(f"{numero} é um número ímpar")
-else:
-    print(f"{numero} não é positivo")
-```
 ```{python}
-x = 4
-y = 5
+# Definindo números
+x, y = 4, 5
 
+# Verificação com Expressão Ternária
 maior_valor = x if x > y else y
-maior_valor
-```
 
-```{python}
-letra = "A "
-
-if letra == "B":
-  print("letra é B")
-
-else:
-  if letra == "C":
-    print("letra é C")
-  
-  else:
-    if letra == "A":
-      print("letra é A")
-    
-    else:
-      print("a letra não é A, B e C")
-```
-
-```{python}
-sol = True
-chuva = False
-
-if sol and not chuva:
-    print("Dia perfeito para um passeio!")
-elif sol and chuva:
-    print("Tem sol e chuva? Casamento de viúva!")
-else:
-    print("Melhor ficar em casa.")
+# Visualizar
+print(maior_valor)
 ```
 
 ---
 
-### Considerações
+### Considerações e Boas Práticas
 
-- **Lembre das @tbl-operLogic (operadores lógicos) e @tbl-conecLogic (conectores lógicos).**
+- Use `elif` quando apenas uma entre várias condições pode ser verdadeira;
+- Evite aninhamentos profundos de `if`;
+- Use operações compostas como `7 <= mean < 9` para mais clareza;
+- Sempre comente blocos de código complexos;
+- Lembre das @tbl-operLogic que apresentam os *operadores lógicos* e @tbl-conecLogic que mostra os *conectores lógicos*.
 
 ---
 
@@ -298,8 +280,7 @@ As estruturas de repetição são usadas para executar um bloco de código vári
 
 Em Python, temos duas principais formas de repetição:
 
-- `for`: Ideal quando sabemos o número de repetições ou estamos percorrendo uma estrutura (lista, string, dicionário, etc).
-
+- `for`: Ideal quando sabemos o número de repetições ou estamos percorrendo uma estrutura (lista, string, dicionário, etc);
 - `while`: Ideal quando não sabemos o número exato de repetições e precisamos que o código continue enquanto uma condição for verdadeira.
 
 ---
@@ -327,7 +308,6 @@ list(range(3))
 Agora vamos usar o `range()` dentro de um laço `for`:
 
 ```{python}
-# Loop com range()
 for i in range(3):
     print(i)
 ```
@@ -337,9 +317,12 @@ Você também pode fazer a mesma coisa passando uma lista explicitamente:
 
 ```{python}
 print(f"Lista exemplo para iteração: {list(range(3))}")
+print("Iniciando contagem:")
 
-for i in list(range(3)):
-    print(i)
+for contador in list(range(3)):
+  print(f"Passo {contador + 1}: Valor atual = {contador}")
+
+print("Contagem concluída!")
 ```
 > O resultado será o mesmo. Nesse caso, você está iterando diretamente sobre os elementos de uma lista.
 
@@ -473,7 +456,7 @@ print(quadrados)
 
 ---
 
-##### Compreensão de Listas com Condição (`if`)
+##### Compreensão de Listas com Condição `if`
 
 É possível aplicar condicionais em compreensão de listas. De forma geral, a seguinte sintaxe é seguida:
 
@@ -604,6 +587,8 @@ matrix = [
   [5, 6, 7, 8],
   [9, 10, 11, 12]
 ]
+
+print(matrix)
 ```
 
 
@@ -723,7 +708,7 @@ numeros = [10, 20, 30, 40, 50]
 soma = 0
 
 while numeros:
-    valor = numeros.pop()  # remove o último elemento
+    valor = numeros.pop()  # Remove o último elemento
     soma += valor
 
 print(f"Soma dos valores: {soma}")
@@ -736,12 +721,9 @@ Esse exemplo mostra como o `while` pode operar **enquanto uma lista tiver elemen
 ##### Exemplo com múltiplas condições
 
 ```{python}
-dados = [12, -3, 5, 0, -8, 19, -1, 0, 7]
-i = 0
+dados, i = [12, -3, 5, 0, -8, 19, -1, 0, 7], 0
 
-positivos = 0
-negativos = 0
-zeros = 0
+positivos, negativos, zeros = 0, 0, 0
 
 while i < len(dados):
     if dados[i] > 0:
@@ -759,7 +741,18 @@ Esse exemplo simula uma **classificação de dados** usando `while` com múltipl
 
 ---
 
-### Comandos Chave
+### Comandos-Chave
+
+Em desenvolvimento Python, à medida que a complexidade do código aumenta, torna-se fundamental o domínio de mecanismos para o tratamento robusto de erros e o controle preciso da execução de estruturas de repetição. Esta seção explora dois grupos essenciais de comandos que possibilitam um fluxo de execução mais refinado e resiliente.
+
+- **Tratamento de Exceções:** Python oferece um conjunto de construções para o tratamento de exceções, permitindo o desenvolvimento de código capaz de responder de forma controlada a eventos inesperados durante a execução. Ao utilizar blocos `try`, `except` e, opcionalmente, `finally`, é possível interceptar e manipular erros, evitando a interrupção abrupta do programa e implementando estratégias de recuperação ou finalização controlada de recursos.
+
+- **Controle de Fluxo em Loops:** Adicionalmente às estruturas condicionais básicas, Python disponibiliza palavras-chave específicas para o controle do fluxo de execução dentro de laços de repetição (`for` e `while`). Os comandos `break` e `continue` fornecem mecanismos para alterar o comportamento padrão dos loops:
+
+  - `break`: Interrompe a execução do loop corrente e transfere o controle para a próxima instrução após o loop.
+  - `continue`: Interrompe a iteração corrente e passa para a próxima iteração do loop.
+
+O domínio destas ferramentas de tratamento de exceções e controle de fluxo em loops é crucial para a escrita de código Python robusto, eficiente e capaz de lidar com cenários complexos de execução. A correta aplicação destes conceitos contribui significativamente para a qualidade e a manutenibilidade de projetos de software.
 
 ## Funções
 

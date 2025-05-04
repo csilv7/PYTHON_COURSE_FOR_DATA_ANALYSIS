@@ -11,7 +11,7 @@
 
 | FAEST | CAEST | PYTHON |
 |------------------------|------------------------|------------------------|
-| ![](/IMAGENS/LOGO_FAEST.jpeg){fig-align="center" width="400"} | ![](/IMAGENS/LOGO_CAEST.jpeg){fig-align="center" width="350"} | ![](/IMAGENS/LOGO_PYTHON.png){fig-align="center" width="350"} |
+| ![](/IMAGENS/LOGO_FAEST.jpeg){fig-align="center" width="450"} | ![](/IMAGENS/LOGO_CAEST.jpeg){fig-align="center" width="350"} | ![](/IMAGENS/LOGO_PYTHON.webp){fig-align="center" width="325"} |
 
 # Introdução
 
@@ -67,11 +67,11 @@ O curso combina teoria com prática, oferecendo:
 
 ## Sites de Apoio
 
--   [Python Academy](https://pythonacademy.com.br/)
--   [Python Academy](https://pythonacademy.com.br/)
--   [Python Academy](https://pythonacademy.com.br/)
--   [Python Academy](https://pythonacademy.com.br/)
--   [Python Academy](https://pythonacademy.com.br/)
+- [Python Academy](https://pythonacademy.com.br/)
+- [Python Examples](https://pythonexamples.org/python/)
+- [Hashtag Treinamentos](https://www.youtube.com/@HashtagTreinamentos)
+
+
 
 ------------------------------------------------------------------------
 

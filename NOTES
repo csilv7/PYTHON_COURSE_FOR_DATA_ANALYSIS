@@ -1,3 +1,86 @@
+## Comandos Chave
+
+Python também oferece comandos específicos para o controle do fluxo de execução em situações especiais:
+
+### Tratamento de Exceções: `try`, `except`, `finally`
+
+Erros podem ocorrer durante a execução de um programa. O bloco `try/except` permite tratar esses erros de forma controlada, evitando que o programa pare inesperadamente.
+
+```python
+try:
+    numero = int(input("Digite um número inteiro: "))
+    resultado = 10 / numero
+    print("Resultado:", resultado)
+except ValueError:
+    print("Você deve digitar um número inteiro.")
+except ZeroDivisionError:
+    print("Não é possível dividir por zero.")
+finally:
+    print("Operação encerrada.")
+```
+
+* `try`: bloco onde ocorre o código que pode gerar exceções.
+* `except`: captura e trata o erro.
+* `finally`: executado sempre, ocorrendo ou não um erro.
+
+### Palavras-chave: `break`, `continue`, `pass`
+
+Essas palavras são úteis dentro de laços de repetição:
+
+#### `break`
+
+Interrompe a execução do laço atual.
+
+```python
+for i in range(10):
+    if i == 5:
+        break
+    print(i)
+```
+
+> Sai do laço quando `i` for 5.
+
+#### `continue`
+
+Pula a iteração atual e continua com a próxima.
+
+```python
+for i in range(5):
+    if i == 2:
+        continue
+    print(i)
+```
+
+> Pula a iteração quando `i` for 2.
+
+## Boas Práticas
+
+* Use `elif` quando apenas uma entre várias condições pode ser verdadeira.
+* Evite aninhamentos profundos de `if`.
+* Use operações compostas como `7 <= media < 9` para mais clareza.
+* Sempre comente blocos de código complexos.
+* Trate erros com `try/except` ao lidar com entrada do usuário ou operações de risco.
+* Use `break` e `continue` com moderação para não prejudicar a legibilidade do código.
+
+## Exercícios Práticos
+
+1. Peça para o usuário digitar uma nota e classifique como "A", "B", "C" ou "D".
+2. Solicite um número e informe se ele é par ou ímpar.
+3. Verifique se o usuário pode votar (idade >= 16).
+4. Faça um programa que leia números até que o usuário digite zero, e interrompa com `break`.
+5. Crie um código que tenta converter uma string em número inteiro e trate erros com `try/except`.
+
+> **Importante:** o comando `input()` pode não funcionar corretamente em plataformas que renderizam HTML (como sites de publicação). Para testes com entrada do usuário, prefira rodar o código em um ambiente local ou Jupyter Notebook.
+
+## Conclusão
+
+O controle de fluxo é essencial para escrever programas que tomam decisões. Com `if`, `elif`, `else`, operadores lógicos, expressões ternárias e comandos chave como `try/except` e `break/continue`, você consegue construir lógicas complexas e dinâmicas de forma clara e legível.
+
+Na próxima seção, abordaremos as **estruturas de repetição**, como `for` e `while`, para automatizar tarefas repetitivas!
+
+
+----------
+
 ## Controle de Fluxo
 
 ### Estruturas de Repetição
