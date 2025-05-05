@@ -22,12 +22,12 @@ use_python("C:/Users/user/anaconda3/python.exe", required = TRUE)
 
 Em programação, o **controle de fluxo** determina a ordem em que as instruções são executadas em um programa. Em Python, isso permite criar programas que tomam decisões e repetem ações com base em condições específicas, tornando seu código mais dinâmico e adaptável.
 
-**Neste capítulo, exploraremos as principais estruturas de controle de fluxo:**
+**Nesta seção, exploraremos as principais estruturas de controle de fluxo:**
 
-* **Condicionais - `if`, `elif` e `else`:** Permitem executar blocos de código diferentes dependendo se uma condição é verdadeira ou falsa.
-* **Laços - `for` e `while`:** Permitem repetir um bloco de código várias vezes, seja por um número específico de vezes ou enquanto uma condição for verdadeira.
-* **Tratamento de exceções - `try`, `except` e `finally`:** Permitem lidar com erros e situações inesperadas sem interromper o programa.
-* **Palavras-chave - `break` e `continue`:** Permitem controlar o fluxo de execução dentro de laços.
+- **Condicionais - `if`, `elif` e `else`:** Permitem executar blocos de código diferentes dependendo se uma condição é verdadeira ou falsa.
+- **Laços - `for` e `while`:** Permitem repetir um bloco de código várias vezes, seja por um número específico de vezes ou enquanto uma condição for verdadeira.
+- **Tratamento de exceções - `try`, `except` e `finally`:** Permitem lidar com erros e situações inesperadas sem interromper o programa.
+- **Palavras-chave - `break` e `continue`:** Permitem controlar o fluxo de execução dentro de laços.
 
 **Por que o controle de fluxo é importante?** Imagine um programa que:
 
@@ -107,7 +107,7 @@ print("Conceito:", conceito)
 
 ---
 
-### Comparação: `if/elif` *vs* `if` {.unnumbered}
+### Diferença entre `if/elif` e múltiplos `if` independentes {.unnumbered}
 
 Há uma diferênça ao usar as condições `if/elif` e usar vários `if` de forma consecutivas. É importante entender como essa diferênça funciona para que o seu programa não atenda mais de uma condição quando na verdade "apenas uma" é a verdadeira. Vamos há um exemplo claro e objetivo.
 
@@ -741,7 +741,7 @@ Esse exemplo simula uma **classificação de dados** usando `while` com múltipl
 
 ---
 
-### Comandos-Chave
+## Comandos-Chave
 
 Em desenvolvimento Python, à medida que a complexidade do código aumenta, torna-se fundamental o domínio de mecanismos para o tratamento robusto de erros e o controle preciso da execução de estruturas de repetição. Esta seção explora dois grupos essenciais de comandos que possibilitam um fluxo de execução mais refinado e resiliente.
 
@@ -753,6 +753,88 @@ Em desenvolvimento Python, à medida que a complexidade do código aumenta, torn
   - `continue`: Interrompe a iteração corrente e passa para a próxima iteração do loop.
 
 O domínio destas ferramentas de tratamento de exceções e controle de fluxo em loops é crucial para a escrita de código Python robusto, eficiente e capaz de lidar com cenários complexos de execução. A correta aplicação destes conceitos contribui significativamente para a qualidade e a manutenibilidade de projetos de software.
+
+---
+
+### Tratamento de Exceções
+
+Em Python, erros em tempo de execução são inevitáveis (e.g., entrada inválida, divisão por zero, arquivo ausente). O **tratamento de exceções**, via blocos `try/except`, permite que o programa **continue executando** ao invés de interromper. Ao prever e capturar erros específicos, o código reage de forma controlada, garantindo maior robustez e estabilidade da aplicação. Essencial para software confiável.
+
+Um exemplo da estrutura básica é apresentado no bloco de código abaixo:
+
+```python
+try:
+    # Código que pode gerar erros
+    numero = int(input("Digite um número: "))
+    resultado = 10 / numero
+    print("Resultado:", resultado)
+except ZeroDivisionError:
+    # Executado se ocorrer o erro específico
+    print("Erro: Divisão por zero!")
+except Exception as e:
+    # Captura qualquer outro erro
+    print(f"Erro inesperado: {e}")
+else:
+    # Executado se NENHUM erro ocorrer
+    print("Operação bem-sucedida!")
+finally:
+    # Sempre executado (com ou sem erros)
+    print("Fim do bloco try-except")
+```
+
+- O bloco `try` encapsula o código passível de gerar erros em tempo de execução.
+- O bloco `except` especifica o tratamento para tipos particulares de erros (exceções) que possam ocorrer dentro do bloco `try`. Múltiplos blocos `except` podem ser definidos para lidar com diferentes tipos de exceções. A captura genérica de qualquer exceção pode ser realizada com `except Exception`.
+- O bloco `finally` é executado invariavelmente, independentemente da ocorrência ou não de uma exceção dentro do bloco `try`. Sua principal aplicação reside na execução de rotinas de finalização, como o fechamento de arquivos ou a liberação de conexões.
+
+---
+
+### Palavras-Chave
+
+Dentro de laços de repetição `for` e `while` em Python, as palavras-chave `break` e `continue` oferecem mecanismos essenciais para o controle preciso do fluxo de execução. `break` interrompe imediatamente a execução do loop, transferindo o controle para a instrução seguinte ao bloco do loop. `continue`, por sua vez, encerra a iteração corrente e passa para a próxima iteração do loop. A utilização estratégica dessas palavras-chave contribui para a organização e a eficiência do código em cenários onde a execução padrão do loop necessita ser alterada condicionalmente.
+
+---
+
+#### `break` {.unnumbered}
+
+```{python}
+# Encontra o primeiro número divisível por 7
+for num in range(1, 10):
+    if num % 7 == 0:
+        print(f"Encontrado: {num}")
+        break
+    print(num)
+```
+
+```python
+while True:
+    senha = input("Digite a senha (1234) para sair: ")
+    if senha == "1234":
+        print("Senha correta! Saindo...")
+        break
+    print("Senha incorreta!")
+```
+
+---
+
+#### `continue` {.unnumbered}
+
+```{python}
+# Não irá imprimir o número 7
+for num in range(1, 10):
+    if num == 7:
+        continue
+    print(num)
+```
+
+```{python}
+produtos = ["camiseta", "caneca", None, "poster", "", "adesivo"]
+for item in produtos:
+    if not item:  # None ou string vazia
+        continue
+    print(f"Processando: {item.upper()}")
+```
+
+---
 
 ## Funções
 
