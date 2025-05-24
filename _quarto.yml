@@ -19,6 +19,7 @@ book:
     right: |
       Construído <a href="https://quarto.org/"> Pacote Quarto no R4.3</a>.
   repo-url : https://github.com/csilv7/PYTHON_COURSE_FOR_DATA_ANALYSIS
+  downloads: pdf
   repo-subdir: docs
   repo-branch: main
   repo-actions: edit #[edit, issue, source]
@@ -26,10 +27,10 @@ book:
   page-navigation: true
   chapters:
     - index.qmd
-    - BASIC_CI.qmd
-    - BASIC_CII.qmd
-    - BASIC_CIII.qmd
-    - MODULES.qmd
+    - 01_Fundamentals_of_Python.qmd
+    - 02_Data_Structure.qmd
+    - 03_FlowControl_&_Functions.qmd
+    - references.qmd
 
 comments:
   hypothesis: true
@@ -43,16 +44,23 @@ format:
     code-link: true
     toc-title: Índice
     toc-location: right
-    #fontcolor: "black"
-    #theme:
-    #  light: [blue, custom.scss]
-    #  dark:  [cyborg, custom.scss]
-    #theme: "lux"
     theme:
-      light: [lux, custom.scss]
-      dark:  [cyborg, custom.scss]
-    highlight-style: monokai
+     light: [blue]
+     dark:  [cyborg]
     df-print: paged
+    
+  pdf:
+    documentclass: scrreprt
+    fig-pos: "H"
+    number-sections: true
+    pdf-engine: xelatex
+    indent: true
+    header-includes: |
+      \usepackage{indentfirst}
+    fontsize: 11pt
+    geometry: [left=2cm, top=2cm, right=2cm, bottom=2cm]
+
+bibliography: references.bib
 
 execute:
   echo: true
