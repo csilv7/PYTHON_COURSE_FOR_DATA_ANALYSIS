@@ -1,134 +1,3 @@
-## Funções
-
-Uma função é uma sequência de instruções que executa uma operação específica de computação. Ao definir uma função, você especifica um nome e a sequência de instruções que serão executadas quando a função for chamada pelo nome.
-
-A ideia é semelhante às funções matemáticas, mas, em linguagens de programação, as funções não se restringem a realizar apenas cálculos. Elas podem realizar uma ampla variedade de tarefas, como manipulação de dados, operações de entrada e saída, entre outras.
-
-Em Python, funções são blocos de código reutilizáveis que ajudam a organizar e modularizar um programa. Elas recebem dados de entrada, chamados de argumentos, aplicam uma sequência de operações sobre esses dados e, opcionalmente, retornam um resultado, conhecido como valor de retorno. Essa relação é análoga à definição de função na matemática, onde cada elemento de um conjunto (domínio) é associado a um único elemento de outro conjunto (imagem).
-
-Vimos o `type()`, um exemplo de função:
-
-```         
-[Input]  : type(23)
-[Output] : int
-```
-
-```         
-[Input]  : type('textinho')
-[Output] : str
-```
-
-Defini-se função de forma que:
-
-```         
-[Input]  : def NOME_DA_FUNÇÃO(parâmetro_1, parâmetro_2, ..., parâmetro_n):
-               <1º comando>
-               <2º comando>
-               ...
-               <n-ésimo comando>
-
-               print(var_1, var_2, ..., var_n) ou retun var_1, var_2, ..., var_n
-```
-
-> **Nota:** Assim como nas estruturas de decisão e loops, as funções em Python é necessário utilizar os dois pontos (:) seguidos de uma indentação para indicar que um bloco de código pertence a essas estruturas.
-
-Veja exemplos:
-
-```{python}
-def soma():
-  print(1 + 1)
-```
-
-```{python}
-soma()
-```
-
-```{python}
-def soma():
-  return 1 + 1
-```
-
-```{python}
-soma()
-```
-
-Qual a diferença entre utilizar `print()` e `return` aqui em cima?!?
-
-```{python}
-# Definindo a função `soma`
-def soma():
-  print(1 + 1)
-
-# Executando a função
-soma()
-```
-
-```{python}
-# Atribuindo o resultado de `soma` a uma variável `a`
-a = soma()
-
-# Chamando o valor de `a`
-a # Note que a = 2, porém
-```
-
-```{python}
-# Definindo a função `soma`
-def soma():
-  return 1 + 1
-
-# Executando a função
-soma()
-```
-
-```{python}
-# Atribuindo o resultado de `soma` a uma variável `b`
-b = soma()
-
-# Chamando o valor de `b`
-b
-```
-
-Tal diferênça surge porque a função `print()` é usado somente para imprimir as informações/resultados na tela. Com isso, não é possível atribuir uma impressão à uma variável.
-
-Por isso, quando desejarmos guardar (atribuir) os valores resultantes de uma função devemos usar `return`.
-
-### Funções com Argumentos
-
-Queremos multiplicar um número qualquer, $x$, por $2$ e somar com $3$, assim, a função em Python pode ser escrita dessa forma:
-
-```{python}
-def linear(x):
-  return 2 * x + 3
-```
-
-```{python}
-linear(1)
-```
-
-```{python}
-linear(2)
-```
-
-Como posso calcular a tabuada de um número onde tal número é o dado de entrada? Veja:
-
-```{python}
-def tabuada_num(num):
-  for n in range(1, 11):
-    print(f'{num} x {n} = {num * n}')
-```
-
-```{python}
-tabuada_num(7)
-```
-
-```{python}
-tabuada_num(13)
-```
-
-```{python}
-tabuada_num(1.5)
-```
-
 # Exercicíos
 
 ## 1. **Aulas Faltadas:** {.unnumbered}
@@ -492,3 +361,353 @@ Crie um programa para gerenciar o cadastro de alunos e suas notas em uma escola.
 > -   Crie funções para cada uma das funcionalidades do sistema (cadastrar aluno, consultar aluno, calcular média, alterar notas, gerar relatório).
 > -   Use loops e estruturas de controle para gerenciar as operações.
 > -   Explore a manipulação de strings para melhorar a visualização dos dados no relatório.
+
+# Exercícios gerados pelo Copilot
+
+Aqui está a lista completa de exercícios para o capítulo **Fundamentos de Python**! 🎯  
+
+### **Lista de Exercícios: Controle de Fluxo e Estruturas de Dados em Python**  
+
+---
+
+### **1. Condicionais (`if`, `elif`, `else`)**  
+
+📌 **Exercício 1:** Escreva um programa que peça ao usuário para inserir sua idade e, com base nisso, exiba uma mensagem indicando se ele é menor de idade, adulto ou idoso.  
+
+📌 **Exercício 2:** Modifique o código anterior para verificar se a idade é válida (maior que zero) antes de continuar a execução.  
+
+📌 **Exercício 3:** Crie um programa que solicite ao usuário uma nota (de 0 a 10) e exiba sua classificação:  
+- **Nota ≥ 9:** "Excelente"  
+- **Nota ≥ 7:** "Bom"  
+- **Nota ≥ 5:** "Regular"  
+- **Nota < 5:** "Reprovado"  
+
+---
+
+### **2. Estruturas de Repetição (`for`, `while`)**  
+
+📌 **Exercício 4:** Escreva um programa que imprima todos os números de **1 a 50** usando um loop `for`.  
+
+📌 **Exercício 5:** Crie um programa que solicite um número e utilize um loop `while` para contar regressivamente até 0.  
+
+📌 **Exercício 6:** Gere uma lista de **10 números aleatórios** entre 1 e 100 e exiba apenas os números pares.  
+
+---
+
+### **3. Manipulação de Strings**  
+
+📌 **Exercício 7:** Peça ao usuário para digitar uma frase e exiba:  
+- O número total de caracteres  
+- A frase em **maiúsculas** e **minúsculas**  
+- A frase invertida  
+
+📌 **Exercício 8:** Crie um programa que verifique se uma palavra digitada pelo usuário é um **palíndromo** (ou seja, pode ser lida da mesma forma de trás para frente).  
+
+---
+
+### **4. Listas e Seus Métodos**  
+
+📌 **Exercício 9:** Crie uma lista de **5 frutas** e permita que o usuário adicione **mais uma fruta**. Em seguida, exiba a lista ordenada em ordem alfabética.  
+
+📌 **Exercício 10:** Crie uma lista com **10 números aleatórios** e exiba:  
+- O maior e o menor número  
+- A média dos valores  
+- Os números organizados em ordem crescente  
+
+---
+
+### **5. Dicionários**  
+
+📌 **Exercício 11:** Crie um dicionário com **3 países** e suas capitais. Permita que o usuário adicione mais um país e exiba o dicionário atualizado.  
+
+📌 **Exercício 12:** Faça um programa que armazene dados de alunos em um dicionário. Cada aluno deve ter **nome, idade e nota final**. Após armazenar **3 alunos**, exiba a média das notas.  
+
+---
+
+### **6. Funções**  
+
+📌 **Exercício 13:** Crie uma função que receba **dois números** como parâmetros e retorne a soma deles.  
+
+📌 **Exercício 14:** Crie uma função que receba uma lista de números e retorne apenas os valores **ímpares**.  
+
+📌 **Exercício 15:** Desenvolva uma função para converter **graus Celsius** em **Fahrenheit**.  
+
+📌 **Exercício 16:** Faça uma função que receba um número inteiro e retorne **True** se for primo e **False** caso contrário.  
+
+---
+
+📢 **Desafio Final:** Escreva um programa que simule um sistema de **cadastro de usuários**. Permita que o usuário registre nome, idade e e-mail em um dicionário e, ao final, exiba os dados cadastrados de forma organizada.  
+
+🔥 **Agora é hora de testar seus conhecimentos!** 🚀  
+
+# Exercícios gerados pelo ChatGPT
+
+Excelente, Breno. Você finalizou com êxito um dos capítulos mais centrais do Python básico: **Controle de Fluxo**. A cobertura foi ampla, com ótima progressão de dificuldade e riqueza textual. A seguir, preparei uma **lista de exercícios completa**, dividida em três níveis: **iniciante**, **intermediário** e **avançado**.
+
+---
+
+# 📝 Lista de Exercícios: Controle de Fluxo em Python
+
+## 🎯 Objetivo
+
+Testar e reforçar os conhecimentos adquiridos nos tópicos:
+
+* Estruturas de decisão (`if`, `elif`, `else`)
+* Estruturas de repetição (`for`, `while`)
+* Comandos de controle (`break`, `continue`, `pass`)
+* Tratamento de exceções (`try`, `except`, `finally`)
+* Funções (com ou sem parâmetros, com retorno, `lambda`, escopo)
+
+---
+
+## ✅ Exercícios para Iniciantes
+
+1. **Par ou ímpar?**
+   Peça um número inteiro ao usuário e informe se ele é par ou ímpar. (Use estrutura condicional)
+
+2. **Maioridade eleitoral**
+   Crie uma função que receba a idade de uma pessoa e retorne se ela pode votar (idade ≥ 16).
+
+3. **Tabuada personalizada**
+   Escreva uma função que recebe um número inteiro e imprime sua tabuada de 1 a 10.
+
+4. **Contador com `while`**
+   Use um `while` para contar de 1 até 10. Imprima os números na tela.
+
+5. **Média simples**
+   Crie uma função que recebe uma lista de notas e retorna a média aritmética.
+
+6. **Saudação personalizada**
+   Crie uma função com parâmetro `nome` e um valor padrão `"usuário"` que imprime uma saudação.
+
+---
+
+## ⚙️ Exercícios Intermediários
+
+7. **Categorizador de nota**
+   Receba uma nota de 0 a 10 e classifique:
+
+   * \[0, 5): "Insuficiente"
+   * \[5, 7): "Regular"
+   * \[7, 9): "Bom"
+   * [9, 10]: "Excelente"
+
+8. **Soma de pares**
+   Crie uma função que receba uma lista de inteiros e retorne a soma apenas dos pares.
+
+9. **Busca em dicionário**
+   Crie um dicionário com nomes de pessoas e suas idades. Peça ao usuário um nome e informe a idade correspondente (use `get()`).
+
+10. **Contagem reversa com `for`**
+    Implemente uma contagem regressiva de 10 até 1 usando `for`.
+
+11. **Divisão segura**
+    Escreva uma função que recebe dois números e retorna o resultado da divisão. Trate os erros de entrada e divisão por zero com `try/except`.
+
+12. **Função `lambda` + `map()`**
+    Dada uma lista de números, use `map()` com `lambda` para retornar seus quadrados.
+
+---
+
+## 🚀 Exercícios Avançados
+
+13. **Calculadora personalizada**
+    Crie uma função `calculadora(a, b, operador)` que execute operações básicas (+, -, \*, /) com tratamento de exceções.
+
+14. **Função que conta palavras únicas**
+    Escreva uma função que recebe uma string e retorna a quantidade de palavras distintas.
+
+15. **Normalização de dados**
+    Implemente uma função que recebe uma lista numérica e retorna uma nova lista com os dados normalizados (mínimo = 0, máximo = 1).
+
+16. **Detector de números primos**
+    Crie uma função que verifica se um número inteiro é primo. Retorne `True` ou `False`.
+
+17. **Jogo de adivinhação (sem `input()`)**
+    Simule um jogo de adivinhação entre dois números definidos no código. O programa deve informar se o palpite está alto ou baixo até acertar (use `while`, `break` e comparação).
+
+18. **Contador de vogais e consoantes**
+    Crie uma função que recebe uma string e retorna a quantidade de vogais e consoantes.
+
+19. **Função que retorna múltiplos resultados**
+    Crie uma função que recebe uma lista de números e retorna:
+
+    * A média
+    * O maior valor
+    * O menor valor
+    * A quantidade de elementos
+
+---
+
+## ✨ Desafio Final (Extra)
+
+20. **Mini sistema de cadastro**
+    Implemente um mini sistema que permita:
+
+    * Cadastrar pessoas (nome e idade)
+    * Armazenar os dados em um dicionário
+    * Permitir busca por nome
+    * Mostrar todos os cadastros
+    * Encerrar com a opção "sair"
+
+> Use funções, laços, condicionais e tratamento de erros.
+
+---
+
+# Exercícios gerados pelo DeepSeek
+
+Aqui está uma lista de exercícios variados e desafiadores para praticar os conceitos de Python abordados no capítulo, desde problemas básicos até desafios mais complexos:
+
+---
+
+### **Exercícios Básicos**  
+1. **String Reversa**  
+   Escreva uma função que receba uma string e retorne-a invertida.  
+   *Exemplo:* `"Python"` → `"nohtyP"`
+
+2. **Contador de Palavras**  
+   Crie um programa que conte quantas vezes cada palavra aparece em uma frase. Ignore maiúsculas/minúsculas e pontuação.  
+   *Exemplo:* `"Oi, oi, Python!"` → `{"oi": 2, "python": 1}`
+
+3. **Lista de Quadrados**  
+   Gere uma lista com os quadrados dos números de 1 a 10 usando list comprehension.  
+   *Saída:* `[1, 4, 9, ..., 100]`
+
+4. **Dicionário de Contatos**  
+   Crie um dicionário vazio e adicione três contatos (nome: telefone). Depois, remova um contato e altere o telefone de outro.
+
+---
+
+### **Exercícios Intermediários**  
+5. **Filtro de Números Pares**  
+   Dada uma lista de números, retorne uma nova lista apenas com os pares. Use `filter()` ou list comprehension.  
+   *Exemplo:* `[1, 2, 3, 4]` → `[2, 4]`
+
+6. **Mesclagem de Dicionários**  
+   Escreva uma função que combine dois dicionários. Se uma chave existir em ambos, some os valores.  
+   *Exemplo:* `{"a": 1, "b": 2}` + `{"b": 3, "c": 4}` → `{"a": 1, "b": 5, "c": 4}`
+
+7. **Palíndromo**  
+   Verifique se uma string é um palíndromo (lê-se igual de trás para frente). Ignore espaços e pontuação.  
+   *Exemplo:* `"Ame o poema!"` → `True`
+
+8. **Lista Aninhada**  
+   Dada uma lista de listas (ex: `[[1, 2], [3, 4]]`), retorne uma lista plana (ex: `[1, 2, 3, 4]`). Use recursão se possível.
+
+---
+
+### **Desafios Avançados**  
+9. **Cifra de César**  
+   Implemente uma cifra de César que desloque cada letra de uma string por 3 posições no alfabeto. Mantenha maiúsculas/minúsculas.  
+   *Exemplo:* `"Python"` → `"Sbwkrq"`
+
+10. **Agenda Telefônica com Busca**  
+    Crie uma agenda que permita:  
+    - Adicionar/remover contatos.  
+    - Buscar contatos por nome (parcial ou completo, case-insensitive).  
+    - Salvar e carregar os dados em um arquivo `.txt`.
+
+11. **Análise de Texto**  
+    Dado um texto longo, calcule:  
+    - A palavra mais frequente.  
+    - O comprimento médio das palavras.  
+    - A letra que mais aparece.  
+    *Dica:* Use `collections.Counter`.
+
+12. **Jogo da Forca**  
+    Implemente o jogo da forca:  
+    - Escolha uma palavra aleatória de uma lista.  
+    - Mostre traços correspondentes às letras.  
+    - Permita palpites até 6 erros ou vitória.  
+    *Extra:* Adicione dicas baseadas no tema (ex: "frutas").
+
+---
+
+### **Bônus (Para os Corajosos)**  
+13. **Compressão de Strings**  
+    Escreva uma função que compacte sequências repetidas de caracteres.  
+    *Exemplo:* `"aaabbbcca"` → `"a3b3c2a1"`.
+
+14. **Quadrado Mágico**  
+    Verifique se uma matriz 3x3 (lista de listas) é um quadrado mágico (somas de linhas, colunas e diagonais iguais).
+
+15. **Simulador de Banco**  
+    Crie um sistema bancário com classes para `Conta` (saldo, depósito, saque) e `Cliente` (nome, CPF). Use dicionários para armazenar os dados.
+
+---
+
+### **Dicas Gerais**  
+- Use f-strings para formatação.  
+- Explore métodos como `split()`, `join()`, `get()`, e `setdefault()`.  
+- Para desafios, considere tratar edge cases (ex: listas vazias, divisão por zero).  
+
+Esses exercícios cobrem desde manipulação básica de strings e listas até projetos mais estruturais. Eles podem ser adaptados para diferentes níveis de dificuldade. Boa prática! 🚀
+
+# Exercícios gerados pelo Gemini
+
+Current action thought: The user wants me to create a list of exercises covering the main concepts of a Python basic chapter, with varying difficulty levels. The provided document, "AUX.txt"[cite: 1], seems relevant as it covers basic Python objects like strings, lists, and dictionaries. I will analyze this document to create the exercise list.
+
+Final response to user: Claro, aqui está uma lista de exercícios que aborda os principais conceitos de Python básico, com diferentes níveis de dificuldade:
+
+### Exercícios de Python Básico
+
+#### Nível Iniciante
+
+1.  **Manipulação de Strings:**
+    * Crie uma variável chamada `mensagem` com a string "Python é divertido!".
+    * Imprima o comprimento da string. [cite: 14]
+    * Imprima o primeiro e o último caractere da string.
+    * Crie uma nova string que contenha apenas a palavra "Python" da string original. [cite: 21]
+    * Converta a string para letras minúsculas e imprima o resultado. [cite: 37]
+
+2.  **Operações com Listas:**
+    * Crie uma lista chamada `frutas` com os seguintes elementos: "maçã", "banana", "abacaxi". [cite: 45]
+    * Adicione a fruta "laranja" ao final da lista. [cite: 57]
+    * Remova a fruta "banana" da lista.
+    * Imprima o segundo elemento da lista. [cite: 46]
+    * Crie uma nova lista que contenha apenas os dois primeiros elementos da lista `frutas`.
+
+3.  **Trabalhando com Dicionários:**
+    * Crie um dicionário chamado `pessoa` com as chaves "nome", "idade" e "cidade". Atribua valores a essas chaves.
+    * Imprima o valor associado à chave "nome".
+    * Adicione uma nova chave "profissão" ao dicionário `pessoa` e atribua um valor.
+    * Altere o valor da chave "idade" para um novo valor.
+    * Verifique se a chave "email" existe no dicionário.
+
+#### Nível Intermediário
+
+4.  **Fatiamento de Strings:**
+    * Dada a string `frase = "A programação em Python é diferenciada!"`[cite: 21], use fatiamento para extrair as seguintes partes:
+        * "A programação" [cite: 21]
+        * "Python é legal" (use a variável `palavra` que contém "Python") [cite: 21]
+        * A frase completa de trás para frente. [cite: 21]
+
+5.  **Manipulação Avançada de Listas:**
+    * Crie duas listas, `lista1` e `lista2`, com alguns elementos em comum.
+    * Crie uma nova lista que contenha apenas os elementos que estão presentes em ambas as listas.
+    * Crie uma lista que contenha todos os elementos de `lista1` seguidos por todos os elementos de `lista2`. [cite: 62]
+    * Ordene a `lista1` em ordem crescente e decrescente. [cite: 58]
+
+6.  **Dicionários e Listas:**
+    * Crie um dicionário onde as chaves são nomes de produtos e os valores são listas de preços em diferentes lojas.
+    * Escreva uma função que recebe o dicionário e o nome de um produto, e retorna o menor preço encontrado para esse produto.
+    * Adicione um novo produto ao dicionário com sua lista de preços.
+
+#### Nível Avançado
+
+7.  **Desafio de Strings:**
+    * Escreva uma função que recebe uma string e retorna `True` se a string for um palíndromo (lê-se da mesma forma de trás para frente), e `False` caso contrário.
+    * Escreva uma função que conta o número de ocorrências de cada palavra em uma frase.
+
+8.  **Listas e Aleatoriedade:**
+    * Use o módulo `random` para gerar uma lista de 100 números aleatórios entre 0 e 1. [cite: 50]
+    * Encontre o maior e o menor número na lista.
+    * Calcule a média dos números na lista.
+    * Crie uma nova lista que contenha apenas os números únicos da lista original (remova duplicatas).
+
+9.  **Dicionários Aninhados:**
+    * Crie um dicionário que represente uma estrutura de árvore genealógica. As chaves devem ser nomes de pessoas, e os valores podem ser outros dicionários (representando os filhos) ou listas (representando os pais).
+    * Escreva uma função que recebe o dicionário e o nome de uma pessoa, e retorna todos os ancestrais dessa pessoa.
+    * Escreva uma função que recebe o dicionário e retorna o número total de pessoas na árvore genealógica.
+
+Lembre-se que estes são apenas exemplos, você pode adaptá-los ou criar novos exercícios com base no seu capítulo. O importante é garantir que os alunos pratiquem e solidifiquem os conhecimentos adquiridos.

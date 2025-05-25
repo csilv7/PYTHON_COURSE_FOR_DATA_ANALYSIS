@@ -782,6 +782,26 @@ finally:
     print("Fim do bloco try-except")
 ```
 
+```{python}
+try:
+    # Código que pode gerar erros
+    numero = 0
+    resultado = 10 / numero
+    print("Resultado:", resultado)
+except ZeroDivisionError:
+    # Executado se ocorrer o erro específico
+    print("Erro: Divisão por zero!")
+except Exception as e:
+    # Captura qualquer outro erro
+    print(f"Erro inesperado: {e}")
+else:
+    # Executado se NENHUM erro ocorrer
+    print("Operação bem-sucedida!")
+finally:
+    # Sempre executado (com ou sem erros)
+    print("Fim do bloco try-except")
+```
+
 - O bloco `try` encapsula o código passível de gerar erros em tempo de execução.
 - O bloco `except` especifica o tratamento para tipos particulares de erros (exceções) que possam ocorrer dentro do bloco `try`. Múltiplos blocos `except` podem ser definidos para lidar com diferentes tipos de exceções. A captura genérica de qualquer exceção pode ser realizada com `except Exception`.
 - O bloco `finally` é executado invariavelmente, independentemente da ocorrência ou não de uma exceção dentro do bloco `try`. Sua principal aplicação reside na execução de rotinas de finalização, como o fechamento de arquivos ou a liberação de conexões.
@@ -961,7 +981,144 @@ exibir_perfil(nome_cliente="Carlos", idade_cliente=30, cidade_cliente="São Paul
 
 ### Retorno de Valores
 
+Vimos que é possível imprimir valores na tela através de funções. Entretanto e se precisarmos dos valores que são calculados por determinada função? De acordo com o que apreendemos basta atribuir a saída do programa a uma variável.
 
+```{python}
+# Atribuição
+grr = greeting2("Emilly Rose")
+```
+
+Também de acordo com o que apreendemos, basta chamar a variável `grr` em qualquer parte do código que ela mostrará a frase: `Olá, Emilly Rose. Sejá bem-vindo ao Curso de Python para Análise de Dados!`.
+
+```{python}
+# Chamando variável
+grr
+```
+
+Note que a saída do código acima, não resultou em nada. Ou ainda, pode ter resultado, porém, o resutado foi vazio (`None`).
+
+```{python}
+# Verificação
+grr == None
+```
+
+Note que, por consequência, valores definidos dentro de uma função não são exportados para fora dela. Isto é, algo definido no `local` de um função não será definido no ambiente `global`.
+
+```{python}
+def minha_funcao():
+      arr = 10  # Variável local
+      print(arr)
+
+minha_funcao()
+
+try:
+  print(arr)  # Erro! 'arr' só existe dentro da função.
+
+except NameError:
+  print("Variável 'arr' não definida!")
+```
+
+Isso ocorre porque a estrutura que está sendo utilizada pela função `greeting2` não foi feita para retornar valores, mas sim, para apenas os imprimir na tela.
+
+- **Boas Práticas de Escopo:**
+
+    1. *Priorize o Escopo Local:* É uma boa prática projetar funções para serem o mais independentes possível, evitando depender de variáveis globais. Isso melhora a modularidade e reduz efeitos colaterais indesejados.
+    2. *Evite o Uso de `global`:* A palavra-chave `global` permite modificar uma variável global dentro de uma função. Seu uso deve ser evitado ao máximo, pois pode levar a um código confuso e difícil de depurar. Se uma função precisa alterar dados globais, é preferível que ela retorne os novos valores para que o código chamador possa atualizar a variável global explicitamente.
+    3. *Passagem de Argumentos:* Sempre que uma função precisar de dados externos, passe-os como argumentos, em vez de depender de variáveis globais.
+
+Para que a função realmente retorne o valor que foi obtido/calculado por ela, basta utilizar um comando interno do Python chamado `return`. Vamos a exemplos:
+
+1. Soma de dois termos:
+
+```{python}
+def my_function_sum1(a, b):
+  summ = a + b
+  
+  return summ
+  
+def my_function_sum2(a, b):
+  return a + b
+
+
+a = my_function_sum1(1/2, 1/2)
+b = my_function_sum2(1/2, 1/2)
+
+print(a == b)
+```
+
+2. Soma de $n$ termos:
+
+```{python}
+def my_function_sum(*numbers):
+  summ = 0
+  for num in numbers:
+    if type(num) == list:
+      for n in num:
+        if (type(n) != int) or (type(n) != float):
+          continue
+        
+        summ += n
+    else:
+        summ += num
+    
+  return summ
+  
+my_function_sum([1, 2, "a", 3], 5, 10, 20, 32)
+```
+
+Note que, se eu quiser o resultados desta soma para usá-lo em outra hora, basta atribuir isso a uma variável.
+
+```{python}
+# Guardando soma
+summ = my_function_sum([1, 2, "a", 3], 5, 10, 20, 32)
+
+# Visualizando
+print(summ)
+
+# Verificando
+print(summ == None) # A saída deve ser: False
+```
+
+### Funções Anônimas - `lambda functions`
+
+Funções lambda são pequenas funções anônimas (sem nome) que são definidas usando a palavra-chave `lambda`. Elas são restritas a uma única expressão e são frequentemente usadas para tarefas curtas e simples onde uma função completa seria excessiva.
+
+- **Sintaxe:** `lambda argumentos: expressão`
+
+```{python}
+# Definindo função anônima
+square = lambda x: x ** 2
+
+# Fazendo uso da função
+print(square(2))
+
+# Definindo função anônima
+linear = lambda x, y: 2 * x + y
+
+# Fazendo uso da função
+print(linear(2, 3))
+
+# Definindo função anônima
+tt = lambda x: x * 2 + x
+
+# Fazendo uso da função
+print(tt([1, 2, 3]))
+```
+
+Essa maniera de se definir uma função é comumente usada em conjunto das funções `sorted()`, `filter()` e `map()`.
+
+```{python}
+list_of_numbers = [2.5, 1, 5, 9, 0.1, 2, 8, 3, 12]
+
+# Exemplo de uso com sorted()
+print(sorted(list_of_numbers, key = lambda x: 1 / x ** 2))
+
+# Exemplo de uso com filter()
+print(list(filter(lambda x: x % 2 == 0, list_of_numbers)))
+
+# Exemplo de um com map()
+print(list(map(lambda x: x * 2, list_of_numbers)))
+```
 
 :::: progress
 :::: {.progress-bar style="width: 100%;"}

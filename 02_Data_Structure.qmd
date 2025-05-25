@@ -268,45 +268,45 @@ frase
 
 1. Método `str.lower()`: Deixa qualquer caractere em minúsculo.
 
-    ```{python}
-    frase.lower()
-    ```
+```{python}
+frase.lower()
+```
 
 2. Método `str.upper()`: Deixa qualquer caractere em maiúsculo.
 
-    ```{python}
-    frase.upper()
-    ```
+```{python}
+frase.upper()
+```
     
 3. Método `str.strip()`: Remove os espaços extras.
 
-    ```{python}
-    frase.strip()
-    ```
+```{python}
+frase.strip()
+```
     
 4. Método `str.title()`: Primeiro caractere de cada palavra em letra maiúscula.
 
-    ```{python}
-    frase.strip().title()
-    ```
+```{python}
+frase.strip().title()
+```
     
 5. Método `str.replace()`: Troca um determinado caractere (1º argumento) por um outro determinado caractere (2º argumento).
 
-    ```{python}
-    frase.replace("Python", "Programar")
-    ```
+```{python}
+frase.replace("Python", "Programar")
+```
 
 6. Método `str.index()`: Retorna o índice de determinado caractere contido na string.
 
-    ```{python}
-    frase.index("é")
-    ```
+```{python}
+frase.index("é")
+```
     
 7. Método `str.count()`: Quantifica o número de aparições de determinado caractere na string.
 
-    ```{python}
-    frase.count("a")
-    ```
+```{python}
+frase.count("a")
+```
     
 8. Método `str.split()`: Cria uma lista a partir de fatias da string com base em um caractere.
 
@@ -497,7 +497,7 @@ Outra forma de se fazer a modificação é:
 id = frutas.index("melancia")
 
 # Alterando 'melancia' por 'banana'
-frutas[id] = "melancia"
+frutas[id] = "banana"
 
 # Visualizando
 print(frutas)

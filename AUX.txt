@@ -256,41 +256,68 @@ O autor recomenda usar a primeira opção.
 
 ### Métodos Úteis para Strings
 
-#### Método `split()`
+Ao definirmos o objeto `string` em Python, são definidas também algumas ações que este objeto pode executar.
 
 ```{python}
-# E da variável todas_as_aspas?
-todas_as_aspas
+# Defini-se um string qualquer
+frase = " Python é legal! "
+
+# Visualizar variável
+frase
 ```
 
+1. Método `str.lower()`: Deixa qualquer caractere em minúsculo.
+
 ```{python}
-
-# Aplicando método splint sem argumento (default)
-print(todas_as_aspas.split())
-
-# Aplicando método splint com argumento
-print(todas_as_aspas.split("\n"))
+frase.lower()
 ```
 
-```{python}
-# Lembra da variável frase?
-print(frase)
+2. Método `str.upper()`: Deixa qualquer caractere em maiúsculo.
 
-# Veja como ela fica depois do método split
+```{python}
+frase.upper()
+```
+    
+3. Método `str.strip()`: Remove os espaços extras.
+
+```{python}
+frase.strip()
+```
+    
+4. Método `str.title()`: Primeiro caractere de cada palavra em letra maiúscula.
+
+```{python}
+frase.strip().title()
+```
+    
+5. Método `str.replace()`: Troca um determinado caractere (1º argumento) por um outro determinado caractere (2º argumento).
+
+```{python}
+frase.replace("Python", "Programar")
+```
+
+6. Método `str.index()`: Retorna o índice de determinado caractere contido na string.
+
+```{python}
+frase.index("é")
+```
+    
+7. Método `str.count()`: Quantifica o número de aparições de determinado caractere na string.
+
+```{python}
+frase.count("a")
+```
+    
+8. Método `str.split()`: Cria uma lista a partir de fatias da string com base em um caractere.
+
+```{python}
+# Método split sem argumento (default)
 print(frase.split())
+
+# Método split com argumento
+print(frase.split("é"))
 ```
 
-#### Outros métodos
-
-```{python}
-texto = " Python é legal! "
-print(texto.lower())     # Deixa tudo minúscula
-print(texto.upper())     # Deixa tudo maiúscula
-print(texto.strip())     # Remove espaços extras
-print(texto.replace("Python", "Programar"))  # Troca 'Python' por 'Programar'
-print(texto.index("é"))  # Retorna o índice da primeira ocorrência de 'é'
-print(texto.count("a"))  # Conta quantas vezes 'a' aparece
-```
 ## Listas
 
 Listas são uma das estruturas de dados mais usadas em Python. Elas permitem armazenar múltiplos valores em uma única variável e suportam diversos tipos de operações.
@@ -437,7 +464,6 @@ numeros
 del numeros[-1]
 numeros
 ```
-
 E se, por exemplo, eu precisar começar a lista do zero? Pode-se remover todos os elementos de uma lista, usando o método `clear()`:
 
 ```{python}
@@ -471,7 +497,7 @@ Outra forma de se fazer a modificação é:
 id = frutas.index("melancia")
 
 # Alterando 'melancia' por 'banana'
-frutas[id] = "melancia"
+frutas[id] = "banana"
 
 # Visualizando
 print(frutas)
@@ -495,7 +521,6 @@ Voltemos a lista `va`:
 # Modificando va um pouco
 va_modified = [round(va[i] * 100) for i in range(len(va))]
 print(va_modified)
-print()
 
 # Ordenado de forma crescente
 va_modified.sort()
