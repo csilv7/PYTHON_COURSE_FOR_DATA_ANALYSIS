@@ -14,6 +14,685 @@ use_python("C:/Users/user/anaconda3/python.exe", required = TRUE)
 ::::
 ::::
 
+# Primeiros Passos
+
+## Introdução ao Python
+
+Neste primeiro capítulo, daremos os passos iniciais no mundo da programação com Python. Vamos entender o que é essa linguagem, por que ela se tornou tão popular (especialmente para análise de dados) e como preparar nosso ambiente para começar a codificar.
+
+### O Que Torna Python Especial?
+
+Python é frequentemente descrita como uma linguagem de programação **poderosa**, **versátil** e, acima de tudo, **legível**. Mas o que isso significa na prática?
+
+1.  **Linguagem Interpretada:** Diferente de linguagens compiladas (como C++ ou Java), onde o código fonte é traduzido para código de máquina antes da execução, o código Python é executado linha por linha por um programa chamado **interpretador**. Isso facilita o desenvolvimento e o teste, pois você pode executar pequenos trechos de código rapidamente.
+2.  **Alto Nível:** Python abstrai muitos detalhes complexos do hardware do computador (como gerenciamento de memória). Isso permite que você se concentre na lógica do problema que está tentando resolver, em vez de se preocupar com detalhes de baixo nível.
+3.  **Tipagem Dinâmica:** Você não precisa declarar explicitamente o tipo de uma variável (inteiro, texto, etc.) antes de usá-la. O Python infere o tipo automaticamente durante a execução. Isso torna o código mais conciso, mas exige atenção para evitar erros relacionados a tipos inesperados.
+4.  **Propósito Geral:** Python não se limita a uma única área. É usada em desenvolvimento web, automação de tarefas, inteligência artificial, computação científica e, claro, **análise e ciência de dados**.
+5.  **Sintaxe Clara e Legível:** A sintaxe do Python foi projetada para ser próxima da linguagem humana, utilizando indentação (espaços no início da linha) para definir blocos de código, o que força a escrita de um código visualmente organizado.
+
+Essas características, combinadas com um vasto ecossistema de bibliotecas (conjuntos de código pré-escrito para tarefas específicas), fazem do Python uma ferramenta excepcional para análise de dados, adotada por gigantes como Google, NASA, Facebook (Meta), Amazon e Spotify.
+
+### Configurando o Ambiente: Anaconda e Jupyter Notebook
+
+Para começar nossa jornada, precisamos instalar o Python e as ferramentas necessárias. A maneira mais recomendada para iniciantes em análise de dados é usar a **Distribuição Anaconda**.
+
+**O que é Anaconda?** É um pacote que inclui:
+
+*   O interpretador Python.
+*   Um gerenciador de pacotes (bibliotecas) chamado `conda`.
+*   Diversas bibliotecas científicas e de análise de dados pré-instaladas (como NumPy, Pandas, Matplotlib).
+*   Ferramentas úteis, como o **Jupyter Notebook** e o **JupyterLab**.
+
+**O que é Jupyter Notebook?** É uma aplicação web interativa que permite criar e compartilhar documentos (chamados *notebooks*) que contêm código executável (como Python), texto formatado (Markdown), equações, visualizações e muito mais. É um ambiente ideal para aprendizado, experimentação e apresentação de análises de dados.
+
+**Passos para Instalação:**
+
+1.  **Download:** Acesse o site oficial do Anaconda: [https://www.anaconda.com/download](https://www.anaconda.com/download)
+2.  **Escolha seu Sistema Operacional:** Baixe o instalador apropriado para Windows, macOS ou Linux.
+3.  **Instalação:** Execute o instalador e siga as instruções. Geralmente, as opções padrão são adequadas para iniciantes.
+4.  **Vídeo de Apoio:** Se precisar de ajuda visual, este [tutorial de instalação no YouTube](https://youtu.be/_eK0z5QbpKA?si=iqLmmQcuDoQqZ-b) pode ser útil.
+
+::: {.callout-tip title="Dúvidas na Instalação?"}
+Se encontrar problemas, não hesite em procurar tutoriais mais específicos para sua versão do sistema operacional ou entrar em contato:
+
+*   **Email do Instrutor:** breno.silva@icen.ufpa.br
+:::
+
+Após a instalação, você poderá iniciar o Jupyter Notebook (geralmente através do Anaconda Navigator ou pelo terminal/prompt de comando digitando `jupyter notebook`).
+
+## Sintaxe Básica: A Gramática do Python
+
+Toda linguagem tem suas regras. Em Python, a sintaxe define como escrevemos comandos válidos que o interpretador possa entender. Vamos começar com o básico.
+
+### Exibindo Informações: A Função `print()`
+
+A primeira função que a maioria dos programadores aprende é a `print()`. Sua finalidade é exibir informações (texto, números, resultados de cálculos) na tela (console ou saída do notebook).
+
+O famoso "Hello, World!":
+
+```python
+print("Hello, World!")
+```
+
+**Como funciona?**
+
+*   `print` é o nome da função.
+*   Os parênteses `()` são usados para chamar a função e passar informações para ela.
+*   O que está dentro dos parênteses é chamado de **argumento**. Neste caso, o argumento é o texto (string) `"Hello, World!"`.
+*   Strings em Python são definidas usando aspas simples (`'...'`) ou duplas (`"..."`).
+
+#### Erros Comuns com `print()`
+
+É normal cometer erros ao aprender. Vejamos alguns deslizes comuns com `print()`:
+
+1.  **Nome Incorreto (Case-Sensitive):** Python diferencia maiúsculas de minúsculas.
+
+    ```python
+    # Exemplo de Código Incorreto
+    Print("Olá")
+    ```
+    *Erro Gerado:* `NameError: name 'Print' is not defined` (O Python não reconhece 'Print' com 'P' maiúsculo).
+
+2.  **Faltando Aspas:** Textos (strings) precisam estar entre aspas.
+
+    ```python
+    # Exemplo de Código Incorreto
+    print(Olá)
+    ```
+    *Erro Gerado:* `SyntaxError: invalid syntax` (O Python não entende 'Olá' como um comando ou variável válida sem aspas).
+
+3.  **Aspas Incompletas:** Abrir aspas e não fechar (ou vice-versa).
+
+    ```python
+    # Exemplo de Código Incorreto
+    # print("Olá)
+    ```
+    *Erro Gerado:* `SyntaxError: unterminated string literal` (A string não foi finalizada corretamente).
+
+4.  **Misturar Tipos de Aspas:** Começar com simples e terminar com duplas (ou vice-versa).
+
+    ```python
+    # Exemplo de Código Incorreto
+    # print('Olá")
+    ```
+    *Erro Gerado:* `SyntaxError: unterminated string literal`.
+
+::: {.callout-important title="Atenção à Sintaxe!"}
+Erros de sintaxe são como erros de gramática. O interpretador Python precisa que as regras sejam seguidas para entender suas instruções. Prestar atenção aos detalhes (maiúsculas/minúsculas, parênteses, aspas) é fundamental.
+:::
+
+**Usando Aspas Dentro de Strings:**
+
+Se precisar incluir aspas no seu texto, alterne os tipos de aspas:
+
+```python
+print('Ele disse: "Python é incrível!"')
+print("O livro se chama 'O Guia do Mochileiro das Galáxias'.")
+```
+
+**Quebras de Linha:**
+
+Para inserir uma quebra de linha dentro de uma string, use o caractere especial `\n` (barra invertida seguida de 'n'):
+
+```python
+print("Linha 1\nLinha 2\nLinha 3")
+```
+
+### Operadores Matemáticos: Calculando com Python
+
+Python pode ser usado como uma calculadora poderosa. Ele suporta os operadores matemáticos básicos e alguns mais avançados. Observe a @tbl-operMath.
+
+```{r, echo=FALSE}
+#| label: tbl-operMath
+#| tbl-cap: "Operadores Matemáticos."
+
+library(knitr)
+
+# Dados da Tabela
+tbl <- data.frame(
+  Operador = c("`+`", "`-`", "`*`", "`/`", "`//`", "`%`", "`**`"),
+  Desc = c("Adição", "Subtração", "Multiplicação", "Divisão (`float`)", "Divisão (`int`)",
+           "Módulo (Resto)", "Exponenciação"),
+  Ex = c("`5 + 3`", "`5 - 3`", "`5 * 3`", "`10 / 3`", "`10 // 3`", "`10 % 3`", "`2 ** 3`"),
+  Result = c("`8`", "`2`", "`15`", "`3.3333`", "`3`", "`1`", "`8`")
+)
+
+# Gerando Tabela
+kable(
+  x = tbl,
+  align = "c",
+  col.names = c("Operador", "Descrição", "Exemplo", "Resultado")
+)
+```
+
+**Exemplos:**
+
+```{python}
+# Adição e Subtração
+print(10 + 5)  
+print(10 - 5.5)
+
+# Multiplicação e Divisão
+print(4 * 7)
+print(15 / 4)   # Divisão resulta em float
+
+# Divisão Inteira (descarta a parte decimal)
+print(15 // 4)  
+
+# Módulo (resto da divisão inteira)
+print(15 % 4)   # 15 dividido por 4 é 3, com resto 3
+
+# Exponenciação (potência)
+print(3 ** 4)   # 3 elevado à 4ª potência
+```
+
+::: {.callout-danger title="Divisão por Zero"}
+Assim como na matemática, tentar dividir por zero em Python gera um erro:
+
+```python
+10 / 0
+```
+*Erro Gerado:* `ZeroDivisionError: division by zero`
+:::
+
+**Calculando Raiz Quadrada:**
+
+Podemos usar exponenciação com expoente fracionário:
+
+```{python}
+print(81 ** 0.5) # Raiz quadrada de 81
+```
+
+No entanto, a forma mais comum e recomendada é usar a função `sqrt()` da biblioteca (módulo) `math`:
+
+```{python}
+import math # Importa a biblioteca math
+
+print(math.sqrt(81))
+```
+
+::: {.callout-note title="Importando Módulos"}
+O comando `import math` torna todas as funções e constantes definidas no módulo `math` disponíveis para uso no seu código. Veremos mais sobre módulos e bibliotecas posteriormente.
+:::
+
+### Expressões Numéricas e Precedência
+
+Podemos combinar múltiplos operadores em uma única expressão:
+
+```{python}
+3 + 4 * 2 - 5 / 2 ** 2
+```
+
+Qual a ordem de execução? Python segue a ordem de precedência padrão da matemática, conhecida como **PEMDAS**:
+
+1.  **P**arênteses `()` - Operações dentro de parênteses são executadas primeiro.
+2.  **E**xponenciação `**`
+3.  **M**ultiplicação `*`, **D**ivisão `/`, Divisão Inteira `//`, Módulo `%` (executados da esquerda para a direita se tiverem a mesma precedência).
+4.  **A**dição `+`, **S**ubtração `-` (executados da esquerda para a direita se tiverem a mesma precedência).
+
+No exemplo `3 + 4 * 2 - 5 / 2 ** 2`:
+
+1.  `2 ** 2` é `4`
+2.  `4 * 2` é `8`
+3.  `5 / 4` é `1.25`
+4.  `3 + 8` é `11`
+5.  `11 - 1.25` é `9.75`
+
+Use parênteses para controlar a ordem quando necessário:
+
+```{python}
+(3 + 4) * (2 - 5) / (2 ** 2)
+# (7) * (-3) / (4) = -21 / 4 = -5.25
+```
+
+#### Uma Nota Sobre Números Decimais (Ponto Flutuante)
+
+Você pode notar resultados ligeiramente inesperados ao trabalhar com números decimais (chamados *floats* em Python):
+
+```{python}
+print(0.1 + 0.2)
+```
+
+Por que `0.30000000000000004` e não `0.3`? A maioria dos computadores utiliza a representação binária (base 2) para armazenar números. O problema é que muitas frações decimais (base 10), como `0.1`, não podem ser representadas exatamente em binário. Isso ocorre porque a representação binária tem um número finito de dígitos, assim como ocorre na representação decimal. Por exemplo, ao representar $1/3$ em decimal, obtém-se uma repetição infinita: $0.3333 \ldots$ Da mesma forma, a conversão de `0.1` para binário gera uma fração periódica infinita.
+
+Os computadores modernos seguem o padrão IEEE 754 para representar números de ponto flutuante. Esse padrão define como os números são armazenados na memória, incluindo a precisão. Em Python, os números de ponto flutuante geralmente utilizam precisão dupla do IEEE 754, que oferece 53 bits de precisão. Quando um número como 0.1 é digitado, o computador encontra a fração binária mais próxima possível dentro desse limite de precisão. O resultado é um valor muito próximo de 0.1, mas não exatamente igual.
+
+::: {.callout-tip title="Lidando com Imprecisões de Float"}
+Para a maioria das aplicações em análise de dados, essa pequena imprecisão não é um problema. Ao exibir resultados, você pode arredondar os números usando a função `round()`:
+
+```{python}
+print(round(0.1 + 0.2, 2)) # Arredonda para 2 casas decimais
+```
+
+Para cálculos financeiros ou científicos que exigem alta precisão, Python oferece módulos como `Decimal`.
+:::
+
+### Comparações e Operadores Lógicos
+
+Frequentemente, precisamos comparar valores em nossos programas. Python oferece operadores de comparação que retornam um valor **booleano**: `True` (Verdadeiro) ou `False` (Falso).
+
+```{r, echo=FALSE}
+#| label: tbl-operComp
+#| tbl-cap: "Operadores de Comparação."
+
+library(knitr)
+
+# Dados da Tabela
+tbl <- data.frame(
+  Operador = c("`<`", "`>`", "`<=`", "`>=`", "`==`", "`!=`"),
+  Desc = c("Menor que", "Maior que", "Menor ou igual a", "Maior ou igual a", "Igual a", "Diferente de"),
+  Ex = c("`5 < 10`", "`5 > 10`", "`10 <= 10`", "`10 >= 10`", "`5 == 5`", "`5 != 10`"),
+  Result = c("`True`", "`False`", "`True`", "`True`", "`True`", "`True`")
+)
+
+# Gerando Tabela
+kable(
+  x = tbl,
+  align = "c",
+  col.names = c("Operador", "Descrição", "Exemplo", "Resultado")
+)
+
+```
+
+**Exemplos:**
+
+```{python}
+# Idade Mínima igual a 18
+# Idade do Usuário igual a 25
+
+print("Usuário é maior de idade?", 25 >= 18)
+print("As idades são iguais?", 25 >= 18)
+print("As idades são diferentes?", 25 >= 18)
+```
+
+**Operadores Lógicos:**
+
+Podemos combinar múltiplas comparações usando operadores lógicos:
+
+```{r, echo=FALSE}
+#| label: tbl-operLog
+#| tbl-cap: "Operadores Lógicos."
+
+library(knitr)
+
+# Dados da Tabela
+tbl <- data.frame(
+  Operador = c("`and`", "`or`", "`not`"),
+  Desc = c("**Ambas** as condições forem `True`",
+           "**Pelo menos uma** das condições for `True`",
+           "A condição seguinte for `False` (inverte o valor lógico)"),
+  Ex = c("`(5 < 10) and (10 > 3)`", "`(5 > 10) or (10 == 10)`", "`not (5 == 10)`"),
+  Result = c("`True`", "`True`", "`True`")
+)
+
+# Gerando Tabela
+kable(
+  x = tbl,
+  align = "c",
+  col.names = c("Operador", "Resultado é `True` se", "Exemplo", "Resultado")
+)
+```
+
+
+**Exemplos:**
+
+```{python}
+# Tem Ingresso igual a True
+# É maior de idade igual a False
+
+# Pode entrar na festa? (Precisa ter ingresso E ser maior de idade)
+print("Pode entrar na festa?", True and False)
+
+# Pode receber desconto? (Precisa ter ingresso OU ser maior de idade - exemplo hipotético)
+print("Pode receber desconto?", True or False)
+
+# Não tem ingresso?
+print("Não tem ingresso?", not True)
+```
+
+```{python}
+print((1 and 4) < 3)
+print((1 or 4) < 3)
+print((1 and 2 and 2.99) < 3)
+print((1 or 2 or 2.99) > 3)
+```
+
+```{python}
+print((5 >= 4.99) and (10 <= 10.01))
+print((5 >= 4.99) and (10 == 10.01))
+```
+
+```{python}
+print((5 >= 4.99) or (10 <= 10.01))
+print((5 >= 4.99) or (10 == 10.01))
+```
+
+```{python}
+print(1 == 1)
+print(not 1 == 1)
+print(not not 1 == 1)
+print(not not not 1 == 1)
+```
+
+**Precedência dos Operadores Lógicos:**
+
+Assim como os operadores matemáticos, os lógicos também têm uma ordem de avaliação:
+
+1.  `not` é avaliado primeiro.
+2.  `and` é avaliado em seguida.
+3.  `or` é avaliado por último.
+
+Exemplo:
+
+```{python}
+print(not False and True or False)
+# 1. not False -> True
+# 2. True and True -> True
+# 3. True or False -> True
+```
+
+Use parênteses `()` para garantir a ordem desejada quando a expressão for complexa.
+
+### Variáveis: Armazenando Informações
+
+Uma **variável** funciona como um rótulo ou um nome que damos a um local na memória do computador onde um valor (um objeto) está armazenado. Isso nos permite referenciar e reutilizar valores facilmente.
+
+O processo de criar uma variável e associar um valor a ela é chamado de **atribuição**, e usamos o sinal de igual (`=`) para isso.
+
+```{python}
+# Atribuição
+quantidade_alunos = 19
+preco_produto = 34.99
+mensagem_boas_vindas = "Olá, estudante!"
+curso_ativo = True
+
+# Usando as variáveis
+print(quantidade_alunos)
+print(mensagem_boas_vindas)
+```
+
+#### Regras e Convenções para Nomes de Variáveis
+
+Escolher nomes significativos torna o código muito mais fácil de entender.
+
+*   **Regras (Obrigatórias):**
+    *   Nomes devem começar com uma letra (a-z, A-Z) ou underscore (`_`).
+    *   O restante do nome pode conter letras, números (0-9) e underscores.
+    *   Nomes são *case-sensitive* (`idade` é diferente de `Idade`).
+    *   Não podem ser iguais a **palavras-chave** reservadas do Python (como `if`, `else`, `for`, `while`, `def`, `class`, `import`, `True`, `False`, `None`, etc.).
+*   **Convenções (Boas Práticas - PEP 8):**
+    *   Use nomes em minúsculas.
+    *   Separe palavras com underscores (estilo `snake_case`). Ex: `taxa_juros`, `nome_cliente`.
+    *   Escolha nomes descritivos que indiquem o propósito da variável.
+
+*   **Exemplos Válidos:** `idade`, `nome_completo`, `total_vendas`, `_variavel_privada` (convenção)
+
+*   **Exemplos Inválidos:**
+
+    ```python
+    # Errado: começa com número
+    1_lugar = "Ouro"
+    
+    # Errado: contém caractere especial (@)
+    email@cliente = "teste@exemplo.com"
+    
+    # Errado: usa palavra-chave (def)
+    def = "definição"
+    ```
+
+    Tentar usar um nome inválido ou uma palavra-chave resultará em `SyntaxError`.
+    Tentar usar uma variável que não foi definida (atribuída) ainda resultará em `NameError`.
+
+#### Atribuição com Expressões e Atualização
+
+Podemos atribuir o resultado de uma expressão a uma variável:
+
+```{python}
+preco_unitario = 50
+quantidade = 5
+desconto = 0.10
+
+valor_bruto = preco_unitario * quantidade
+valor_desconto = valor_bruto * desconto
+valor_final = valor_bruto - valor_desconto
+
+print("Valor final:", valor_final)
+```
+
+Para atualizar o valor de uma variável existente, podemos usar a própria variável na expressão à direita do `=`:
+
+```{python}
+contador = 0
+print("Contador inicial:", contador)
+
+contador = contador + 1 # Incrementa o valor
+print("Contador após incremento:", contador)
+```
+
+Python oferece **operadores de atribuição compostos** como atalhos:
+
+*   `+=` (Adição): `x += 1` é o mesmo que `x = x + 1`
+*   `-=` (Subtração): `x -= 5` é o mesmo que `x = x - 5`
+*   `*=` (Multiplicação): `x *= 2` é o mesmo que `x = x * 2`
+*   `/=` (Divisão): `x /= 4` é o mesmo que `x = x / 4`
+*   `//=` , `%=` , `**=` (análogos para divisão inteira, módulo e exponenciação)
+
+```{python}
+num = 10
+num += 3  # num agora é 13
+print(num)
+
+num *= 2  # num agora é 26
+print(num)
+```
+
+#### Atribuição Múltipla
+
+Python permite atribuir valores a múltiplas variáveis na mesma linha:
+
+```{python}
+x, y, z = 10, 20, "teste"
+print(x)
+print(y)
+print(z)
+```
+
+Não parece algo tão interessante, não é? Vamos a um exemplo. Imagine um problema que envolve duas variáveis `a` e `b`. O Python permite a **atribuição múltipla**, o que pode ser útil para trocar valores entre variáveis de forma eficiente.
+
+```{python}
+a, b = 1, 200
+print(a, b)  # Saída: 1 200
+```
+
+Agora, pense como poderiamos trocar os valores dessas variáveis. Pensou? Em algum momento deve ter passado pela sua cabeça a seguinte lógica:
+
+```{python}
+a = b # Perde-se o valor original de a (1)
+print(a)
+
+
+b = a # Como perdeu-se a, `b vai continuar com seu valor original (200)
+print(b)
+```
+
+Em outras linguagens, para trocar valores entre duas variáveis, seria necessário usar uma variável auxiliar:
+
+```{python}
+a, b = 1, 200
+print(a, b)  # Saída: 1 200
+
+aux = a
+a = b
+b = aux
+print(a, b)  # Agora a = 200 e b = 1
+```
+
+No entanto, em Python, a troca pode ser feita de forma mais elegante usando atribuição múltipla:
+
+```{python}
+a, b = 1, 200
+print(a, b)  # Saída: 1 200
+
+a, b = b, a
+print(a, b)  # Agora a = 200 e b = 1
+```
+
+Note que essa abordagem pode ser expandida para múltiplas variáveis.
+
+### Tipos de Objetos Fundamentais
+
+Já vimos alguns tipos de dados (valores) que podemos armazenar em variáveis. Cada valor em Python é um **objeto**, e cada objeto pertence a um **tipo** (ou **classe**). O tipo define quais operações podem ser realizadas com aquele objeto.
+
+Podemos verificar o tipo de um objeto usando a função `type()`:
+
+```{python}
+numero_inteiro = 100
+numero_decimal = 3.14159
+texto = "Análise de Dados"
+logico = False
+
+print(type(numero_inteiro))
+print(type(numero_decimal))
+print(type(texto))
+print(type(logico))
+```
+
+**Principais Tipos Primitivos:**
+
+*   **`int` (Inteiro):** Números inteiros, positivos ou negativos, sem parte decimal (ex: `-10`, `0`, `42`).
+*   **`float` (Ponto Flutuante):** Números reais, que possuem uma parte decimal (ex: `-3.14`, `0.0`, `99.99`).
+*   **`str` (String):** Sequências de caracteres (texto), delimitadas por aspas simples ou duplas (ex: `'Python'`, `"Olá, mundo!"`).
+*   **`bool` (Booleano):** Representa valores lógicos de Verdadeiro (`True`) ou Falso (`False`).
+*   **`NoneType` (None):** Um tipo especial que tem apenas um valor: `None`. Usado para representar a ausência de valor.
+
+Além desses, Python possui tipos de dados mais complexos para agrupar informações, que veremos em detalhes mais adiante:
+
+*   **`list` (Lista):** Coleção ordenada e *mutável* de itens.
+*   **`tuple` (Tupla):** Coleção ordenada e *imutável* de itens.
+*   **`dict` (Dicionário):** Coleção não ordenada de pares chave-valor.
+*   **`set` (Conjunto):** Coleção não ordenada de itens únicos.
+
+### Métodos e Atributos
+
+Em Python, os conceitos de métodos e atributos são fundamentais na programação orientada a objetos (POO). Eles definem as características e comportamentos dos objetos.
+
+#### Métodos
+
+- **Definição:**
+    * Métodos são funções definidas dentro de um objeto. Eles definem os comportamentos ou ações que um objeto pode realizar.
+    * Pense neles como as "ações" que um objeto pode executar.
+- **Exemplo:**
+    * Em um objeto `carro`, métodos poderiam ser `ligar()`, `acelerar()` e `frear()`.
+- **Acesso:**
+    * Chamamos métodos usando a sintaxe `objeto.método()`.
+
+#### Atributos
+
+- **Definição:**
+    * Atributos são variáveis que armazenam dados dentro de um objeto. Eles representam as características ou propriedades de um objeto.
+    * Pense neles como as "informações" (sobre o objeto por isso características) que um objeto carrega consigo.
+- **Exemplo:**
+    * Em um objeto `carro`, atributos poderiam ser `cor`, `marca`, `modelo` e `ano`.
+- **Acesso:**
+    * Acessamos atributos usando a sintaxe `objeto.atributo`.
+
+#### Relação entre Métodos e Atributos
+
+Métodos frequentemente manipulam os atributos de um objeto. Por exemplo, um método `acelerar()` pode modificar o atributo `velocidade` de um objeto `carro`.
+
+**Em resumo:**
+
+* Atributos são as características que um objeto possui.
+* Métodos são as ações que um objeto pode realizar.
+
+Essa distinção permite criar objetos que representam entidades do mundo real com suas próprias características e comportamentos.
+
+### Obtendo Ajuda e Explorando
+
+Python oferece ferramentas para ajudar você a aprender e explorar:
+
+*   **`help()`:** Fornece documentação sobre funções, módulos ou tipos.
+
+    ```python
+    # help(print) # Descomente para ver a ajuda da função print
+    # help(str)   # Descomente para ver a ajuda sobre o tipo string
+    # help(math)  # Descomente para ver a ajuda sobre o módulo math (precisa importar antes)
+    ```
+*   **`dir()`:** Lista os nomes (atributos e métodos) definidos por um objeto ou módulo.
+
+    ```python
+    # print(dir(str)) # Lista métodos e atributos de strings
+    # print(dir(math)) # Lista funções e constantes do módulo math
+    ```
+*   **`type()`:** Como já vimos, retorna o tipo de um objeto.
+
+No ambiente Jupyter Notebook, você também pode usar:
+
+*   `?` após um nome de função/objeto para ver sua documentação (ex: `print?` ou `frase.upper?`).
+*   `??` após um nome de função/objeto para tentar ver o código fonte (se disponível).
+*   Completar com `Tab`: Digite o início de um nome de variável ou método e pressione `Tab` para ver sugestões.
+
+---
+
+Este capítulo cobriu os fundamentos essenciais para começar a programar em Python. Nos próximos capítulos, construiremos sobre essa base para explorar estruturas de dados mais complexas e as ferramentas específicas para análise de dados.
+
+---
+
+## Exercícios
+
+**1. Escreva um programa que imprima na tela a seguinte mensagem: `Bem-vindo ao mundo Python!`.**
+
+**2. Corrija os erros nos seguintes comandos `print()`:**
+
+```
+print("Python é incrível!)
+Print('Aprendendo Python')
+print("Python é legal! Mas não o 'legal como dizem pra outras coisas")
+```
+
+**3. Utilize `print()` para exibir o seguinte texto em três linhas diferentes:**
+
+```
+Aprender Python  
+é muito  
+divertido!
+```
+
+**4. Realize as operações matemáticas a seguir, guarde em uma variável e exiba os resultados. Além de determinar a ordem de execução conforme as regras de precedência matemática:**
+
+- a)  $$\dfrac{100 − 413 \cdot (20 − 5 \times 4)}{5}$$
+- b)  $$\dfrac{ \left[(3^{4} + \sqrt{144})(100 - 95,5) \right] + 6 }{-80 + 2^{4}}$$
+- c)  $$3,9 \cdot 10^{-2} + 5,2 \cdot 10^{-1/3}$$
+
+**5. Os seguintes códigos contém erros. Identifique e corrija:**
+
+```
+print('Vamos aprender Python!)
+```
+```
+10 + "20"
+```
+```
+x = 3
+10,35 x 0.01
+```
+
+```{r include=FALSE, echo=FALSE}
+library(reticulate)
+use_python("C:/Users/user/anaconda3/python.exe", required = TRUE)
+```
+
+```{=html}
+<style>
+  body{text-align: justify}
+</style>
+```
+
+:::: progress
+:::: {.progress-bar style="width: 100%;"}
+::::
+::::
+
 # Objetos no Python
 
 ## Introdução
@@ -1006,6 +1685,1134 @@ print(receitas)
 2. A partir do Python 3.7, a ordem de inserção é preservada como característica da implementação, tornando-se parte da especificação na versão 3.8;
 
 3. Uso do método `update` para integralização de dicionários.
+
+:::: progress
+:::: {.progress-bar style="width: 100%;"}
+::::
+::::
+
+
+```{r include=FALSE, echo=FALSE}
+library(reticulate)
+use_python("C:/Users/user/anaconda3/python.exe", required = TRUE)
+```
+
+```{=html}
+<style>
+  body{text-align: justify}
+</style>
+```
+
+:::: progress
+:::: {.progress-bar style="width: 100%;"}
+::::
+::::
+
+# Controle de Fluxo & Funções em Python
+
+---
+
+## Introdução
+
+Em programação, o **controle de fluxo** determina a ordem em que as instruções são executadas em um programa. Em Python, isso permite criar programas que tomam decisões e repetem ações com base em condições específicas, tornando seu código mais dinâmico e adaptável.
+
+**Nesta seção, exploraremos as principais estruturas de controle de fluxo:**
+
+- **Condicionais - `if`, `elif` e `else`:** Permitem executar blocos de código diferentes dependendo se uma condição é verdadeira ou falsa.
+- **Laços - `for` e `while`:** Permitem repetir um bloco de código várias vezes, seja por um número específico de vezes ou enquanto uma condição for verdadeira.
+- **Tratamento de exceções - `try`, `except` e `finally`:** Permitem lidar com erros e situações inesperadas sem interromper o programa.
+- **Palavras-chave - `break` e `continue`:** Permitem controlar o fluxo de execução dentro de laços.
+
+**Por que o controle de fluxo é importante?** Imagine um programa que:
+
+* Decide se um usuário tem acesso a um sistema (`if`).
+* Repete uma ação até que um download seja concluído (`while`).
+* Percorre uma lista de produtos para calcular descontos (`for`).
+* Previne erros se um arquivo não for encontrado (`try/except`).
+
+Sem controle de fluxo, nossos programas seriam lineares e limitados. Com ele, ganhamos **flexibilidade** e **poder** para resolver problemas complexos.
+
+Dominar o controle de fluxo é essencial para qualquer pessoa que esteja aprendendo programação, pois ele está presente em praticamente todo código real. Vamos começar a explorar cada conceito com exemplos práticos e exercícios!
+
+---
+
+## Estruturas de Decisão
+
+As estruturas de decisão em Python são usadas para controlar o **fluxo do programa**, ou seja, para **decidir qual bloco de código será executado** dependendo de uma ou mais condições. Pense como um semáforo: dependendo da cor, uma ação diferente deve ser tomada — o mesmo acontece em um programa.
+
+- Exemplo do mundo real:
+
+```
+Se estiver nublado:
+    Levarei guarda-chuva
+Senão:
+    Não levarei
+```
+
+> **Nota: Em Python, a indentação (recuo de quatro espaços ou um *tab*) é obrigatória para definir os blocos de código. Isso significa que o que estiver indentado será considerado parte da condição.**
+
+---
+
+### Estrutura `if` Simples
+
+A estrutura mais básica do controle de fluxo é o `if`, que permite executar um bloco de código apenas se uma condição for verdadeira.
+
+```{python}
+idade = 20
+if idade >= 18:
+    print("Você é maior de idade.")
+```
+
+> Neste exemplo, como `idade` é 20, que é maior que 18, a mensagem será exibida.
+
+---
+
+### Estrutura `if/else`
+
+Se quisermos executar um código para o caso em que a condição não é satisfeita, usamos o `else`.
+
+```{python}
+idade = 16
+if idade >= 18:
+    print("Você é maior de idade.")
+else:
+    print("Você é menor de idade.")
+```
+
+---
+
+### Estrutura `if/elif/else`
+
+Para avaliar múltiplas condições, usamos `elif` ("else if").
+
+```{python}
+nota = 8
+if nota >= 9:
+    conceito = "A"
+elif nota >= 7:
+    conceito = "B"
+elif nota >= 5:
+    conceito = "C"
+else:
+    conceito = "D"
+
+print("Conceito:", conceito)
+```
+
+---
+
+### Diferença entre `if/elif` e múltiplos `if` independentes {.unnumbered}
+
+Há uma diferênça ao usar as condições `if/elif` e usar vários `if` de forma consecutivas. É importante entender como essa diferênça funciona para que o seu programa não atenda mais de uma condição quando na verdade "apenas uma" é a verdadeira. Vamos há um exemplo claro e objetivo.
+
+```{python}
+if 1 == 1:
+    print("Caiu no 1º if")
+elif 1 >= 1:
+    print("Caiu no elif")
+else:
+    print("Caiu no else")
+```
+
+Perceba que duas condições em teste são verdadeiras. Porém, ao usarmos a estrutura `if/elif`, apenas *o bloco com a primeira condição verdadeira é executado*. No exemplo, apenas o blobo seguinte a condição `if a == 1` foi executado.
+
+Agora, veja o exemplo adaptado a estrutura de `if` consecutivos:
+
+```{python}
+if 1 == 1:
+    print("Caiu no 1º if")
+if 1 >= 1:
+    print("Caiu no 2º if")
+else:
+    print("Caiu no else")
+```
+
+No bloco de código acima não há uma regra pré definida pelo Python. Ambos os blocos `if` serão avaliados independentemente. Isso pode ser útil em algumas situações, mas exige atenção!
+
+---
+
+### Outros Exemplos de Condicionais
+
+- **1º Exemplo - Condicionais Aninhadas:** Útil quando queremos verificar uma condição dada que outra já foi satisfeita. Ou seja, uma estrutura condicional pode estar dentro de outra.
+
+```{python}
+# Definindo uma variável numérica
+value = 2.35
+
+# 1ª condição (externa)
+if value <= 1:
+  print("O valor é menor ou igual a 1")
+  
+  # 1ª condição (interna) dada que 1ª condição (externa) foi satisfeita
+  if value < 0.5:
+    print("E é menor que 0,5")
+    
+  # 2ª condição (interna) dada que 1ª condição (externa) foi satisfeita
+  elif value == 0.5:
+    print("O valor é igual a 0,5")
+    
+  # 3ª condição (interna) dada que 1ª condição (externa) foi satisfeita
+  else:
+    print("O valor é maior que 0,5")
+    
+# 2ª condição
+elif value <= 2:
+  print("O valor é menor ou igual a 2")
+  
+  # 1ª condição (interna) dada que 2ª condição (externa) foi satisfeita
+  if value < 1.5:
+    print("E é menor que 1,5")
+    
+  # 2ª condição (interna) dada que 2ª condição (externa) foi satisfeita
+  elif value == 1.5:
+    print("O valor é igual a 1,5")
+    
+  # 3ª condição (interna) dada que 2ª condição (externa) foi satisfeita
+  else:
+    print("O valor é maior que 1,5")
+    
+# 3ª condição
+else:
+  print("Sabe-se apenas que o valor é maior que 2")
+  
+  # 1ª condição (interna) dada que 3ª condição (externa) foi satisfeita
+  if value <= 2.5:
+    print("Podendo variar entre (2; 2,5]")
+    
+  # 2ª condição (interna) dada que 3ª condição (externa) foi satisfeita
+  elif value <= 3:
+    print("Podendo variar entre (2,5; 3]")
+    
+  # 3ª condição (interna) dada que 3ª condição (externa) foi satisfeita
+  else:
+    print("O valor é maior que 3")
+```
+
+- **2º Exemplo - Classificação de Valores:** Já pararam para pensar como o conceito é dado pelo sistema da Universidade Federal do Pará? A classificação ocorre da seguinte maneira:
+
+```{python}
+import random as rd
+
+rd.seed(123456789)
+review = [10 * rd.random() for _ in range(5)]
+mean = sum(review) / len(review)
+print(f"Média das Avaliações: {round(mean, 2)}")
+
+# Em qual conceito está média estaria?
+if (mean >= 0) and (mean < 5):
+  print("O conceito do aluno foi INSUFICIENTE")
+elif (mean >= 5) and (mean < 7):
+  print("O conceito do aluno foi REGULAR")
+elif (mean >= 7) and (mean < 9):
+  print("O conceito do aluno foi BOM")
+elif (mean >= 9) and (mean <= 10):
+  print("O conceito do aluno foi EXCELENTE")
+else:
+  print("Média de Avaliações Inválida")
+```
+
+- **2º Exemplo - Classificação de Valores:** Já pararam para pensar como o conceito é dado pelo sistema da Universidade Federal do Pará? Mas também pode ser feita de forma mais direta:
+
+```{python}
+print(f"Média das Avaliações: {round(mean, 2)}")
+
+# Em qual conceito está média estaria?
+if 0 <= mean < 5:
+  print("O conceito do aluno foi INSUFICIENTE")
+elif 5 <= mean < 7:
+  print("O conceito do aluno foi REGULAR")
+elif 7 <= mean < 9:
+  print("O conceito do aluno foi BOM")
+elif 9 <= mean < 10:
+  print("O conceito do aluno foi EXCELENTE")
+else:
+  print("Média de Avaliações Inválida")
+```
+
+- **3º Exemplo - Condição com Expressão Ternária:** Forma reduzida do `if/else,` muito últil para atribuições simples. Exemplo com `string`:
+
+```{python}
+# Dados do usuário
+age = 19
+CNH = True
+
+# Verificação com Expressão Ternária
+result = "Está apto a dirigir!" if age >= 18 and CNH != False else "Não está apto a dirigir!"
+
+# Visualizar
+print(result)
+```
+
+- **3º Exemplo - Condição com Expressão Ternária:** Forma reduzida do `if/else,` muito últil para atribuições simples. Exemplo com `number`:
+
+```{python}
+# Definindo números
+x, y = 4, 5
+
+# Verificação com Expressão Ternária
+maior_valor = x if x > y else y
+
+# Visualizar
+print(maior_valor)
+```
+
+---
+
+### Considerações e Boas Práticas
+
+- Use `elif` quando apenas uma entre várias condições pode ser verdadeira;
+- Evite aninhamentos profundos de `if`;
+- Use operações compostas como `7 <= mean < 9` para mais clareza;
+- Sempre comente blocos de código complexos;
+- Lembre das @tbl-operLogic que apresentam os *operadores lógicos* e @tbl-conecLogic que mostra os *conectores lógicos*.
+
+---
+
+## Estruturas de Repetição
+
+As estruturas de repetição são usadas para executar um bloco de código várias vezes, de forma automática, até que uma condição seja satisfeita ou uma sequência de elementos seja percorrida.
+
+Em Python, temos duas principais formas de repetição:
+
+- `for`: Ideal quando sabemos o número de repetições ou estamos percorrendo uma estrutura (lista, string, dicionário, etc);
+- `while`: Ideal quando não sabemos o número exato de repetições e precisamos que o código continue enquanto uma condição for verdadeira.
+
+---
+
+### Estrutura `for`
+
+A estrutura `for` é uma das formas mais comuns de repetição em Python. Ela é ideal quando:
+
+- Sabemos de antemão quantas vezes o código deve ser repetido; ou
+- Queremos percorrer os elementos de uma sequência (como listas, strings, dicionários, etc.).
+
+Vamos começar com o básico: o objeto `range()`.
+
+```{python}
+# Lembra do objeto range()?
+range(3)
+```
+
+O comando acima não imprime os números, ele apenas cria um objeto que representa uma sequência de 0 até 2 (três elementos, começando do zero). Para visualizar os elementos, podemos convertê-lo em uma lista:
+
+```{python}
+list(range(3))
+```
+
+Agora vamos usar o `range()` dentro de um laço `for`:
+
+```{python}
+for i in range(3):
+    print(i)
+```
+> Aqui, o loop `for` vai executar o bloco de código três vezes, e a variável `i` assume os valores 0, 1 e 2 a cada repetição.
+
+Você também pode fazer a mesma coisa passando uma lista explicitamente:
+
+```{python}
+print(f"Lista exemplo para iteração: {list(range(3))}")
+print("Iniciando contagem:")
+
+for contador in list(range(3)):
+  print(f"Passo {contador + 1}: Valor atual = {contador}")
+
+print("Contagem concluída!")
+```
+> O resultado será o mesmo. Nesse caso, você está iterando diretamente sobre os elementos de uma lista.
+
+---
+
+#### Iterando em Strings
+
+Strings são sequências de caracteres, e podemos percorrê-las com o `for`.
+
+```{python}
+texto = "Curso de Python para Análise de Dados."
+for caractere in texto:
+    print(caractere)
+```
+> A cada repetição, a variável `letra` recebe um caractere da string. Esse recurso é útil para manipulações de texto.
+
+---
+
+#### Interando em Listas
+
+Suponha que você tenha uma lista com nomes de frutas, e deseja imprimir cada fruta em letras maiúsculas.
+
+```{python}
+# Lista de frutas
+frutas = ["maçã", "banana", "laranja", "abacaxi", "uva"]
+
+# Imprimindo cada fruta em caixa alta
+for fruta in frutas:
+    print(fruta.upper())
+```
+> O método `upper()` transforma a string para letras maiúsculas. A variável fruta assume o valor de cada elemento da lista a cada iteração.
+
+Vamos ver outro exemplo: elevar números ao quadrado e ao cubo:
+
+```{python}
+# Criando a lista de números de 0 a 5
+numbers = list(range(6))
+
+# Iterando sobre a lista
+for number in numbers:
+    print(f"Número: {number}")
+    print(f"Número ao quadrado: {number ** 2}")
+    print(f"Número ao cubo: {number ** 3}\n")
+```
+> `number` assume os valores de 0 a 5 e cada iteração é mensurado o seu quadrado e o seu cubo.
+
+---
+
+#### Iterando em Dicionários
+
+Dicionários são estruturas de dados compostas por pares `chave:valor`. Podemos iterar por eles usando o método `items()`, que retorna as chaves e valores simultaneamente:
+
+```{python}
+# Dicionário com traduções da palavra "gato"
+translations = {"Português": "gato", "Inglês": "cat", "Francês": "chat"}
+
+# Percorrendo as chaves e os valores
+for idioma, palavra in translations.items():
+    print(f"{idioma} -> {palavra}")
+```
+> A cada iteração, `idioma` recebe a chave e `palavra` recebe o valor correspondente.
+
+Você também pode usar `zip()` para fazer a iteração:
+
+```{python}
+# Outra forma de iterar: combinando as chaves e os valores com zip()
+for idioma, palavra in zip(translations.keys(), translations.values()):
+    print(f"{idioma} -> {palavra}")
+```
+> O `zip()` combina os elementos das duas listas (chaves e valores) em pares.
+
+**Iterando com `enumerate()`:** Às vezes, além de acessar o valor de uma lista ou dicionário, também queremos saber a posição (índice) do elemento. Para isso, usamos `enumerate()`.
+
+Vamos aplicar isso a um dicionário um pouco mais complexo:
+
+```{python}
+# Dicionário com informações de pessoas
+dados = {
+    "Nome": ["Igor", "Allan", "Victória", "Izabella", "Fernando"],
+    "Idade": [39, 17, 98, 45, 27],
+    "Animal de Estimação": ["Gato", "Tigre", "Arara", "Javali", "Ratatouille"]
+}
+
+# Percorrendo os dados
+for i, key in enumerate(dados.keys()):
+    if i == 0:
+        print("Informações Coletadas:")
+    for id in dados[key]:
+        if id == dados[key][0]:
+            print(f"   {i + 1}. {key}:")
+            print(f"      {id}")
+        else:
+            print(f"      {id}")
+```
+> Aqui temos dois níveis de repetição. O primeiro laço percorre cada "coluna" do dicionário, enquanto o segundo imprime os dados. O `enumerate()` é usado para acessar o índice `i` da chave atual, que nos ajuda a numerar facilitando a visualização de chave a chave.
+
+Esse tipo de estrutura é útil para imprimir dados de maneira organizada, como se fosse uma tabela ou relatório.
+
+---
+
+#### Compreensão de Listas (List Comprehension)
+
+Uma forma compacta e elegante de construir listas com base em laços `for` é a compreensão de listas.
+
+A sintaxe básica é:
+
+```python
+[expressao for item in lista]
+```
+
+Isso pode ser lido como: *aplique a `expressao` a cada `item` da `lista`*.
+
+Vejamos um exemplo simples.
+
+```{python}
+# Forma tradicional
+quadrados = []
+for num in range(1, 11):
+    quadrados.append(num ** 2)
+
+# Visualizar
+print(quadrados)
+
+# Forma com list comprehension
+quadrados = [num ** 2 for num in range(1, 11)]
+
+# Visualizar
+print(quadrados)
+```
+> A cada iteração é calculado o quadrado do `num` que assume valores de 1 a 10.
+
+---
+
+##### Compreensão de Listas com Condição `if`
+
+É possível aplicar condicionais em compreensão de listas. De forma geral, a seguinte sintaxe é seguida:
+
+```python
+[expression for item in list if condition]
+```
+Logo, a linha de código acima diz *aplique a `expression` para cada `item` da `list` dado que `condition` é verdadeira*.
+
+Vejamos alguns exemplos:
+
+```{python}
+# Forma tradiconal
+pares = []
+for num in range(1, 21):
+  if num % 2 == 0:
+    pares.append(num)
+
+# Visualizar  
+print(pares)
+
+# Forma com list comprehension
+pares = [num for num in range(1, 21) if num % 2 == 0]
+
+# Visualizar  
+print(pares)
+```
+> Apenas os números pares serão incluídos na lista.
+
+Também é possível combinar várias condições:
+
+```{python}
+# Forma tradiconal
+multiplos = []
+for num in range(100):
+  if num % 2 == 0 and num % 5 == 0:
+    multiplos.append(num)
+
+# Visualizar  
+print(multiplos)
+
+# Forma com list comprehension
+multiplos = [num for num in range(100) if num % 2 == 0 and num % 5 == 0]
+
+# Visualizar  
+print(multiplos)
+```
+> A lista conterá números múltiplos de 2 **e** de 5.
+
+```{python}
+# Forma tradiconal
+multiplos = []
+for num in range(100):
+  if num % 2 == 0 and num % 5 == 0 and num % 6 == 0:
+    multiplos.append(num)
+
+# Visualizar  
+print(multiplos)
+
+# Forma com list comprehension
+multiplos = [num for num in range(100) if num % 2 == 0 and num % 5 == 0 and num % 6 == 0]
+
+# Visualizar  
+print(multiplos)
+```
+> A lista conterá números múltiplos de 2, 5 **e** 6.
+
+```{python}
+# Forma tradiconal
+multiplos = []
+for num in range(100):
+  if num % 2 == 0 and num % 5 == 0 or num % 6 == 0:
+    multiplos.append(num)
+
+# Visualizar  
+print(multiplos)
+
+# Forma com list comprehension
+multiplos = [num for num in range(100) if num % 2 == 0 and num % 5 == 0 or num % 6 == 0]
+
+# Visualizar  
+print(multiplos)
+```
+
+> A lista conterá números múltiplos de 2 **e** de 5 **ou** de 6.
+
+---
+
+##### Compreensão de Listas com `if`  e `else`
+
+A estrutura muda levemente:
+
+```python
+[expression_if if condition else expression_else for item in list]
+```
+Em outras palavras: *execute `expression_if` caso `condition` seja verdadeira e `expression_else` caso contrário para cada `item` da `list`*.
+
+Vamos a um exemplo.
+
+```{python}
+# Forma tradiconal
+sucess_number_div_5 = []
+for number in range(26):
+  if number % 5 == 0:
+    sucess_number_div_5.append("sucess")
+  else:
+    sucess_number_div_5.append("failure")
+
+# Visualizar  
+print(sucess_number_div_5)
+
+# Forma com list comprehension
+sucess_number_div_5 = ["sucess" if number % 5 == 0 else "failure" for number in range(26)]
+
+# Visualizar  
+print(sucess_number_div_5)
+```
+> A expressão acima retorna uma lista com as palavras `"sucess"` ou `"failure"` dependendo do valor de cada número.
+
+---
+
+##### Múltiplas Compreensão de Listas
+
+Aqui é exigida um pouco mais de atenção. Considere a matriz $$\mathbf{x} = \begin{bmatrix} 1 & 2 & 3 & 4 \\ 5 & 6 & 7 & 8 \\ 9 & 10 & 11 & 12 \end{bmatrix}$$ e $$\mathbf{x^{\intercal}} = \begin{bmatrix} 1 & 5 & 9 \\ 2 & 6 & 10 \\ 3 & 7 & 11 \\ 4 & 8 & 12 \end{bmatrix}.$$ Como fazer isso usando compreensão de listas?
+
+```{python}
+matrix = [
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12]
+]
+
+print(matrix)
+```
+
+
+Para facilitar o entendimento e melhorar a aprendizagem, vamos fazer usando estrutura `for` de forma simples.
+
+```{python}
+# Forma tradiconal
+transposta = []
+for column in range(len(matrix[0])):
+  row = []
+  
+  for element in matrix:
+    row.append(element[column])
+    
+  transposta.append(row)
+
+# Visualizar  
+print(transposta)
+```
+
+Entretanto, é possível otimizar o código usando compreensão de listas.
+
+```{python}
+# Forma com list comprehension
+transposta = [[element[column] for element in matrix] for column in range(len(matrix[0]))]
+
+# Visualizar  
+print(transposta)
+```
+
+---
+
+### Estrutura `while`
+
+A estrutura de repetição `while` é usada quando **não sabemos com antecedência quantas vezes o bloco de código deve ser repetido**. A repetição acontece **enquanto uma condição lógica for verdadeira**. Assim que essa condição se torna falsa, o laço é encerrado automaticamente.
+
+A estrutura geral é:
+
+```python
+while condição:
+    # bloco de código
+```
+
+Isso significa que o código dentro do `while` será executado repetidamente **enquanto** a condição especificada for verdadeira. Por isso, é **muito importante** garantir que a condição eventualmente se torne falsa — do contrário, o programa pode entrar em um **loop infinito**.
+
+---
+
+#### Exemplos de Uso
+
+##### Contador Simples
+
+```{python}
+contador = 1
+
+while contador <= 5:
+    print(f"Contador: {contador}")
+    contador += 1
+```
+
+Esse é o uso mais básico de um `while`. A variável de controle é atualizada em cada repetição até que a condição se torne falsa.
+
+---
+
+##### Apenas Números Pares
+
+```{python}
+n = 1
+
+while n <= 10:
+    if n % 2 == 0:
+        print(f"{n} é par")
+    n += 1
+```
+
+Neste exemplo, o `if` dentro do `while` adiciona uma **condição extra**, filtrando apenas os números pares entre 1 e 10.
+
+---
+
+##### Exemplo com `input()`
+
+```python
+number = int(input("Digite um número positivo: "))
+
+while number <= 0:
+    print("O número fornecido não é positivo. Tente novamente!")
+    number = int(input("Digite um número positivo: "))
+
+print(f"Parabêns. O número fornecido é positivo!")
+```
+
+Esse exemplo usa `input()` para verificar se o valor digitado é positivo ou não.
+
+---
+
+##### Exemplo com string: invertendo uma palavra
+
+```{python}
+palavra = "Python"
+reverso = ""
+i = len(palavra) - 1
+
+while i >= 0:
+    reverso += palavra[i]
+    i -= 1
+
+print(f"A palavra '{palavra}' invertida é '{reverso}'.")
+```
+
+Aqui usamos `while` para percorrer uma string de trás para frente e gerar sua versão invertida.
+
+---
+
+##### Exemplo com lista: somando números até esvaziar a lista
+
+```{python}
+numeros = [10, 20, 30, 40, 50]
+soma = 0
+
+while numeros:
+    valor = numeros.pop()  # Remove o último elemento
+    soma += valor
+
+print(f"Soma dos valores: {soma}")
+```
+
+Esse exemplo mostra como o `while` pode operar **enquanto uma lista tiver elementos** — uma abordagem comum para **estrutura de pilha**.
+
+---
+
+##### Exemplo com múltiplas condições
+
+```{python}
+dados, i = [12, -3, 5, 0, -8, 19, -1, 0, 7], 0
+
+positivos, negativos, zeros = 0, 0, 0
+
+while i < len(dados):
+    if dados[i] > 0:
+        positivos += 1
+    elif dados[i] < 0:
+        negativos += 1
+    else:
+        zeros += 1
+    i += 1
+
+print(f"Positivos: {positivos}, Negativos: {negativos}, Zeros: {zeros}")
+```
+
+Esse exemplo simula uma **classificação de dados** usando `while` com múltiplas condições `if-elif-else`.
+
+---
+
+## Comandos-Chave
+
+Em desenvolvimento Python, à medida que a complexidade do código aumenta, torna-se fundamental o domínio de mecanismos para o tratamento robusto de erros e o controle preciso da execução de estruturas de repetição. Esta seção explora dois grupos essenciais de comandos que possibilitam um fluxo de execução mais refinado e resiliente.
+
+- **Tratamento de Exceções:** Python oferece um conjunto de construções para o tratamento de exceções, permitindo o desenvolvimento de código capaz de responder de forma controlada a eventos inesperados durante a execução. Ao utilizar blocos `try`, `except` e, opcionalmente, `finally`, é possível interceptar e manipular erros, evitando a interrupção abrupta do programa e implementando estratégias de recuperação ou finalização controlada de recursos.
+
+- **Controle de Fluxo em Loops:** Adicionalmente às estruturas condicionais básicas, Python disponibiliza palavras-chave específicas para o controle do fluxo de execução dentro de laços de repetição (`for` e `while`). Os comandos `break` e `continue` fornecem mecanismos para alterar o comportamento padrão dos loops:
+
+  - `break`: Interrompe a execução do loop corrente e transfere o controle para a próxima instrução após o loop.
+  - `continue`: Interrompe a iteração corrente e passa para a próxima iteração do loop.
+
+O domínio destas ferramentas de tratamento de exceções e controle de fluxo em loops é crucial para a escrita de código Python robusto, eficiente e capaz de lidar com cenários complexos de execução. A correta aplicação destes conceitos contribui significativamente para a qualidade e a manutenibilidade de projetos de software.
+
+---
+
+### Tratamento de Exceções
+
+Em Python, erros em tempo de execução são inevitáveis (e.g., entrada inválida, divisão por zero, arquivo ausente). O **tratamento de exceções**, via blocos `try/except`, permite que o programa **continue executando** ao invés de interromper. Ao prever e capturar erros específicos, o código reage de forma controlada, garantindo maior robustez e estabilidade da aplicação. Essencial para software confiável.
+
+Um exemplo da estrutura básica é apresentado no bloco de código abaixo:
+
+```python
+try:
+    # Código que pode gerar erros
+    numero = int(input("Digite um número: "))
+    resultado = 10 / numero
+    print("Resultado:", resultado)
+except ZeroDivisionError:
+    # Executado se ocorrer o erro específico
+    print("Erro: Divisão por zero!")
+except Exception as e:
+    # Captura qualquer outro erro
+    print(f"Erro inesperado: {e}")
+else:
+    # Executado se NENHUM erro ocorrer
+    print("Operação bem-sucedida!")
+finally:
+    # Sempre executado (com ou sem erros)
+    print("Fim do bloco try-except")
+```
+
+```{python}
+try:
+    # Código que pode gerar erros
+    numero = 0
+    resultado = 10 / numero
+    print("Resultado:", resultado)
+except ZeroDivisionError:
+    # Executado se ocorrer o erro específico
+    print("Erro: Divisão por zero!")
+except Exception as e:
+    # Captura qualquer outro erro
+    print(f"Erro inesperado: {e}")
+else:
+    # Executado se NENHUM erro ocorrer
+    print("Operação bem-sucedida!")
+finally:
+    # Sempre executado (com ou sem erros)
+    print("Fim do bloco try-except")
+```
+
+- O bloco `try` encapsula o código passível de gerar erros em tempo de execução.
+- O bloco `except` especifica o tratamento para tipos particulares de erros (exceções) que possam ocorrer dentro do bloco `try`. Múltiplos blocos `except` podem ser definidos para lidar com diferentes tipos de exceções. A captura genérica de qualquer exceção pode ser realizada com `except Exception`.
+- O bloco `finally` é executado invariavelmente, independentemente da ocorrência ou não de uma exceção dentro do bloco `try`. Sua principal aplicação reside na execução de rotinas de finalização, como o fechamento de arquivos ou a liberação de conexões.
+
+---
+
+### Palavras-Chave
+
+Dentro de laços de repetição `for` e `while` em Python, as palavras-chave `break` e `continue` oferecem mecanismos essenciais para o controle preciso do fluxo de execução. `break` interrompe imediatamente a execução do loop, transferindo o controle para a instrução seguinte ao bloco do loop. `continue`, por sua vez, encerra a iteração corrente e passa para a próxima iteração do loop. A utilização estratégica dessas palavras-chave contribui para a organização e a eficiência do código em cenários onde a execução padrão do loop necessita ser alterada condicionalmente.
+
+---
+
+#### `break` {.unnumbered}
+
+```{python}
+# Encontra o primeiro número divisível por 7
+for num in range(1, 10):
+    if num % 7 == 0:
+        print(f"Encontrado: {num}")
+        break
+    print(num)
+```
+
+```python
+while True:
+    senha = input("Digite a senha (1234) para sair: ")
+    if senha == "1234":
+        print("Senha correta! Saindo...")
+        break
+    print("Senha incorreta!")
+```
+
+---
+
+#### `continue` {.unnumbered}
+
+```{python}
+# Não irá imprimir o número 7
+for num in range(1, 10):
+    if num == 7:
+        continue
+    print(num)
+```
+
+```{python}
+produtos = ["camiseta", "caneca", None, "poster", "", "adesivo"]
+for item in produtos:
+    if not item:  # None ou string vazia
+        continue
+    print(f"Processando: {item.upper()}")
+```
+
+---
+
+## Funções
+
+Vamos relembrar o conceito de *função* dada por @Guidorizzi:
+
+> "*Uma função $f$ é uma relação entre dois conjuntos $A$ e $B$, representada pela tripla $(A, B, a \mapsto b)$, onde $A$ é o conjunto de partida (domínio), $B$ é o conjunto de chegada (contradomínio) e $a \mapsto b$ é a regra que associa a cada elemento $a \in A$ um único elemento $b \in B$.*"
+
+Para fins técnicos, as funções em Python seguem esse mesmo raciocínio. Uma função é um bloco de código que executa uma tarefa específica e pode ser reutilizado várias vezes ao longo do programa. Ao invés de repetir o mesmo conjunto de comandos, colocamos esses comandos dentro de uma função e chamamos essa função sempre que precisarmos dela. Pense nela como uma "minifábrica" que recebe certas entradas (opcionalmente), processa-as e produz uma saída (opcionalmente).
+
+No universo da programação, a capacidade de organizar o código de forma organizad, modular e reutilizável é um pilar para a construção de sistemas eficientes e de fácil manutenção. Em Python, esse pilar é sustentado pelas funções. Nesta seção, exploraremos desde os conceitos básicos até aspectos mais avançados, com aplicações práticas.
+
+Você pode pensar em uma função como uma "máquina" que recebe certos dados (chamados parâmetros ou argumentos), processa esses dados e, em muitos casos, devolve um resultado (valor de retorno).
+
+A importância das funções é multifacetada, apresentando várias vantagens de fazer seu uso. Elas são fundamentais para:
+
+- **Modularidade:** Funções permitem quebrar programas grandes e complexos em partes menores e mais gerenciáveis. Isso facilita o desenvolvimento, a depuração e a compreensão do código.
+
+- **Reusabilidade de Código (DRY - Don't Repeat Yourself):** Uma vez definida, uma função pode ser chamada múltiplas vezes de diferentes partes do programa, eliminando a necessidade de reescrever o mesmo código repetidamente.
+
+- **Abstração:** Funções escondem os detalhes de implementação de uma tarefa complexa. Você precisa saber o que a função faz (sua finalidade), mas não necessariamente como ela faz.
+
+- **Manutenção:** Se uma alteração for necessária em uma lógica específica, basta modificar a função correspondente. Isso é muito mais eficiente do que procurar e alterar várias ocorrências do mesmo código espalhado pelo programa.
+
+- **Legibilidade:** O uso de funções com nomes descritivos torna o código mais fácil de ler e entender, pois cada função representa uma etapa lógica clara no fluxo do programa.
+
+### Sintaxe Básica
+
+Em Python, para definir uma função é utilizado a palavra chave `def`, seguida do nome da função e parênteses para os possíveis parâmetros e `:`. Ao pressionar *enter* o bloco será automaticamnete identado (*quatro espações ou um tab*) pelo editor. Todo código identado faz parte da função.
+
+```python
+def name_function():
+  # seu código será disposto aqui
+  # e o Python irá compreende-lo como parte da função
+```
+
+- **Exemplos:**
+
+```{python}
+def greeting1():
+  print("Olá. Sejá bem-vindo ao Curso de Python para Análise de Dados!")
+
+
+def greeting2(nome):
+  print(f"Olá, {nome}. Sejá bem-vindo ao Curso de Python para Análise de Dados!")
+  
+
+greeting1()
+
+greeting2("Breno")
+```
+
+### Parâmetros e Argumentos
+
+Funções podem receber dados de entrada para realizar suas tarefas. Esses dados são passados através de **parâmetros** na definição da função e **argumentos** na chamada da função.
+
+### Tipos de Parâmetros/Argumentos:
+
+1.  **Argumentos Posicionais:** São os argumentos passados na ordem em que os parâmetros são definidos.
+
+```{python}
+def saudar(nome, sobrenome):
+  print(f"Olá, {nome} {sobrenome}!")
+
+saudar("Maria", "Silva") # Saída: Olá, Maria Silva!
+saudar("Silva", "Maria") # Saída: Olá, Silva Maria!
+```
+
+2.  **Argumentos de Palavra-chave (Keyword Arguments):** São passados explicitamente associando o nome do parâmetro ao seu valor. A ordem não importa.
+
+```{python}
+def email(nome, dominio="icen.ufpa.br"):
+    return f"{nome.lower()}@{dominio}"
+
+print(email(nome="joao"))                            # Saída: joao@icen.ufpa.br
+print(email(dominio="ufpa.br", nome="ANA")) # Saída: ana@ufpa.br
+```
+
+3.  **Parâmetros com Valores Padrão (Default Parameters):** Permitem definir um valor padrão para um parâmetro. Se o argumento não for fornecido na chamada da função, o valor padrão é utilizado.
+
+```{python}
+def calcular_potencia(base, expoente=2): # expoente tem valor padrão 2
+    return base ** expoente
+
+print(calcular_potencia(3))    # Saída: 9 (3^2)
+print(calcular_potencia(2, 4)) # Saída: 16 (2^4)
+```
+
+**Cuidado:** Parâmetros com valores padrão devem ser definidos após os parâmetros sem valores padrão.
+
+4.  **Argumentos Arbitrários (`*args` e `**kwargs`):** Permitem que uma função aceite um número variável de argumentos.
+
+* `*args` (non-keyword arguments): Coleta um número variável de argumentos posicionais em uma tupla.
+
+```{python}
+def soma_tudo(*numeros):
+    total = 0
+    for num in numeros:
+        total += num
+    return total
+
+print(soma_tudo(1, 2, 3))        # Saída: 6
+print(soma_tudo(10, 20, 30, 40)) # Saída: 100
+```
+
+* `**kwargs` (keyword arguments): Coleta um número variável de argumentos de palavra-chave em um dicionário.
+
+```{python}
+def exibir_perfil(**info):
+  for chave, valor in info.items():
+      print(f"{chave.replace("_", " ").title()}: {valor}")
+
+exibir_perfil(nome="Carlos", idade=30, cidade="São Paulo")
+# Saída:
+# Nome: Carlos
+# Idade: 30
+# Cidade: São Paulo
+
+exibir_perfil(nome_cliente="Carlos", idade_cliente=30, cidade_cliente="São Paulo")
+# Saída:
+# Nome Cliente: Carlos
+# Idade Cliente: 30
+# Cidade Cliente: São Paulo
+```
+
+### Retorno de Valores
+
+Vimos que é possível imprimir valores na tela através de funções. Entretanto e se precisarmos dos valores que são calculados por determinada função? De acordo com o que apreendemos basta atribuir a saída do programa a uma variável.
+
+```{python}
+# Atribuição
+grr = greeting2("Emilly Rose")
+```
+
+Também de acordo com o que apreendemos, basta chamar a variável `grr` em qualquer parte do código que ela mostrará a frase: `Olá, Emilly Rose. Sejá bem-vindo ao Curso de Python para Análise de Dados!`.
+
+```{python}
+# Chamando variável
+grr
+```
+
+Note que a saída do código acima, não resultou em nada. Ou ainda, pode ter resultado, porém, o resutado foi vazio (`None`).
+
+```{python}
+# Verificação
+grr == None
+```
+
+Note que, por consequência, valores definidos dentro de uma função não são exportados para fora dela. Isto é, algo definido no `local` de um função não será definido no ambiente `global`.
+
+```{python}
+def minha_funcao():
+      arr = 10  # Variável local
+      print(arr)
+
+minha_funcao()
+
+try:
+  print(arr)  # Erro! 'arr' só existe dentro da função.
+
+except NameError:
+  print("Variável 'arr' não definida!")
+```
+
+Isso ocorre porque a estrutura que está sendo utilizada pela função `greeting2` não foi feita para retornar valores, mas sim, para apenas os imprimir na tela.
+
+- **Boas Práticas de Escopo:**
+
+    1. *Priorize o Escopo Local:* É uma boa prática projetar funções para serem o mais independentes possível, evitando depender de variáveis globais. Isso melhora a modularidade e reduz efeitos colaterais indesejados.
+    2. *Evite o Uso de `global`:* A palavra-chave `global` permite modificar uma variável global dentro de uma função. Seu uso deve ser evitado ao máximo, pois pode levar a um código confuso e difícil de depurar. Se uma função precisa alterar dados globais, é preferível que ela retorne os novos valores para que o código chamador possa atualizar a variável global explicitamente.
+    3. *Passagem de Argumentos:* Sempre que uma função precisar de dados externos, passe-os como argumentos, em vez de depender de variáveis globais.
+
+Para que a função realmente retorne o valor que foi obtido/calculado por ela, basta utilizar um comando interno do Python chamado `return`. Vamos a exemplos:
+
+1. Soma de dois termos:
+
+```{python}
+def my_function_sum1(a, b):
+  summ = a + b
+  
+  return summ
+  
+def my_function_sum2(a, b):
+  return a + b
+
+
+a = my_function_sum1(1/2, 1/2)
+b = my_function_sum2(1/2, 1/2)
+
+print(a == b)
+```
+
+2. Soma de $n$ termos:
+
+```{python}
+def my_function_sum(*numbers):
+  summ = 0
+  for num in numbers:
+    if type(num) == list:
+      for n in num:
+        if (type(n) != int) or (type(n) != float):
+          continue
+        
+        summ += n
+    else:
+        summ += num
+    
+  return summ
+  
+my_function_sum([1, 2, "a", 3], 5, 10, 20, 32)
+```
+
+Note que, se eu quiser o resultados desta soma para usá-lo em outra hora, basta atribuir isso a uma variável.
+
+```{python}
+# Guardando soma
+summ = my_function_sum([1, 2, "a", 3], 5, 10, 20, 32)
+
+# Visualizando
+print(summ)
+
+# Verificando
+print(summ == None) # A saída deve ser: False
+```
+
+### Funções Anônimas - `lambda functions`
+
+Funções lambda são pequenas funções anônimas (sem nome) que são definidas usando a palavra-chave `lambda`. Elas são restritas a uma única expressão e são frequentemente usadas para tarefas curtas e simples onde uma função completa seria excessiva.
+
+- **Sintaxe:** `lambda argumentos: expressão`
+
+```{python}
+# Definindo função anônima
+square = lambda x: x ** 2
+
+# Fazendo uso da função
+print(square(2))
+
+# Definindo função anônima
+linear = lambda x, y: 2 * x + y
+
+# Fazendo uso da função
+print(linear(2, 3))
+
+# Definindo função anônima
+tt = lambda x: x * 2 + x
+
+# Fazendo uso da função
+print(tt([1, 2, 3]))
+```
+
+Essa maniera de se definir uma função é comumente usada em conjunto das funções `sorted()`, `filter()` e `map()`.
+
+```{python}
+list_of_numbers = [2.5, 1, 5, 9, 0.1, 2, 8, 3, 12]
+
+# Exemplo de uso com sorted()
+print(sorted(list_of_numbers, key = lambda x: 1 / x ** 2))
+
+# Exemplo de uso com filter()
+print(list(filter(lambda x: x % 2 == 0, list_of_numbers)))
+
+# Exemplo de um com map()
+print(list(map(lambda x: x * 2, list_of_numbers)))
+```
 
 :::: progress
 :::: {.progress-bar style="width: 100%;"}
