@@ -1,0 +1,129 @@
+```{=html}
+<style>
+  body{text-align: justify}
+</style>
+```
+
+:::: progress
+:::: {.progress-bar style="width: 100%;"}
+::::
+::::
+
+# Lista de Exercícios – Módulo Python Básico
+
+---
+
+## 🔹 Nível **Básico**
+
+Objetivo: Reforçar os fundamentos de controle de fluxo, operadores e funções simples.
+
+1. **Número Positivo ou Negativo**
+   Peça um número ao usuário e diga se ele é positivo, negativo ou zero.
+
+2. **Par ou Ímpar**
+   Escreva um programa que receba um número inteiro e diga se ele é par ou ímpar.
+
+3. **Contagem de 1 a 10**
+   Use `for` para imprimir os números de 1 a 10.
+
+4. **Soma dos 100 primeiros números inteiros**
+   Use `range` e `for` para somar os números de 1 a 100. Imprima o resultado.
+
+5. **Função de Boas-vindas**
+   Crie uma função `saudacao()` que exibe "Bem-vindo ao curso de Python!".
+
+6. **Função com nome personalizado**
+   Modifique a função anterior para receber o nome do usuário como argumento.
+
+7. **Calculadora de quadrado**
+   Crie uma função que receba um número e retorne seu quadrado.
+
+8. **Verificador de múltiplos de 3**
+   Crie um programa que diga se um número fornecido é múltiplo de 3.
+
+9. **Imprimir apenas pares**
+   Use `for` e `if` para imprimir todos os números pares entre 1 e 20.
+
+10. **Função Dobro ou Triplo**
+    Escreva uma função `dobro_ou_triplo(n)` que retorne o dobro de `n` se ele for par e o triplo se for ímpar.
+
+---
+
+## 🔹 Nível **Intermediário**
+
+Objetivo: Aplicar funções com argumentos, estruturas condicionais mais complexas e laços aninhados.
+
+11. **Classificação por nota**
+    Crie uma função que recebe uma nota (0 a 10) e classifica como:
+
+* A (9–10), B (7–8.9), C (5–6.9), D (<5)
+
+12. **Calculadora de média com 3 notas**
+    Receba 3 notas em uma função, calcule a média e retorne a situação: "Aprovado", "Recuperação" ou "Reprovado".
+
+13. **Soma de pares até N**
+    Crie uma função que recebe um número `n` e retorna a soma de todos os pares de 0 até `n`.
+
+14. **Fatorial com `while`**
+    Use `while` para calcular o fatorial de um número inteiro positivo.
+
+15. **Verificador de número primo**
+    Implemente a função `eh_primo(n)` que retorna `True` se for primo.
+
+16. **Senha com três tentativas**
+    Crie um sistema de login com senha fixa. O usuário tem 3 tentativas.
+
+17. **Função de múltiplos parâmetros**
+    Crie uma função que receba dois números e diga qual é o maior (ou se são iguais).
+
+18. **Soma de ímpares entre dois números**
+    Escreva uma função que receba dois números e retorne a soma dos ímpares entre eles.
+
+19. **Repetição com interrupção (`break`)**
+    Crie um laço `while` que solicite números até o usuário digitar zero. Em seguida, imprima a soma total.
+
+20. **Tabuada com `for`**
+    Crie uma função que recebe um número e imprime sua tabuada de 1 a 10.
+
+---
+
+## 🔹 Nível **Avançado**
+
+Objetivo: Aplicar raciocínio lógico, aninhamento de estruturas, manipulação de strings, listas e modularização com funções.
+
+21. **Contador de Vogais**
+    Crie uma função que conte o número de vogais em uma string, desconsiderando acentuação.
+
+22. **Conversor de Temperatura com Validação**
+    Crie uma função que recebe a temperatura e a unidade ("C" ou "F") e converte para a outra escala.
+
+23. **Calculadora com Menu**
+    Crie uma função `calculadora()` com menu de operações básicas (`+`, `-`, `*`, `/`) e entrada de dois números.
+
+24. **Analisador de CPF Simples**
+    Crie uma função que verifica se um CPF digitado contém 11 dígitos numéricos. (Não precisa validar o dígito verificador.)
+
+25. **Função que inverte uma string**
+    Implemente uma função `inverter_string(s)` que retorna a string invertida.
+
+26. **Verificador de Palíndromo**
+    Crie uma função que recebe uma palavra e verifica se é um palíndromo (ex: “radar”).
+
+27. **Sistema de Notas com Loop Interativo**
+    O usuário pode digitar várias notas e a função só para quando o usuário digitar "sair". Ao final, imprime a média.
+
+28. **Simulador de Caixa Eletrônico**
+    O usuário digita um valor (múltiplo de 10) e o programa informa quantas notas de 100, 50, 20 e 10 devem ser entregues.
+
+29. **Senha Forte com Expressões Lógicas**
+    Escreva uma função que verifica se uma senha é forte:
+
+* mínimo de 8 caracteres, uma letra maiúscula, um número, um símbolo.
+
+30. **Gerador de Sequência de Fibonacci até N**
+    Escreva uma função que recebe um valor `n` e imprime os termos da sequência de Fibonacci menores que `n`.
+
+:::: progress
+:::: {.progress-bar style="width: 100%;"}
+::::
+::::

@@ -30,6 +30,7 @@ book:
     - 01_Fundamentals_of_Python.qmd
     - 02_Data_Structure.qmd
     - 03_FlowControl_&_Functions.qmd
+    - 04_Exercises.qmd
     - references.qmd
 
 comments:

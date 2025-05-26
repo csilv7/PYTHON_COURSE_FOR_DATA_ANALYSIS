@@ -636,43 +636,7 @@ No ambiente Jupyter Notebook, você também pode usar:
 
 Este capítulo cobriu os fundamentos essenciais para começar a programar em Python. Nos próximos capítulos, construiremos sobre essa base para explorar estruturas de dados mais complexas e as ferramentas específicas para análise de dados.
 
----
-
-## Exercícios
-
-**1. Escreva um programa que imprima na tela a seguinte mensagem: `Bem-vindo ao mundo Python!`.**
-
-**2. Corrija os erros nos seguintes comandos `print()`:**
-
-```
-print("Python é incrível!)
-Print('Aprendendo Python')
-print("Python é legal! Mas não o 'legal como dizem pra outras coisas")
-```
-
-**3. Utilize `print()` para exibir o seguinte texto em três linhas diferentes:**
-
-```
-Aprender Python  
-é muito  
-divertido!
-```
-
-**4. Realize as operações matemáticas a seguir, guarde em uma variável e exiba os resultados. Além de determinar a ordem de execução conforme as regras de precedência matemática:**
-
-- a)  $$\dfrac{100 − 413 \cdot (20 − 5 \times 4)}{5}$$
-- b)  $$\dfrac{ \left[(3^{4} + \sqrt{144})(100 - 95,5) \right] + 6 }{-80 + 2^{4}}$$
-- c)  $$3,9 \cdot 10^{-2} + 5,2 \cdot 10^{-1/3}$$
-
-**5. Os seguintes códigos contém erros. Identifique e corrija:**
-
-```
-print('Vamos aprender Python!)
-```
-```
-10 + "20"
-```
-```
-x = 3
-10,35 x 0.01
-```
+:::: progress
+:::: {.progress-bar style="width: 100%;"}
+::::
+::::
