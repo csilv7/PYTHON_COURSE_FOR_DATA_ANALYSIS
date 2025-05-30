@@ -27,10 +27,10 @@ book:
   page-navigation: true
   chapters:
     - index.qmd
-    - 01_Fundamentals_of_Python.qmd
-    - 02_Data_Structure.qmd
-    - 03_FlowControl_&_Functions.qmd
-    - 04_Exercises.qmd
+    - Módulo I\01_Fundamentals_of_Python.qmd
+    - Módulo I\02_Data_Structure.qmd
+    - Módulo I\03_FlowControl_&_Functions.qmd
+    #- Módulo I\04_Exercises.qmd
     - references.qmd
 
 comments:
